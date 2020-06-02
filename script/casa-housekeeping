@@ -1,0 +1,138 @@
+#!/bin/bash
+
+#=======================================================================
+#  ____	   _	____	_
+# / ___|  / \  / ___|  / \
+#| |	 / _ \ \___ \ / _ \
+#| |___ / ___ \ ___) / ___ \
+# \____/_/   \_\____/_/	  \_\
+#
+# _   _			     _			 _
+#| | | | ___  _	  _ ___	 ___| | _____  ___ _ __ (_)_ __	  __ _
+#| |_| |/ _ \| | | / __|/ _ \ |/ / _ \/ _ \ '_ \| | '_ \ / _` |
+#|  _  | (_) | |_| \__ \  __/	<  __/	__/ |_) | | | | | (_| |
+#|_| |_|\___/ \__,_|___/\___|_|\_\___|\___| .__/|_|_| |_|\__, |
+#					  |_|		 |___/
+# ____		  _	  _
+#/ ___|	 ___ _ __(_)_ __ | |_
+#\___ \ / __| '__| | '_ \| __|
+# ___) | (__| |	 | | |_) | |_
+#|____/ \___|_|	 |_| .__/ \__|
+#		   |_|
+#
+#=======================================================================
+
+case $1 in
+	help)
+		printf "==============================================================================================================================
+Hello $USER, this is CASA Housekeeping Script!\n
+There are three options that currently available.\n
+1) help \t\t Display quick guide to use CASA Housekeeping Script.\n
+2) backup \t\t Performing backup process of five tables (trx_record, non_customer, journal transaction, audit_trail
+\t\t\t cust_account_history_balance). These table backups will be written to /home/atic_db/backup_csv/ in .csv format.
+\t\t\t Always use this option before performing deletion of tables!\n
+3) delete \t\t Performing delete process of five tables (which described above). USE THIS OPTION CAREFULLY!!!\n\n
+USAGE
+\t casa-housekeeping (option)
+
+e.g:\t casa-housekeeping backup\n\n
+If you found any issue with this script, mail us at customer.care@anabatic.com.\n\n"
+
+		;;
+
+	backup)
+
+		 # variables here
+		 BOLDTEXT1=$(echo -e "\e[1mFollow the example given carefully!\e[0m")
+	    
+		 BOLDTEXT2=$(echo -e "\e[1m(e.g: 2020-01-01).\e[0m")
+		 # variables here
+	    
+		printf "==========================================================================================\n
+This option is to performing backup on specific tables of CASA. $BOLDTEXT1
+The backups will be written to /home/atic_db/backup_csv/
+Enter a last date from range of data that you want to be backed up. $BOLDTEXT2\n
+==========================================================================================\n
+"
+		read -p 'Your choice of date: ' PGDATE
+
+		printf "\nDate you've chosen: \e[1m$PGDATE\e[0m\n\n"
+
+		read -p "Are you sure this is the correct date? (choice: 'yes' or 'no') " CHOICE
+
+		# variables here
+		PGDATECUT=$(printf "$PGDATE\n" | cut -b 1-4,6,7)
+
+		CHECKEXISTINGBACKUP=$(ls /home/atic_db/backup_csv/ | grep $PGDATE | wc -l)
+		# variables here
+
+		if [[ $CHOICE = yes ]] && [[ $CHECKEXISTINGBACKUP -ge 0 && $CHECKEXISTINGBACKUP -le 4 ]]
+		then
+
+		   psql -U postgres -d casa -c "COPY (SELECT * FROM trx_record WHERE date_trunc('day', posting_date)<='$PGDATE 23:59:59') TO '/home/atic_db/backup_csv/trx_record-backup_until_$PGDATE.csv'" \
+			-c "COPY (SELECT * FROM non_customer WHERE trx_record in (SELECT id FROM trx_record WHERE date_trunc('day', posting_date)<='$PGDATE 23:59:59')) TO '/home/atic_db/backup_csv/non_customer-backup_until_$PGDATE.csv'" \
+			-c "COPY (SELECT * FROM journal_transaction WHERE date_trunc('day', effective_date)<='$PGDATE 23:59:59') TO '/home/atic_db/backup_csv/journal_transaction-backup_until_$PGDATE.csv'" \
+			-c "COPY (SELECT * FROM audit_trail WHERE date_trunc('day', time_info)<='$PGDATE 23:59:59') TO '/home/atic_db/backup_csv/audit_trail-backup_until_$PGDATE.csv'" \
+			-c "COPY (SELECT * FROM cust_account_history_balance WHERE period<='$PGDATECUT') TO '/home/atic_db/backup_csv/cust_account_
+history_balance-backup_until_$PGDATE.csv'"
+
+		   printf "\n==================\nDONE BACKING UP!!!\n==================\n\n"
+
+		elif [[ $CHOICE = yes ]] && [[ $CHECKEXISTINGBACKUP -ge 5 ]]
+		then
+
+		    printf "\n=========================\nBACKUP ALREADY EXIST!!!\n=========================\n\n"
+
+		else
+
+		    printf "\n================\nTHANK YOU!!!\n================\n\n"
+				    
+		fi
+		
+		;;
+
+
+	delete)
+
+		# variables here
+	         BOLDTEXT1=$(echo -e "\e[1mFollow the example given carefully!\e[0m")
+	    
+		 BOLDTEXT2=$(echo -e "\e[1m(e.g: 2020-01-01).\e[0m")
+		 # variables here
+
+		printf "==========================================================================================\n
+This option is to performing deletion specific tables on CASA database. $BOLDTEXT1
+
+Enter a last date from range of data that you want to delete $BOLDTEXT2\n
+==========================================================================================\n
+"
+		read -p 'Your choice of date: ' PGDATE
+
+		printf "\nDate you've chosen: \e[1m$PGDATE\e[0m\n\n"
+
+		read -p "Are you sure this is the correct date? (choice: 'yes' or 'no') " CHOICE
+
+		# variables here
+		PGDATECUT=$(printf "$PGDATE\n" | cut -b 1-4,6,7)
+
+		# variables here
+
+		if [ $CHOICE = yes ]
+		then
+		    psql -U postgres -d casa -c "delete from non_customer where trx_record in (select id from trx_record where date_trunc('day', posting_date)<='$PGDATE 23:59:59')" \
+			 -c "delete from trx_record where date_trunc('day', posting_date)<='$PGDATE 23:59:59'" \
+			 -c "delete from journal_transaction where date_trunc('day', effective_date)<='$PGDATE 23:59:59'" \
+			 -c "delete from audit_trail where date_trunc('day', time_info)<='$PGDATE 23:59:59'" \
+			 -c "delete from cust_account_history_balance where period<='$PGDATECUT'"
+
+		    printf "\n=======================\nTHANK YOU!!!\n=======================\n\n"
+
+		else
+		    printf "\n=======================\nTHANK YOU!!!\n=======================\n\n"
+
+		fi
+			    
+	    ;;
+	
+esac
+
