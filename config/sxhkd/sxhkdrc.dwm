@@ -1,0 +1,30 @@
+# Reload functions
+super + Escape
+	"$XDG_CONFIG_HOME"/sxhkd/functions
+
+# PrintScreen
+Print
+         maim ~/screenshot/$(date +%F_%H:%M:%S).png \
+	 && maim | xclip -selection clipboard -t image/png
+
+ctrl + Print
+         maim -s | tee ~/screenshot/selection_$(date +%F_%H:%M:%S).png \
+	 | xclip -selection clipboard -t image/png 
+	 
+
+#FN & Media Keys
+XF86AudioLowerVolume
+         pactl set-sink-volume 0 -5%
+
+XF86AudioRaiseVolume
+	 pactl set-sink-volume 0 +5%
+
+XF86AudioMute
+         pactl set-sink-mute 0 toggle 
+
+XF86ScreenSaver
+	 slock
+
+XF86AudioMicMute
+          pactl set-source-mute 1 toggle
+
