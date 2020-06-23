@@ -57,6 +57,7 @@
     gimp
     numix-sx-gtk-theme
     numix-solarized-gtk-theme
+    canta-theme
     mpv
     dbeaver
     recoll
@@ -79,20 +80,22 @@
     xfce.xfce4_clipman_plugin
     lm_sensors
     anydesk
-    virt-manager
-    qemu
     zoom-us
     linuxPackages.acpi_call
     tpacpi-bat
-    libvirt
     libreoffice-fresh
     numix-gtk-theme
     numix-cursor-theme
    ];
 
   # virtualization
-    virtualisation.libvirtd.enable = true;
-
+    virtualisation.virtualbox.host = {
+      enable = true;
+      enableExtensionPack = true;
+    };
+    
+    virtualisation.virtualbox.guest.enable = true;
+        
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -108,8 +111,8 @@
    services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+   networking.firewall.allowedTCPPorts = [  ];
+   networking.firewall.allowedUDPPorts = [  ];
   # Or disable the firewall altogether.
    networking.firewall.enable = true;
 
@@ -138,7 +141,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
    users.users.reza = {
      isNormalUser = true;
-     extraGroups = [ "libvirtd" "wheel" "networkmanager" "audio" "video" ];
+     extraGroups = [ "vboxusers" "wheel" "networkmanager" "audio" "video" ];
      description = "Reza Maulana";
    };
 
@@ -222,13 +225,13 @@ services.thinkfan = {
 		  fan = "tp_fan /proc/acpi/ibm/fan";
 		  levels = ''
  		  	    (0,     0,      55)
-	       		    (1,     48,     60)
-			    (2,     50,     61)
-			    (3,     52,     63)
-			    (6,     56,     65)
-			    (7,     60,     85)
-			    (127,   80,     32767)
-			    '';
+	       		(1,     48,     60)
+			      (2,     50,     61)
+			      (3,     52,     63)
+			      (6,     56,     65)
+			      (7,     60,     85)
+			      (127,   80,     32767)
+			        '';
 		  sensors = "  tp_thermal /proc/acpi/ibm/thermal (0,0,10)";
 		  smartSupport = true;
 			    
