@@ -46,64 +46,63 @@
  # $ nix search wget
  nixpkgs.config.allowUnfree = true;
  environment.systemPackages = with pkgs; [
- neovim
- zathura
- sxiv
- emacs-nox
- firefox
- usbutils
- pciutils
- ntfs3g
- linuxPackages_latest.acpi_call
- gimp
- numix-sx-gtk-theme
- numix-solarized-gtk-theme
- canta-theme
- mpv
- dbeaver
- recoll
- gvfs
- picom
- alacritty
- git
- neofetch
- htop
- p7zip
- aria2
- bash
- bash-completion
- youtube-dl
- qogir-icon-theme
- acpi
- xfce.xfce4-whiskermenu-plugin
- xfce.xfce4-battery-plugin
- xfce.tumbler
- xfce.xfce4_clipman_plugin
- lm_sensors
- anydesk
- zoom-us
- linuxPackages.acpi_call
- tpacpi-bat
- libreoffice-fresh
- numix-gtk-theme
- numix-cursor-theme
+   neovim
+   zathura
+   sxiv
+   emacs-nox
+   firefox
+   usbutils
+   pciutils
+   ntfs3g
+   linuxPackages_latest.acpi_call
+   gimp
+   numix-sx-gtk-theme
+   numix-solarized-gtk-theme
+   canta-theme
+   mpv
+   dbeaver
+   recoll
+   gvfs
+   picom
+   alacritty
+   git
+   neofetch
+   htop
+   p7zip
+   aria2
+   bash
+   bash-completion
+   youtube-dl
+   qogir-icon-theme
+   acpi
+   xfce.xfce4-whiskermenu-plugin
+   xfce.xfce4-battery-plugin
+   xfce.tumbler
+   xfce.xfce4_clipman_plugin
+   lm_sensors
+   anydesk
+   zoom-us
+   linuxPackages.acpi_call
+   tpacpi-bat
+   libreoffice-fresh
+   numix-gtk-theme
+   numix-cursor-theme
  ];
  
  # virtualization
  virtualisation.virtualbox.host = {
-    enable = true;
-    enableExtensionPack = true;
+    enable                      = true;
+    enableExtensionPack         = true;
  };
  
- virtualisation.virtualbox.guest.enable = true;
  
  # Some programs need SUID wrappers, can be configured further or are
  # started in user sessions.
  # programs.mtr.enable = true;
- programs.gnupg.agent           = {
-               enable           = true;
-               enableSSHSupport = true;
-               pinentryFlavor   = "gnome3";
+ programs.gnupg.agent = {
+   enable             = true;
+   enableSSHSupport   = true;
+   pinentryFlavor     = "gnome3";
  };
  
  # List services that you want to enable:
@@ -167,12 +166,14 @@
  hardware.pulseaudio.enable = true;
  
  # Enable the X11 windowing system.
- services.xserver = {
- enable = true;
- layout = "us";
- videoDrivers = [ "modesetting" ];
- displayManager.lightdm.enable = true;
- desktopManager.xfce.enable = true;
+ services.xserver                            = {
+   enable                                    = true;
+   layout                                    = "us";
+   videoDrivers                              = [ "modesetting" ];
+   displayManager.lightdm.enable             = true;
+   displayManager.lightdm.greeters.enso.blur = true;
+   displayManager.lightdm.background         = /home/reza/Pictures/1.jpg;
+   desktopManager.xfce.enable                = true;
  };
  
  # services.xserver.xkbOptions = "eurosign:e";
@@ -182,9 +183,9 @@
  
  # Define a user account. Don't forget to set a password with ‘passwd’.
  users.users.reza = {
- isNormalUser = true;
- extraGroups = [ "vboxusers" "wheel" "networkmanager" "audio" "video" ];
- description = "Reza Maulana";
+   isNormalUser   = true;
+   extraGroups    = [ "vboxusers" "wheel" "networkmanager" "audio" "video" ];
+   description    = "Reza Maulana";
  };
  
  # This value determines the NixOS release from which the default
@@ -197,72 +198,72 @@
  
  
  # filesystem/fstab
- fileSystems."/" ={
-   fsType = "ext4";
- options = [ "noatime,defaults" ];
+ fileSystems."/"     = {
+   fsType            = "ext4";
+   options           = [ "noatime,defaults" ];
  };
  
  
- fileSystems."/boot" ={
-   fsType = "vfat";
- options = [ "noatime,defaults" ];
+ fileSystems."/boot" = {
+   fsType            = "vfat";
+   options           = [ "noatime,defaults" ];
  };
  
- services.fstrim = {
- enable = true;
- interval = "weekly";
+ services.fstrim     = {
+   enable            = true;
+   interval          = "weekly";
  };
  
  # Custom services
  ## tlp
- services  = {
-           tlp = {
-           enable = true;
-           extraConfig = "
-           START_CHARGE_THRESH_BAT0=90
-           STOP_CHARGE_THRESH_BAT0=96
-           RESTORE_THRESHOLDS_ON_BAT=1
-           NATACPI_ENABLE=1
-           TPACPI_ENABLE=1       
-           TPSMAPI_ENABLE=1
-           CPU_SCALING_GOVERNOR_ON_AC=performance
-           CPU_SCALING_GOVERNOR_ON_BAT=powersave
-           CPU_ENERGY_PERF_POLICY_ON_AC=performance
-           CPU_ENERGY_PERF_POLICY_ON_BAT=balance_power
-           CPU_BOOST_ON_AC=1
-           CPU_BOOST_ON_BAT=0
-           ";
-           };
-           };
+ services                          = {
+   tlp                             = {
+     enable                        = true;
+     extraConfig                   = "
+     START_CHARGE_THRESH_BAT0=90
+     STOP_CHARGE_THRESH_BAT0=96
+     RESTORE_THRESHOLDS_ON_BAT=1
+     NATACPI_ENABLE=1
+     TPACPI_ENABLE=1       
+     TPSMAPI_ENABLE=1
+     CPU_SCALING_GOVERNOR_ON_AC=performance
+     CPU_SCALING_GOVERNOR_ON_BAT=powersave
+     CPU_ENERGY_PERF_POLICY_ON_AC=performance
+     CPU_ENERGY_PERF_POLICY_ON_BAT=balance_power
+     CPU_BOOST_ON_AC=1
+     CPU_BOOST_ON_BAT=0
+      ";
+         };
+     };
  
  # custom systemd/systemctl arguments
- systemd.services                = {
- network-addresses-enp0s26u1u2.enable = false;
- network-link-enp0s26u1u2.enable = false;
+ systemd.services                       = {
+   network-addresses-enp0s26u1u2.enable = false;
+   network-link-enp0s26u1u2.enable      = false;
  };
  
  
  # emacs
- services.emacs.defaultEditor    = true;
+ services.emacs.defaultEditor = true;
  
  # shell
- programs.bash.enableCompletion  = true;
- environment                     = {
- variables = {
- EDITOR = "emacs";
- };
+ programs.bash.enableCompletion = true;
+      environment               = {
+        variables               = {
+          EDITOR                = "emacs";
+        };
  
- shellAliases = {
- vim = "nvim";
- ec = "emacs";
- };
+        shellAliases            = {
+          vim                   = "nvim";
+          ec                    = "emacs";
+        };
  
- };
+      };
  
  # java/jdk
  programs.java = {
- enable = true;
- package = pkgs.jdk11;
+   enable      = true;
+   package     = pkgs.jdk11;
  };
  
  # thinkfan
@@ -283,5 +284,15 @@
  
  };
  
- 
+# custom hardware configurations
+ hardware.trackpoint = {
+   enable            = true;
+   speed             = 128;
+ };
+
+
+# slock
+ programs.slock.enable = true;
+
  }
+   
