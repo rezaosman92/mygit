@@ -6,8 +6,13 @@
     [ udev
       alsaLib
       gnome2.gtk
+      python3
       glib
+      openssl
+      qt5.qtbase
+      qt5.qtwebkit
       xorg.libXext
+      icu
       xorg.libXtst
       sudo
       gnome2.pango
