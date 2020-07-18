@@ -64,8 +64,8 @@ static const char unknown_str[] = "n/a";
 static const struct arg args[] = {
 	/* function format          argument */
 	{ wifi_essid, "|ssid: %s ",           "wlp3s0" },
-        { netspeed_rx, "|down: %s ",           "wlp3s0" },
-  	{ netspeed_tx, "|up: %s ",           "wlp3s0" },
+        { netspeed_rx, "|down: %s",           "wlp3s0" },
+  	{ netspeed_tx, "|up: %s",           "wlp3s0" },
 	{ battery_perc, "|bat: %s%% ",           "BAT0" },
         { temp, "|temp: %sC ",           "/sys/class/thermal/thermal_zone0/temp" },
 	{ datetime, "|%s ",           "%A, %d-%m-%Y | %T" },
