@@ -163,7 +163,7 @@
     icon_position = left
 
     # Scale larger icons down to this size, set to 0 to disable
-    max_icon_size = 64
+    max_icon_size = 32
 
     # Paths to default icons.
     icon_path = /usr/share/icons/Qogir-manjaro/16/status/:/usr/share/icons/Qogir-manjaro/16/actions/:/usr/share/icons/Qogir-manjaro/16/apps/:/usr/share/icons/Qogir-manjaro/16/devices/:/usr/share/icons/Qogir-manjaro/16/places/
