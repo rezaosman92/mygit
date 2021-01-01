@@ -1,40 +1,31 @@
-# PrintScreen (with fish shell)
+# Reload functions
+super + Escape
+      	pkill -USR1 -x sxhkd
 
-Print
-         maim ~/screenshot/(date +%F_%T).png \
-	 && maim | xclip -selection clipboard -t image/png
-
-ctrl + Print
-         maim -s | tee ~/screenshot/selection_(date +%F_%T).png \
-	 | xclip -selection clipboard -t image/png 
-	 
-
-#FN & Media Keys
-
-XF86AudioLowerVolume
-         pactl set-sink-volume 0 -5%
-
-XF86AudioRaiseVolume
-	 pactl set-sink-volume 0 +5%
-
-XF86AudioMute
-         pactl set-sink-mute 0 toggle 
-
-XF86ScreenSaver
-	 slock
-
-XF86AudioMicMute
-         pactl set-source-mute 1 toggle
-
-
-
-#Applications
+## custom keybindings
+super + shift + Return
+      	alacritty
 
 super + shift + b
-       	 firefox
+      	firefox
 
 super + shift + f
-      	 spacefm
+      	thunar
 
-super + shift + l
-      	 clipmenu -i -fn 'Liberation Mono':size=10 -nb '#000000' -nf '#ffffff' -sb '#014d46' -sf '#f2f549'
+Print
+	flameshot full -c
+
+ctrl + Print
+	flameshot full -c -p /home/reza/screenshot/
+
+shift + Print
+      	flameshot gui
+
+XF86AudioRaiseVolume
+	pactl set-sink-volume 0 +5%
+
+XF86AudioLowerVolume
+	pactl set-sink-volume 0 -5%
+
+XF86AudioMute
+	pactl set-sink-mute 0 toggle
