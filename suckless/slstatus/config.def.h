@@ -67,6 +67,7 @@ static const struct arg args[] = {
 	/* function format          argument */
   	{ wifi_essid, "|  : %s|",           "wlp3s0" },
 	{ run_command, "  : %s%|",           "brightnessctl|awk '{print $4}'|grep %|tr -dc '0-9'" },
+	{ run_command, "  : %s%|",           "pamixer --get-volume" },
 	{ battery_perc, "  : %s%|",           "BAT0" },
 	{ temp, "  : %sC|",           "/sys/class/thermal/thermal_zone0/temp" },
 	{ datetime, " %s",           " : %T|  : %A, %d-%b-%Y|" },
