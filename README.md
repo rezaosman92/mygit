@@ -8,7 +8,7 @@ For my NixOS, I currently use:
 - Enabled Intel microcode.
 - Enabled OpenGL Driver Support for 64 & 32 bit.
 - Enabled support for NTFS filesystem.
-- Enabled CloudFlare DNS via networking.nameservers option.
+- Enabled CloudFlare DNS via systemd-resolved.
 - Enabled X Server with Xfce, LightDM and libinput.
 - Enabled Picom.
 - Enabled to pull non-free packages. 
