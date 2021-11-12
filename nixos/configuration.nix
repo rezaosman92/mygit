@@ -200,7 +200,6 @@
     autoPatchelfHook
     firefox-bin
     ostree
-    appstream
     unrar
     evince
     gimp
@@ -304,6 +303,8 @@
     enable = true;
     package = pkgs.openjdk11;
   };
+
+  appstream.enable = true;
   
   # List services that you want to enable:
 
