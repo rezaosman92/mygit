@@ -22,7 +22,7 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  #boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.supportedFilesystems = [ "ntfs" ];
 
   networking.hostName = "nixos"; # Define your hostname.
@@ -38,9 +38,9 @@
   networking.interfaces.enp3s0.useDHCP = true;
   networking.interfaces.wlp0s20u3.useDHCP = true;
   networking = {
-    nameservers = ["1.1.1.1" "1.0.0.1"];
     networkmanager.dns = "systemd-resolved";
     networkmanager.enable = true;
+    nameservers = ["1.1.1.1" "1.0.0.1"];
   };
 
   services.resolved = {
@@ -85,15 +85,15 @@
       };
 
       gtk.theme = {
-        name = "Materia-dark-compact";  
+        name = "Orchis-dark-compact";  
       };
 
       gtk.iconTheme = {
-        name = "Luna icons OSX Dark";
+        name = "Qogir-dark";
       };
 
       gtk.cursorTheme = {
-        name = "capitaine-cursors-white";
+        name = "Qogir-dark";
       };
     };
     displayManager.lightdm.background = /home/reza/Pictures/a.jpg;
@@ -118,6 +118,14 @@
       shadow-red = 0;
       shadow-green = 255;
       shadow-blue = 217;
+      shadow-exclude = [
+        "name = 'Notification'"
+          "class_g = 'Conky'"
+          "class_g ?= 'Notify-osd'"
+          "class_g = 'Cairo-clock'"
+          "_GTK_FRAME_EXTENTS@:c"
+      ];
+
     };
   };
 
@@ -127,7 +135,7 @@
     package = pkgs.emacs-nox;
   };
 
-  sound.mediaKeys.enable = true;
+  # sound.mediaKeys.enable = true;
 
   #  services.dwm-status = {
   #         enable = true;
@@ -178,16 +186,23 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
 
-  nixpkgs.config.allowUnfree = true; 
+  nixpkgs.config = {
+    allowUnfree = true;
+    };
+
   environment.systemPackages = with pkgs; [
     aria2
     htop
+    orchis
     neofetch
     gcc
+    usbutils
     autoPatchelfHook
     firefox-bin
+    ostree
     unrar
     evince
+    gimp
     calc
     youtube-dl
     patchelf
@@ -219,16 +234,15 @@
     xfce.xfce4-whiskermenu-plugin
     copyq
     flameshot
-    libreoffice-still
     papirus-icon-theme
-    luna-icons
     materia-theme
+    qogir-icon-theme
     numlockx
-    thunderbird-91
+    thunderbird-bin
     alacritty
-    dbeaver
     recoll
     nload
+    dbeaver
   ];
 
   environment = {
@@ -284,6 +298,11 @@
   
   programs.qt5ct.enable = true;
   programs.adb.enable = true;
+
+  programs.java = {
+    enable = true;
+    package = pkgs.openjdk11;
+  };
   
   # List services that you want to enable:
 
@@ -295,8 +314,27 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-  
 
+#filesystem
+fileSystems."/" =
+  { 
+    fsType = "btrfs";
+    options = ["subvol=@" "noatime" "compress=zstd:3" "space_cache=v2"];
+  };
+
+fileSystems."/home" =
+  { 
+    fsType = "btrfs";
+    options = ["subvol=@home" "noatime" "compress=zstd:3" "space_cache=v2"];
+  };
+
+fileSystems."/var/log" =
+  { 
+    fsType = "btrfs";
+    options = ["subvol=@var_log" "noatime" "compress=zstd:3" "space_cache=v2"];
+  };
+
+  
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
