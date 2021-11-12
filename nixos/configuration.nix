@@ -200,6 +200,7 @@
     autoPatchelfHook
     firefox-bin
     ostree
+    appstream
     unrar
     evince
     gimp
