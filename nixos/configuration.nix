@@ -304,8 +304,6 @@
     package = pkgs.openjdk11;
   };
 
-  appstream.enable = true;
-  
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
