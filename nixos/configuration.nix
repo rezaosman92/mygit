@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
       ./filesystem.nix
       ./packages-pc.nix
+      ./de-plasma.nix
     ];
 
   hardware.cpu.intel.updateMicrocode = true;
@@ -63,22 +64,6 @@
   console = {
     font = "Lat2-Terminus16";
     keyMap = "us";
-  };
-
-  # Enable the X11 windowing system.
-  services.xserver = {
-    enable = true;
-    videoDrivers = ["amdgpu"];
-
-    desktopManager = {
-      plasma5 = {
-        enable = true;
-      };
-    };
-    displayManager.sddm = {
-      enable = true;
-      theme = "materia-light";
-    };
   };
 
   services.emacs = {
