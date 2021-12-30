@@ -112,14 +112,10 @@
 
   users.defaultUserShell = pkgs.fish;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
 
   nixpkgs.config = {
     allowUnfree = true;
-    firefox.enablePlasmaBrowserIntegration = true;
     };
-
 
   environment = {
     shellAliases = {
