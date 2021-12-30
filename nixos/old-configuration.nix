@@ -8,8 +8,6 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./filesystem.nix
-      ./packages-pc.nix
     ];
 
   hardware.cpu.intel.updateMicrocode = true;
@@ -71,21 +69,86 @@
     videoDrivers = ["amdgpu"];
 
     desktopManager = {
+      #xfce = {
+      #  enable = true;  
+      #  thunarPlugins = with pkgs.xfce; [
+      #    thunar-archive-plugin
+      #    thunar-volman
+      #  ];
+      #};
+
       plasma5 = {
         enable = true;
       };
+
     };
+    #displayManager.lightdm.greeters = {
+    #  gtk = {
+    #    enable = true;
+    #  };
+
+    #  gtk.theme = {
+    #    name = "Orchis-dark-compact";  
+    #  };
+
+    #  gtk.iconTheme = {
+    #    name = "Qogir-dark";
+    #  };
+
+    #  gtk.cursorTheme = {
+    #    name = "Qogir-dark";
+    #  };
+    #};
+    #displayManager.lightdm.background = /home/reza/Pictures/a.jpg;
     displayManager.sddm = {
       enable = true;
       theme = "materia-light";
+      
     };
   };
+
+  #services.picom ={
+  #  enable = true;
+  #  backend = "glx";
+  #  vSync = true;
+  #  fade = true;
+  #  fadeDelta = 5;
+  #  experimentalBackends = true;
+  #  shadow = true;
+  #  shadowOffsets = [ (-8) (-8) ];
+  #  wintypes = { "popup_menu" =
+  #    { "opacity" = 0.9; };
+  #             };
+
+  #  settings = {
+  #    shadow-radius = 8;
+  #    shadow-red = 0;
+  #    shadow-green = 255;
+  #    shadow-blue = 217;
+  #    shadow-exclude = [
+  #      "name = 'Notification'"
+  #        "class_g = 'Conky'"
+  #       "class_g ?= 'Notify-osd'"
+  #        "class_g = 'Cairo-clock'"
+  #       "_GTK_FRAME_EXTENTS@:c"
+  #    ];
+
+  #  };
+  #};
 
   services.emacs = {
     enable = true;
     defaultEditor = true;
     package = pkgs.emacs-nox;
   };
+
+  # sound.mediaKeys.enable = true;
+
+  #  services.dwm-status = {
+  #         enable = true;
+  #         order = ["network" "audio" "time"];
+  #  };
+
 
   # Configure keymap in X11
   services.xserver.layout = "us";
@@ -135,6 +198,57 @@
     firefox.enablePlasmaBrowserIntegration = true;
     };
 
+  environment.systemPackages = with pkgs; [
+    aria2
+    htop
+    neofetch
+    gcc
+    usbutils
+    autoPatchelfHook
+    brave
+    firefox-bin
+    unrar
+    gimp
+    calc
+    youtube-dl
+    patchelf
+    bash
+    bashCompletion
+    bashInteractive
+    mpv
+    p7zip
+    most
+    curl
+    lxqt.pavucontrol-qt
+    dpkg
+    gnumake
+    perl
+    perlPackages.WWWMechanize
+    perlPackages.IOHTML
+    perlPackages.LWPProtocolHttps
+    wget
+    puddletag
+    cmus
+    python3
+    lutris
+    capitaine-cursors
+    git
+    copyq
+    papirus-icon-theme
+    thunderbird-bin
+    recoll
+    nload
+    dbeaver
+    mumble
+    sddm-kcm
+    plasma-integration
+    plasma-browser-integration
+    ark
+    materia-kde-theme
+    materia-theme
+    libsForQt5.qtstyleplugin-kvantum
+    xdg-desktop-portal-kde
+  ];
 
   environment = {
     shellAliases = {
@@ -163,6 +277,27 @@
     enableSSHSupport = true;
   };
 
+  #programs.neovim = {
+  #       enable = true;
+  #   defaultEditor = false;
+  #       vimAlias = true;
+  #   viAlias = true;
+  #   configure = {
+  #               customRC = ''
+  #                       set number
+  #       filetype plugin on
+  #       syntax on
+  #               '';  
+  #   };
+  #};
+  
+#  programs.tmux = {
+#    enable = true;
+#    historyLimit = 10000;
+#    clock24 = true;
+#    baseIndex = 1;
+#  };
+
   programs.fish = {
     enable = true;  
   };
@@ -184,6 +319,25 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+
+#filesystem
+fileSystems."/" =
+  { 
+    fsType = "btrfs";
+    options = ["subvol=@" "noatime" "compress=zstd:3" "space_cache=v2"];
+  };
+
+fileSystems."/home" =
+  { 
+    fsType = "btrfs";
+    options = ["subvol=@home" "noatime" "compress=zstd:3" "space_cache=v2"];
+  };
+
+fileSystems."/var/log" =
+  { 
+    fsType = "btrfs";
+    options = ["subvol=@var_log" "noatime" "compress=zstd:3" "space_cache=v2"];
+  };
 
   
   # This value determines the NixOS release from which the default
