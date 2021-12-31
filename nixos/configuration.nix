@@ -11,6 +11,7 @@
       ./filesystem.nix
       ./packages-pc.nix
       ./de-plasma.nix
+      ./gpu-amd.nix
     ];
 
   hardware.cpu.intel.updateMicrocode = true;
