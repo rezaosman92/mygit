@@ -10,7 +10,7 @@
       ./hardware-configuration.nix
       ./filesystem.nix
       ./packages-pc.nix
-      ./de-plasma.nix
+      ./de-xfce.nix
       ./gpu-amd.nix
     ];
 
@@ -134,7 +134,8 @@
   fonts.fonts = with pkgs; [
     source-code-pro
     liberation_ttf
-    terminus_font
+    noto-fonts
+    hack-font
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

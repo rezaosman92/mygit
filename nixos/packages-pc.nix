@@ -26,7 +26,6 @@
     p7zip
     most
     curl
-    lxqt.pavucontrol-qt
     dpkg
     gnumake
     perl
@@ -38,24 +37,13 @@
     cmus
     python3
     lutris
-    capitaine-cursors
     git
     copyq
-    papirus-icon-theme
     thunderbird-bin
     recoll
     nload
     dbeaver
     mumble
-    sddm-kcm
-    plasma-integration
-    plasma-browser-integration
-    ark
-    materia-kde-theme
-    materia-theme
-    libsForQt5.qtstyleplugin-kvantum
-    xdg-desktop-portal-kde
-    kate
   ];
 
 }

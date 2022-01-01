@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, ... }:
+{ config, pkgs, ... }:
 
 {
   services.xserver = {
@@ -16,31 +16,27 @@
           thunar-volman
         ];
       };
-
     };
+    
     displayManager.lightdm.greeters = {
       gtk = {
         enable = true;
       };
 
       gtk.theme = {
-        name = "Orchis-dark-compact";  
+        name = "Materia-light";  
       };
 
       gtk.iconTheme = {
-        name = "Qogir-dark";
+        name = "Papirus-light";
       };
 
       gtk.cursorTheme = {
-        name = "Qogir-dark";
+        name = "capitaine-light";
       };
     };
+
     displayManager.lightdm.background = /home/reza/Pictures/a.jpg;
-    displayManager.sddm = {
-      enable = true;
-      theme = "materia-light";
-      
-    };
   };
 
   services.picom ={
@@ -71,6 +67,22 @@
 
     };
   };
- 
+
+environment.systemPackages = with pkgs; [
+    lightlocker
+    pavucontrol
+    capitaine-cursors
+    papirus-icon-theme
+    materia-theme
+    libsForQt5.qtstyleplugin-kvantum
+    xfce.mousepad
+    xfce.xfce4-whiskermenu-plugin
+    numlockx
+    gnome.file-roller
+    evince
+    flameshot
+  ];
+
+  
 }
 
