@@ -13,11 +13,11 @@
     usbutils
     autoPatchelfHook
     brave
-    firefox-bin
     unrar
     gimp
     calc
     youtube-dl
+    ytmdl
     patchelf
     bash
     bashCompletion
@@ -44,6 +44,7 @@
     nload
     dbeaver
     mumble
+    transmission-gtk
   ];
 
 }

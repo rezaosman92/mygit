@@ -24,15 +24,15 @@
       };
 
       gtk.theme = {
-        name = "Materia-light";  
+        name = "vimix-dark-laptop-amethyst";
       };
 
       gtk.iconTheme = {
-        name = "Papirus-light";
+        name = "Papirus-Dark";
       };
 
       gtk.cursorTheme = {
-        name = "capitaine-light";
+        name = "capitaine-cursors-white";
       };
     };
 
@@ -44,13 +44,15 @@
     backend = "glx";
     vSync = true;
     fade = true;
+    fadeSteps = [ 0.03 0.02 ];
     fadeDelta = 5;
     experimentalBackends = true;
     shadow = true;
     shadowOffsets = [ (-8) (-8) ];
-    wintypes = { "popup_menu" =
-      { "opacity" = 0.9; };
-               };
+    wintypes = {
+      "popup_menu" =
+        { "opacity" = 0.9; };
+    };
 
     settings = {
       shadow-radius = 8;
@@ -74,12 +76,14 @@ environment.systemPackages = with pkgs; [
     capitaine-cursors
     papirus-icon-theme
     materia-theme
+    vimix-gtk-themes
     libsForQt5.qtstyleplugin-kvantum
     xfce.mousepad
     xfce.xfce4-whiskermenu-plugin
+    xfce.xfce4-pulseaudio-plugin
     numlockx
     gnome.file-roller
-    evince
+    zathura
     flameshot
   ];
 
