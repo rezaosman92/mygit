@@ -70,7 +70,9 @@
     };
   };
 
-environment.systemPackages = with pkgs; [
+  environment.variables.QT_STYLE_OVERRIDE = "kvantum";
+  
+  environment.systemPackages = with pkgs; [
     lightlocker
     pavucontrol
     capitaine-cursors

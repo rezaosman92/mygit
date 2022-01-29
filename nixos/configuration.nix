@@ -10,7 +10,7 @@
       ./hardware-configuration.nix
       ./filesystem.nix
       ./packages-pc.nix
-      ./de-xfce.nix
+      ./de-gnome.nix
       ./gpu-amd.nix
     ];
 
@@ -90,8 +90,10 @@
     enable = true;
     pulse.enable = true;
     alsa.enable = true;
-  };  
-
+  };
+  
+  hardware.pulseaudio.enable = false;
+    
   services.fstrim.enable = true;
   services.gvfs.enable = true;
 
@@ -126,13 +128,11 @@
   
     variables = {
       PAGER = "most -w";
-      QT_STYLE_OVERRIDE="kvantum";
     };
     
   };
     
   fonts.fonts = with pkgs; [
-    source-code-pro
     liberation_ttf
     noto-fonts
     hack-font
