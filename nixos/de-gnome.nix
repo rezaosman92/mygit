@@ -31,7 +31,7 @@
 
   environment.systemPackages = with pkgs; [
     gnome.gnome-tweaks
-    #gnomeExtensions.clipboard-indicator
+    numlockx
   ];
   
 }
