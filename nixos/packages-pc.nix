@@ -13,6 +13,7 @@
     usbutils
     autoPatchelfHook
     brave
+    firefox
     unrar
     gimp
     calc

@@ -10,7 +10,7 @@
       ./hardware-configuration.nix
       ./filesystem.nix
       ./packages-pc.nix
-      ./de-gnome.nix
+      ./de-xfce.nix
       ./gpu-amd.nix
     ];
 
@@ -26,7 +26,7 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  #boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_5_15;
   boot.supportedFilesystems = [ "ntfs" ];
 
   networking.hostName = "nixos"; # Define your hostname.
@@ -82,6 +82,7 @@
 
   services.flatpak.enable = true;
   xdg.portal.enable = true;
+  #xdg.portal.gtkUsePortal = true;
 
   # Enable sound.
   sound.enable = true;
@@ -128,8 +129,10 @@
   
     variables = {
       PAGER = "most -w";
+      MOZ_ENABLE_WAYLAND = "1";
+
     };
-    
+
   };
     
   fonts.fonts = with pkgs; [

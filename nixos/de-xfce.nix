@@ -24,7 +24,7 @@
       };
 
       gtk.theme = {
-        name = "vimix-dark-laptop-amethyst";
+        name = "vimix-dark-laptop-beryl";
       };
 
       gtk.iconTheme = {
@@ -84,7 +84,7 @@
     xfce.xfce4-whiskermenu-plugin
     xfce.xfce4-pulseaudio-plugin
     numlockx
-    gnome.file-roller
+    mate.engrampa
     zathura
     flameshot
   ];
