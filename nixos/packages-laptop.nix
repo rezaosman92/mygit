@@ -19,7 +19,6 @@
     calc
     youtube-dl
     ytmdl
-    patchelf
     bash
     bashCompletion
     bashInteractive
@@ -27,20 +26,13 @@
     p7zip
     most
     curl
-    dpkg
     gnumake
     perl
-    perlPackages.WWWMechanize
-    perlPackages.IOHTML
-    perlPackages.LWPProtocolHttps
     wget
     puddletag
     cmus
-    python3
-    lutris
     git
     copyq
-    thunderbird-bin
     nload
     mumble
     transmission-gtk

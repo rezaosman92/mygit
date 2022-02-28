@@ -82,7 +82,6 @@
 
   services.flatpak.enable = true;
   xdg.portal.enable = true;
-  #xdg.portal.gtkUsePortal = true;
 
   # Enable sound.
   sound.enable = true;

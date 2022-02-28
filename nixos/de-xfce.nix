@@ -24,7 +24,7 @@
       };
 
       gtk.theme = {
-        name = "vimix-dark-laptop-beryl";
+        name = "Qogir-ubuntu-dark";
       };
 
       gtk.iconTheme = {
@@ -32,7 +32,7 @@
       };
 
       gtk.cursorTheme = {
-        name = "capitaine-cursors-white";
+        name = "Bibata-Original-Ice";
       };
     };
 
@@ -76,8 +76,9 @@
     lightlocker
     pavucontrol
     capitaine-cursors
+    bibata-cursors
     papirus-icon-theme
-    materia-theme
+    qogir-theme
     vimix-gtk-themes
     libsForQt5.qtstyleplugin-kvantum
     xfce.mousepad
