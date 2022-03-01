@@ -14,6 +14,7 @@
     autoPatchelfHook
     brave
     firefox
+    ffmpeg
     unrar
     gimp
     calc
