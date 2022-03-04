@@ -40,7 +40,6 @@
   # replicates the default behaviour.
   networking.useDHCP = false;
   networking.interfaces.enp3s0.useDHCP = true;
-  networking.interfaces.wlp0s20u3.useDHCP = true;
   networking = {
     networkmanager.dns = "systemd-resolved";
     networkmanager.enable = true;
