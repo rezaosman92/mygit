@@ -12,6 +12,7 @@
     enable = true;
 
     desktopManager = {
+      xterm.enable = false;
       gnome = {
         enable = true;
       };

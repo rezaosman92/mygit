@@ -9,6 +9,7 @@
     enable = true;
     
     desktopManager = {
+      xterm.enable = false;
       xfce = {
         enable = true;  
         thunarPlugins = with pkgs.xfce; [
@@ -24,7 +25,7 @@
       };
 
       gtk.theme = {
-        name = "Qogir-ubuntu-dark";
+        name = "Qogir-dark";
       };
 
       gtk.iconTheme = {
@@ -57,8 +58,8 @@
     settings = {
       shadow-radius = 8;
       shadow-red = 0;
-      shadow-green = 255;
-      shadow-blue = 217;
+      shadow-green = 71;
+      shadow-blue = 234;
       shadow-exclude = [
         "name = 'Notification'"
         "class_g = 'Conky'"
