@@ -41,7 +41,6 @@
     lutris
     git
     copyq
-    thunderbird-bin
     nload
     mumble
     transmission-gtk
