@@ -80,7 +80,6 @@
   # services.printing.enable = true;
 
   services.flatpak.enable = true;
-  xdg.portal.enable = true;
 
   # Enable sound.
   sound.enable = true;
