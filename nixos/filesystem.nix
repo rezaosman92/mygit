@@ -17,7 +17,7 @@
       mountPoint = "/home";
     };
 
-  fileSystems."/var/log" =
+  fileSystems."/var_log" =
     { 
       fsType = "btrfs";
       options = ["subvol=@var_log" "noatime" "compress=zstd:3" "space_cache=v2"];

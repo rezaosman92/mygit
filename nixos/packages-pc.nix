@@ -31,9 +31,6 @@
     dpkg
     gnumake
     perl
-    perlPackages.WWWMechanize
-    perlPackages.IOHTML
-    perlPackages.LWPProtocolHttps
     wget
     puddletag
     cmus

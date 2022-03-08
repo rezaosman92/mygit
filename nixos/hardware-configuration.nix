@@ -25,7 +25,7 @@
       options = [ "subvol=@home" ];
     };
 
-  fileSystems."/var/log" =
+  fileSystems."/var_log" =
     { device = "/dev/disk/by-uuid/b689aa4f-f1e6-4a5e-939c-0b815b04634d";
       fsType = "btrfs";
       options = [ "subvol=@var_log" ];

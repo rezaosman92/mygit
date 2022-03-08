@@ -10,7 +10,7 @@
       ./hardware-configuration.nix
       ./filesystem.nix
       ./packages-pc.nix
-      ./de-xfce.nix
+      ./de-gnome.nix
       ./gpu-amd.nix
     ];
 
@@ -39,7 +39,6 @@
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking.useDHCP = false;
-  networking.interfaces.enp3s0.useDHCP = true;
   networking = {
     networkmanager.dns = "systemd-resolved";
     networkmanager.enable = true;
@@ -82,7 +81,6 @@
   services.flatpak.enable = true;
   xdg.portal = {
     enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
     
   # Enable sound.
