@@ -11,7 +11,6 @@
       ./filesystem.nix
       ./packages-laptop.nix
       ./de-gnome.nix
-      ./tlp.nix
       ./libvirtd.nix
     ];
 
@@ -106,6 +105,7 @@
   };
 
   services.thermald.enable = true;
+  services.auto-cpufreq.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
