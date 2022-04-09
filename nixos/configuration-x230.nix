@@ -12,6 +12,7 @@
       ./packages-laptop.nix
       ./de-gnome.nix
       ./tlp.nix
+      ./libvirtd.nix
     ];
 
   hardware.cpu.intel.updateMicrocode = true;
@@ -104,13 +105,15 @@
     enableNotifications = true;
   };
 
+  services.thermald.enable = true;
+
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.reza = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "adbusers" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" "adbusers" "libvirtd" ];
     description = "Reza Maulana";
   };
 
