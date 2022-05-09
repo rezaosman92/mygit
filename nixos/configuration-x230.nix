@@ -25,6 +25,7 @@
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.memtest86.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_5_15;
   boot.supportedFilesystems = [ "ntfs" ];
@@ -41,19 +42,19 @@
   networking.useDHCP = false;
   networking.interfaces.wlp3s0.useDHCP = true;
   networking = {
-    networkmanager.dns = "systemd-resolved";
+#    networkmanager.dns = "systemd-resolved";
     networkmanager.enable = true;
-    nameservers = ["1.1.1.1" "1.0.0.1"];
+#    nameservers = ["1.1.1.1" "1.0.0.1"];
   };
 
-  services.resolved = {
-    enable = true;
-    dnssec = "true";
-    fallbackDns = ["1.1.1.1" "1.0.0.1"];
-    extraConfig = "
-                  DNSOverTLS=yes
-                  ";
-  };
+#  services.resolved = {
+#    enable = true;
+#    dnssec = "true";
+#    fallbackDns = ["1.1.1.1" "1.0.0.1"];
+#    extraConfig = "
+#                  DNSOverTLS=yes
+#                  ";
+#  };
   
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";

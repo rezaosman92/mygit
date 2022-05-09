@@ -32,6 +32,7 @@
     gcc
     usbutils
     autoPatchelfHook
+    firefox
     brave
     ffmpeg
     unrar
