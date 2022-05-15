@@ -25,7 +25,6 @@
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
-  boot.loader.systemd-boot.memtest86.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_5_15;
   boot.supportedFilesystems = [ "ntfs" ];
@@ -44,13 +43,13 @@
   networking = {
     networkmanager.dns = "systemd-resolved";
     networkmanager.enable = true;
-    nameservers = ["1.1.1.1" "1.0.0.1"];
+    nameservers = ["9.9.9.10"];
   };
 
   services.resolved = {
     enable = true;
     dnssec = "true";
-    fallbackDns = ["1.1.1.1" "1.0.0.1"];
+    fallbackDns = ["149.112.112.10"];
     extraConfig = "
                   DNSOverTLS=yes
                   ";
@@ -156,10 +155,10 @@
   
   programs.adb.enable = true;
 
-  programs.java = {
-    enable = true;
-    package = pkgs.openjdk11;
-  };
+#  programs.java = {
+#    enable = true;
+#    package = pkgs.openjdk11;
+#  };
 
   # List services that you want to enable:
 
