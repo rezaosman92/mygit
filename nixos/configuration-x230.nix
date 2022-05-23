@@ -12,6 +12,7 @@
       ./packages-laptop.nix
       ./de-gnome.nix
       ./libvirtd.nix
+      #./wordpress.nix
     ];
 
   hardware.cpu.intel.updateMicrocode = true;
@@ -40,17 +41,17 @@
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking.useDHCP = false;
-  networking.interfaces.wlp3s0.useDHCP = true;
+#  networking.interfaces.wlp3s0.useDHCP = true;
   networking = {
 #    networkmanager.dns = "systemd-resolved";
     networkmanager.enable = true;
-#    nameservers = ["1.1.1.1" "1.0.0.1"];
+#    nameservers = ["9.9.9.9"];
   };
 
 #  services.resolved = {
 #    enable = true;
 #    dnssec = "true";
-#    fallbackDns = ["1.1.1.1" "1.0.0.1"];
+#    fallbackDns = ["149.112.112.112"];
 #    extraConfig = "
 #                  DNSOverTLS=yes
 #                  ";
