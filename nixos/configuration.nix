@@ -39,21 +39,21 @@
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking.useDHCP = false;
-  networking.interfaces.wlp0s20u3.useDHCP = true;
+  #networking.interfaces.wlp0s20u3.useDHCP = true;
   networking = {
-    networkmanager.dns = "systemd-resolved";
+#    networkmanager.dns = "systemd-resolved";
     networkmanager.enable = true;
-    nameservers = ["9.9.9.10"];
+#    nameservers = ["9.9.9.10"];
   };
 
-  services.resolved = {
-    enable = true;
-    dnssec = "true";
-    fallbackDns = ["149.112.112.10"];
-    extraConfig = "
-                  DNSOverTLS=yes
-                  ";
-  };
+#  services.resolved = {
+#    enable = true;
+#    dnssec = "true";
+#    fallbackDns = ["149.112.112.10"];
+#    extraConfig = "
+#                  DNSOverTLS=yes
+#                  ";
+#  };
   
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
