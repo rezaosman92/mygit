@@ -41,7 +41,7 @@
     youtube-dl
     ytmdl
     bash
-    bashCompletion
+    bash-completion
     bashInteractive
     mpv
     p7zip
