@@ -39,7 +39,6 @@
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking.useDHCP = false;
-  #networking.interfaces.wlp0s20u3.useDHCP = true;
   networking = {
 #    networkmanager.dns = "systemd-resolved";
     networkmanager.enable = true;

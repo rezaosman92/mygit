@@ -14,15 +14,17 @@
     autoPatchelfHook
     brave
     firefox
+    dmidecode
     ffmpeg
     unrar
+    rar
     gimp
     calc
-    youtube-dl
+    yt-dlp
     ytmdl
     patchelf
     bash
-    bashCompletion
+    bash-completion
     bashInteractive
     mpv
     p7zip
@@ -35,12 +37,12 @@
     puddletag
     cmus
     python3
-    lutris
     git
     copyq
     nload
     mumble
     transmission-gtk
+    lutris
   ];
 
 }
