@@ -40,6 +40,8 @@
     displayManager.lightdm.background = /home/reza/Pictures/a.jpg;
   };
 
+  xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
+  
   services.picom ={
     enable = true;
     backend = "glx";
@@ -87,7 +89,7 @@
     xfce.xfce4-pulseaudio-plugin
     numlockx
     mate.engrampa
-    zathura
+    evince
     flameshot
   ];
 

@@ -38,7 +38,7 @@
     unrar
     gimp
     calc
-    youtube-dl
+    yt-dlp
     ytmdl
     bash
     bash-completion

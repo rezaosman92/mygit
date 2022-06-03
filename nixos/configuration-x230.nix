@@ -10,7 +10,7 @@
       ./hardware-configuration.nix
       ./filesystem.nix
       ./packages-laptop.nix
-      ./de-gnome.nix
+      ./de-xfce.nix
       ./libvirtd.nix
       #./wordpress.nix
     ];
@@ -119,7 +119,6 @@
   };
 
   users.defaultUserShell = pkgs.fish;
-
 
   nixpkgs.config = {
     allowUnfree = true;
