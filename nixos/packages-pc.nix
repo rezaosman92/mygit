@@ -42,7 +42,6 @@
     nload
     mumble
     transmission-gtk
-    lutris
   ];
 
 }

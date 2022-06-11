@@ -10,7 +10,7 @@
       ./hardware-configuration.nix
       ./filesystem.nix
       ./packages-pc.nix
-      ./de-gnome.nix
+      ./de-xfce.nix
       ./gpu-amd.nix
     ];
 

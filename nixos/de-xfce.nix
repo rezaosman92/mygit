@@ -25,7 +25,7 @@
       };
 
       gtk.theme = {
-        name = "Orchis-Dark";
+        name = "Orchis-Yellow-Dark-Compact";
       };
 
       gtk.iconTheme = {
