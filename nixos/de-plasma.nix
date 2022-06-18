@@ -31,7 +31,7 @@
     materia-kde-theme
     graphite-kde-theme
     breeze-gtk
-    materia-gtk-theme
+    materia-theme
     
   ];
 
