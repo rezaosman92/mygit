@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, ... }:
+{ config, pkgs, ... }:
 
 {
 
@@ -26,6 +26,14 @@
     };
   };
 
+  environment.systemPackages = with pkgs; [
+    okular
+    materia-kde-theme
+    graphite-kde-theme
+    breeze-gtk-theme
+    materia-gtk-theme
+    
+  ];
 
 }
 
