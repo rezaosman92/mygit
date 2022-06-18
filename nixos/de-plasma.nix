@@ -22,18 +22,17 @@
     };
     displayManager.sddm = {
       enable = true;
-      theme = "materia-light";
+      theme = "breeze";
     };
   };
 
   environment.systemPackages = with pkgs; [
     okular
-    materia-kde-theme
     graphite-kde-theme
+    graphite-gtk-theme
     breeze-gtk
-    materia-theme
-    
+    papirus-icon-theme
+    kate
   ];
 
 }
-
