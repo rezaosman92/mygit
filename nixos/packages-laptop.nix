@@ -56,7 +56,6 @@
     copyq
     nload
     mumble
-    transmission-gtk
     virt-manager
     mumble
   ];

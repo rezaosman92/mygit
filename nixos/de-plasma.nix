@@ -29,10 +29,12 @@
   environment.systemPackages = with pkgs; [
     okular
     graphite-kde-theme
+    materia-kde-theme
     graphite-gtk-theme
     breeze-gtk
     papirus-icon-theme
     kate
+    transmission-qt
   ];
 
 }
