@@ -25,7 +25,7 @@
       };
 
       gtk.theme = {
-        name = "Orchis-Yellow-Dark-Compact";
+        name = "Orchis-Green-Dark-Compact";
       };
 
       gtk.iconTheme = {
@@ -33,7 +33,7 @@
       };
 
       gtk.cursorTheme = {
-        name = "Bibata-Original-Ice";
+        name = "Bibata-Modern-Ice";
       };
     };
 
@@ -76,7 +76,7 @@
   environment.variables.QT_STYLE_OVERRIDE = "kvantum";
   
   environment.systemPackages = with pkgs; [
-    lightlocker
+    transmission
     pavucontrol
     bibata-cursors
     papirus-icon-theme
@@ -94,4 +94,3 @@
 
   
 }
-

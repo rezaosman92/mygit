@@ -9,9 +9,10 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./filesystem.nix
-      ./packages-pc.nix
+      ./packages-laptop.nix
       ./de-xfce.nix
-      ./gpu-amd.nix
+      ./libvirtd.nix
+      #./wordpress.nix
     ];
 
   hardware.cpu.intel.updateMicrocode = true;
@@ -25,11 +26,12 @@
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.memtest86.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_5_15;
   boot.supportedFilesystems = [ "ntfs" ];
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "nixos-x230"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Set your time zone.
@@ -42,13 +44,13 @@
   networking = {
 #    networkmanager.dns = "systemd-resolved";
     networkmanager.enable = true;
-#    nameservers = ["9.9.9.10"];
+#    nameservers = ["9.9.9.9"];
   };
 
 #  services.resolved = {
 #    enable = true;
 #    dnssec = "true";
-#    fallbackDns = ["149.112.112.10"];
+#    fallbackDns = ["149.112.112.112"];
 #    extraConfig = "
 #                  DNSOverTLS=yes
 #                  ";
@@ -84,12 +86,13 @@
   };
     
   # Enable sound.
-  sound.enable = true;
   # hardware.pulseaudio.enable = true;
+  security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     pulse.enable = true;
     alsa.enable = true;
+    alsa.support32Bit = true;
   };
   
   hardware.pulseaudio.enable = false;
@@ -103,18 +106,20 @@
     enableNotifications = true;
   };
 
+  services.thermald.enable = true;
+  services.auto-cpufreq.enable = true;
+
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.reza = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "adbusers" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" "adbusers" "libvirtd" ];
     description = "Reza Maulana";
   };
 
   users.defaultUserShell = pkgs.fish;
-
 
   nixpkgs.config = {
     allowUnfree = true;
@@ -177,7 +182,7 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "21.05"; # Did you read the comment?
+  system.stateVersion = "21.11"; # Did you read the comment?
 
 
 }
