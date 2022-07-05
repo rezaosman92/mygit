@@ -11,17 +11,6 @@
     extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
   };
 
-  services.printing = {
-    enable = true;
-    drivers = with pkgs; [
-      epson_201207w
-      foomatic-filters
-      gutenprint
-      gutenprintBin
-    ];
-  };
-
-  programs.droidcam.enable = true;
   
   environment.systemPackages = with pkgs; [
     acpi
@@ -34,6 +23,7 @@
     autoPatchelfHook
     firefox
     brave
+    tor-browser-bundle-bin
     ffmpeg
     unrar
     gimp
@@ -58,6 +48,8 @@
     mumble
     virt-manager
     mumble
+    wezterm
+    helix
   ];
 
 }

@@ -25,15 +25,15 @@
       };
 
       gtk.theme = {
-        name = "Orchis-Green-Dark-Compact";
+        name = "Orchis-Green-Light-Compact";
       };
 
       gtk.iconTheme = {
-        name = "Papirus-Dark";
+        name = "Papirus";
       };
 
       gtk.cursorTheme = {
-        name = "Bibata-Modern-Ice";
+        name = "Bibata-Modern-Amber";
       };
     };
 
@@ -89,6 +89,7 @@
     numlockx
     mate.engrampa
     evince
+    simple-scan
     flameshot
   ];
 
