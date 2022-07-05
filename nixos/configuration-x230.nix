@@ -78,20 +78,32 @@
   # services.xserver.xkbOptions = "eurosign:e";
 
   # Enable CUPS to print documents.
-  # services.printing.enable = true;
-
+  services.printing = {
+    enable = true;
+    drivers = with pkgs; [
+      foomatic-filters
+      gutenprint
+      gutenprintBin
+#      epson-201401w
+      epson_201207w
+    ];
+  };
+     
+#  hardware.sane.enable = true;
+       
   services.flatpak.enable = true;
   xdg.portal = {
     enable = true;
   };
     
   # Enable sound.
-  sound.enable = true;
   # hardware.pulseaudio.enable = true;
+  security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     pulse.enable = true;
     alsa.enable = true;
+    alsa.support32Bit = true;
   };
   
   hardware.pulseaudio.enable = false;
@@ -114,7 +126,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.reza = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "adbusers" "libvirtd" ];
+    extraGroups = [ "wheel" "networkmanager" "adbusers" "libvirtd" "scanner" ];
     description = "Reza Maulana";
   };
 
@@ -156,12 +168,13 @@
     enable = true;  
   };
   
+  programs.droidcam.enable = true;
   programs.adb.enable = true;
 
-  programs.java = {
-    enable = true;
-    package = pkgs.openjdk11;
-  };
+#  programs.java = {
+#    enable = true;
+#    package = pkgs.openjdk11;
+#  };
 
   # List services that you want to enable:
 
