@@ -55,6 +55,8 @@
 #                  DNSOverTLS=yes
 #                  ";
 #  };
+
+networking.wireguard.enable = true;
   
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -171,15 +173,16 @@
   programs.droidcam.enable = true;
   programs.adb.enable = true;
 
-#  programs.java = {
-#    enable = true;
-#    package = pkgs.openjdk11;
-#  };
+  programs.java = {
+    enable = true;
+    package = pkgs.jdk17;
+  };
 
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  services.openssh.allowSFTP = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
