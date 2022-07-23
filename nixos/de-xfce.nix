@@ -29,7 +29,7 @@
       };
 
       gtk.iconTheme = {
-        name = "Papirus";
+        name = "Papirus-Dark";
       };
 
       gtk.cursorTheme = {
@@ -88,7 +88,7 @@
     xfce.xfce4-pulseaudio-plugin
     numlockx
     mate.engrampa
-    evince
+    okular
     simple-scan
     flameshot
   ];
