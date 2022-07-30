@@ -21,7 +21,6 @@
     gcc
     usbutils
     autoPatchelfHook
-    firefox
     brave
     tor-browser-bundle-bin
     ffmpeg
@@ -50,6 +49,8 @@
     mumble
     wezterm
     helix
+    lutris
+    recoll
   ];
 
 }
