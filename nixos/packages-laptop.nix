@@ -47,10 +47,10 @@
     mumble
     virt-manager
     mumble
-    wezterm
     helix
     lutris
     recoll
+    cloudflare-warp
   ];
 
 }

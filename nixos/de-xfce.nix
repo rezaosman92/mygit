@@ -88,7 +88,7 @@
     xfce.xfce4-pulseaudio-plugin
     numlockx
     mate.engrampa
-    okular
+    evince
     simple-scan
     flameshot
   ];

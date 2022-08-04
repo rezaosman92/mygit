@@ -185,8 +185,8 @@ networking.wireguard.enable = true;
   services.openssh.allowSFTP = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  # networking.firewall.allowedTCPPorts = [ 53 ];
+  # networking.firewall.allowedUDPPorts = [ 53 51820 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
