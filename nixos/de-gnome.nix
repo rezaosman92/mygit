@@ -6,6 +6,9 @@
 
 {
 
+  systemd.services."getty@tty1".enable = false;
+  systemd.services."autovt@tty1".enable = false;
+
   
   # Enable the X11 windowing system.
   services.xserver = {
@@ -26,9 +29,9 @@
     evince.enable = true;
   };
 
-  qt5.style = "adwaita-dark";
+  qt5.style = "adwaita";
   
-  environment.gnome.excludePackages = [ pkgs.gnome.cheese pkgs.gnome-photos pkgs.epiphany pkgs.gnome.gnome-characters pkgs.gnome.totem pkgs.gnome.tali pkgs.gnome.iagno pkgs.gnome.hitori pkgs.gnome.atomix pkgs.gnome-tour pkgs.gnome.geary pkgs.orca pkgs.gnome.gnome-software ];
+  environment.gnome.excludePackages = [ pkgs.epiphany pkgs.gnome.gnome-characters pkgs.gnome.totem pkgs.gnome.tali pkgs.gnome.iagno pkgs.gnome.hitori pkgs.gnome.atomix pkgs.gnome-tour pkgs.gnome.geary pkgs.orca pkgs.gnome.gnome-software ];
 
   environment.systemPackages = with pkgs; [
     gnome.gnome-tweaks

@@ -10,7 +10,7 @@
       ./hardware-configuration.nix
       ./filesystem.nix
       ./packages-pc.nix
-      ./de-xfce.nix
+      ./de-gnome.nix
       ./gpu-amd.nix
     ];
 
@@ -26,7 +26,8 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_5_15;
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_5_19;
+  
   boot.supportedFilesystems = [ "ntfs" ];
 
   networking.hostName = "nixos"; # Define your hostname.
@@ -153,6 +154,7 @@
   };
   
   programs.adb.enable = true;
+  programs.droidcam.enable = true;
 
 #  programs.java = {
 #    enable = true;

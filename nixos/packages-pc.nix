@@ -13,7 +13,6 @@
     usbutils
     autoPatchelfHook
     brave
-    firefox
     dmidecode
     ffmpeg
     unrar
@@ -42,7 +41,15 @@
     nload
     mumble
     transmission-gtk
+    cloudflare-warp
+    lutris
+    recoll
+    xfce.xfce4-terminal
   ];
 
+  nixpkgs.config.permittedInsecurePackages = [
+    #"python3.9-mistune-0.8.4"
+  ];
+  
 }
 
