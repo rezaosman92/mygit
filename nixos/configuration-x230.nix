@@ -10,7 +10,7 @@
       ./hardware-configuration.nix
       ./filesystem.nix
       ./packages-laptop.nix
-      ./de-xfce.nix
+      ./de-gnome.nix
       ./libvirtd.nix
       #./wordpress.nix
     ];

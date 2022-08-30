@@ -51,6 +51,14 @@
     lutris
     recoll
     cloudflare-warp
+    xfce.xfce4-terminal
   ];
 
+
+  nixpkgs.config.permittedInsecurePackages = [
+#    "python3.9-mistune-0.8.4"
+  ];
+
+
+  
 }
