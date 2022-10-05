@@ -55,6 +55,7 @@
     xfce.xfce4-terminal
     nmap
     ghostscript
+    transmission-gtk
   ];
 
 
