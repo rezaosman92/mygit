@@ -21,6 +21,7 @@
     gcc
     usbutils
     autoPatchelfHook
+    firefox
     brave
     tor-browser-bundle-bin
     ffmpeg
@@ -52,6 +53,8 @@
     recoll
     cloudflare-warp
     xfce.xfce4-terminal
+    nmap
+    ghostscript
   ];
 
 
