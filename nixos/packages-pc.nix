@@ -45,6 +45,7 @@
     lutris
     recoll
     xfce.xfce4-terminal
+    firefox
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
