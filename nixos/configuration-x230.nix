@@ -30,7 +30,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_5_15;
   boot.supportedFilesystems = [ "ntfs" ];
-
+  
   networking.hostName = "nixos-x230"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -146,7 +146,6 @@ networking.wireguard.enable = true;
   
     variables = {
       PAGER = "most -w";
-      MOZ_ENABLE_WAYLAND = "1";
 
     };
 
@@ -169,7 +168,8 @@ networking.wireguard.enable = true;
   programs.fish = {
     enable = true;  
   };
-  
+
+
   programs.droidcam.enable = true;
   programs.adb.enable = true;
 

@@ -56,13 +56,15 @@
     nmap
     ghostscript
     transmission-gtk
+    python3
+    python3Packages.pip
+    rssguard
   ];
 
 
   nixpkgs.config.permittedInsecurePackages = [
 #    "python3.9-mistune-0.8.4"
   ];
-
 
   
 }
