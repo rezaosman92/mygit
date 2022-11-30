@@ -41,6 +41,8 @@
   };
 
   xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
+
+  services.blueman.enable = true;
   
   services.picom ={
     enable = true;
@@ -53,8 +55,8 @@
     shadow = true;
     shadowOffsets = [ (-8) (-8) ];
     wintypes = {
-      "popup_menu" =
-        { "opacity" = 0.9; };
+      "popup_menu" = { "opacity" = 0.9; };
+      "normal" = { "blur-background" = true;};
     };
 
     settings = {
@@ -71,7 +73,7 @@
       ];
       blur =
         { method = "dual-kawase";
-          size = 3;
+          size = 10;
         };
     };
 
@@ -95,7 +97,7 @@
     evince
     simple-scan
     flameshot
-    blueberry
+
   ];
 
   

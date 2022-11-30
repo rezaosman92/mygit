@@ -21,9 +21,7 @@
     gcc
     usbutils
     autoPatchelfHook
-    firefox
     brave
-    tor-browser-bundle-bin
     ffmpeg
     unrar
     gimp
@@ -59,6 +57,9 @@
     python3
     python3Packages.pip
     rssguard
+    yed
+    pdfarranger
+    genymotion
   ];
 
 

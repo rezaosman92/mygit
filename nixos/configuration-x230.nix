@@ -10,9 +10,9 @@
       ./hardware-configuration.nix
       ./filesystem.nix
       ./packages-laptop.nix
-      ./de-gnome.nix
+      ./de-xfce.nix
       ./libvirtd.nix
-      #./wordpress.nix
+      ./xorg-intel.nix
     ];
 
   hardware.cpu.intel.updateMicrocode = true;
@@ -56,7 +56,7 @@
 #                  ";
 #  };
 
-networking.wireguard.enable = true;
+  networking.wireguard.enable = true;
   
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -86,13 +86,15 @@ networking.wireguard.enable = true;
       foomatic-filters
       gutenprint
       gutenprintBin
-#      epson-201401w
+      epson-201401w
       epson_201207w
     ];
   };
      
-#  hardware.sane.enable = true;
-       
+  #  hardware.sane.enable = true;
+
+  hardware.bluetooth.enable = true;
+  
   services.flatpak.enable = true;
   xdg.portal = {
     enable = true;
@@ -190,6 +192,7 @@ networking.wireguard.enable = true;
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
+  virtualisation.virtualbox.host.enable = true;
   
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
