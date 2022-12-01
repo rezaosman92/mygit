@@ -12,12 +12,10 @@
       xterm.enable = false;
       xfce = {
         enable = true;  
-        thunarPlugins = with pkgs.xfce; [
-          thunar-archive-plugin
-          thunar-volman
-        ];
+        
       };
     };
+
     
     displayManager.lightdm.greeters = {
       gtk = {
@@ -42,6 +40,11 @@
 
   xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
 
+  programs.thunar.plugins = with pkgs.xfce; [
+          thunar-archive-plugin
+          thunar-volman
+        ];
+      
   services.blueman.enable = true;
   
   services.picom ={
