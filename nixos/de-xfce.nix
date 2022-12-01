@@ -51,7 +51,6 @@
     fade = true;
     fadeSteps = [ 0.03 0.02 ];
     fadeDelta = 5;
-    experimentalBackends = true;
     shadow = true;
     shadowOffsets = [ (-8) (-8) ];
     wintypes = {
