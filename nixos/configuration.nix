@@ -12,6 +12,7 @@
       ./packages-pc.nix
       ./de-gnome.nix
       ./gpu-amd.nix
+      ./xorg-intel.nix
     ];
 
   hardware.cpu.intel.updateMicrocode = true;
@@ -26,7 +27,7 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_5_19;
+  boot.kernelPackages = pkgs.linuxPackages_5_15;
   
   boot.supportedFilesystems = [ "ntfs" ];
 
@@ -61,6 +62,8 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
+  i18n.supportedLocales = ["id_ID.UTF-8/UTF-8"];
+
   console = {
     font = "Lat2-Terminus16";
     keyMap = "us";
@@ -172,6 +175,7 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
+  virtualisation.virtualbox.host.enable = true;
   
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
