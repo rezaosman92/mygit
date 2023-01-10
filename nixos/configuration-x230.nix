@@ -7,12 +7,15 @@
 {
   imports =
     [ # Include the results of the hardware scan.
+      #<nixpkgs/nixos/modules/services/hardware/sane_extra_backends/brscan4.nix>
       ./hardware-configuration.nix
       ./filesystem.nix
       ./packages-laptop.nix
       ./de-xfce.nix
       ./libvirtd.nix
       ./xorg-intel.nix
+      ./printer.nix
+      #./scanner.nix
     ];
 
   hardware.cpu.intel.updateMicrocode = true;
@@ -64,6 +67,10 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
+  i18n.supportedLocales = [
+    "en_US.UTF-8/UTF-8"
+    "id_ID.UTF-8/UTF-8"
+  ];
   console = {
     font = "Lat2-Terminus16";
     keyMap = "us";
@@ -79,19 +86,6 @@
   services.xserver.layout = "us";
   # services.xserver.xkbOptions = "eurosign:e";
 
-  # Enable CUPS to print documents.
-  services.printing = {
-    enable = true;
-    drivers = with pkgs; [
-      foomatic-filters
-      gutenprint
-      gutenprintBin
-      epson-201401w
-      epson_201207w
-    ];
-  };
-     
-  #  hardware.sane.enable = true;
 
   hardware.bluetooth.enable = true;
   
@@ -130,7 +124,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.reza = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "adbusers" "libvirtd" "scanner" ];
+    extraGroups = [ "wheel" "networkmanager" "adbusers" "libvirtd" "scanner" "lp" ];
     description = "Reza Maulana";
   };
 
