@@ -12,13 +12,9 @@
       xterm.enable = false;
       xfce = {
         enable = true;  
-        thunarPlugins = with pkgs.xfce; [
-          thunar-archive-plugin
-          thunar-volman
-        ];
       };
     };
-    
+
     displayManager.lightdm.greeters = {
       gtk = {
         enable = true;
@@ -39,6 +35,11 @@
 
     displayManager.lightdm.background = /home/reza/Pictures/a.jpg;
   };
+
+  programs.thunar.plugins = with pkgs.xfce; [
+    thunar-archive-plugin
+    thunar-volman
+  ];
 
   xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
 
