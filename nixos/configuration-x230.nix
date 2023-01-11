@@ -7,7 +7,6 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      #<nixpkgs/nixos/modules/services/hardware/sane_extra_backends/brscan4.nix>
       ./hardware-configuration.nix
       ./filesystem.nix
       ./packages-laptop.nix
@@ -16,6 +15,7 @@
       ./xorg-intel.nix
       ./printer.nix
       #./scanner.nix
+      #./picom.nix
     ];
 
   hardware.cpu.intel.updateMicrocode = true;
