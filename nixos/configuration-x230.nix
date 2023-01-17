@@ -31,7 +31,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.memtest86.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_5_15;
+  boot.kernelPackages = pkgs.linuxPackages_6_1;
   boot.supportedFilesystems = [ "ntfs" ];
   
   networking.hostName = "nixos-x230"; # Define your hostname.

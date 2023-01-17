@@ -50,7 +50,7 @@
     lutris
     recoll
     cloudflare-warp
-    xfce.xfce4-terminal
+    #xfce.xfce4-terminal
     nmap
     ghostscript
     transmission-gtk
@@ -60,6 +60,8 @@
     yed
     pdfarranger
     genymotion
+    woeusb-ng
+
   ];
 
 
