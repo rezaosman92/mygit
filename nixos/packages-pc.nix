@@ -2,55 +2,57 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
-{
-  environment.systemPackages = with pkgs; [
-    aria2
-    htop
-    neofetch
-    gcc
-    usbutils
-    autoPatchelfHook
-    brave
-    dmidecode
-    ffmpeg
-    unrar
-    rar
-    gimp
-    calc
-    yt-dlp
-    ytmdl
-    patchelf
-    bash
-    bash-completion
-    bashInteractive
-    mpv
-    p7zip
-    most
-    curl
-    dpkg
-    gnumake
-    perl
-    wget
-    puddletag
-    cmus
-    python3
-    git
-    copyq
-    nload
-    mumble
-    transmission-gtk
-    cloudflare-warp
-    lutris
-    recoll
-    xfce.xfce4-terminal
-    firefox
-  ];
 
-  nixpkgs.config.permittedInsecurePackages = [
-    #"python3.9-mistune-0.8.4"
-  ];
-  
-}
+  let
+    unstable = import <nixos-unstable> { config = { allowUnfree = true; };  };
+  in {
+    environment.systemPackages = with pkgs; [
+      aria2
+      htop
+      neofetch
+      gcc
+      usbutils
+      autoPatchelfHook
+      brave
+      dmidecode
+      ffmpeg
+      unrar
+      rar
+      gimp
+      calc
+      yt-dlp
+      ytmdl
+      patchelf
+      bash
+      bash-completion
+      bashInteractive
+      mpv
+      p7zip
+      most
+      curl
+      dpkg
+      gnumake
+      perl
+      wget
+      puddletag
+      cmus
+      python3
+      git
+      copyq
+      nload
+      mumble
+      transmission-gtk
+      cloudflare-warp
+      lutris
+      recoll
+      genymotion
+      rssguard
+      unstable.openai-whisper
 
+    ];
+
+  }
+
+    
