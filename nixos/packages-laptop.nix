@@ -4,6 +4,10 @@
 
 { config, pkgs, ... }:
 
+let
+  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+in
+
 {
 
   boot = {
@@ -11,8 +15,7 @@
     extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
   };
 
-  
-  environment.systemPackages = with pkgs; [
+    environment.systemPackages = with pkgs; [
     acpi
     tlp
     aria2
@@ -50,24 +53,19 @@
     lutris
     recoll
     cloudflare-warp
-    #xfce.xfce4-terminal
     nmap
     ghostscript
     transmission-gtk
     python3
-    python3Packages.pip
     rssguard
     yed
     pdfarranger
     genymotion
     woeusb-ng
+    firefox
+    unstable.openai-whisper
 
-  ];
-
-
-  nixpkgs.config.permittedInsecurePackages = [
-#    "python3.9-mistune-0.8.4"
-  ];
-
-  
+    ];
+    
+ 
 }
