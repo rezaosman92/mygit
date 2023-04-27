@@ -47,7 +47,7 @@ in
     copyq
     nload
     mumble
-    virt-manager
+    #virt-manager
     mumble
     helix
     lutris
@@ -58,12 +58,13 @@ in
     transmission-gtk
     python3
     rssguard
-    yed
+    #yed
     pdfarranger
     genymotion
     woeusb-ng
-    firefox
-    unstable.openai-whisper
+    fzf
+    #firefox
+    #unstable.openai-whisper
 
     ];
     
