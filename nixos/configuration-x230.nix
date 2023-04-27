@@ -11,10 +11,11 @@
       ./filesystem.nix
       ./packages-laptop.nix
       ./de-xfce.nix
-      ./libvirtd.nix
+      #./libvirtd.nix
       ./xorg-intel.nix
       ./printer.nix
       #./scanner.nix
+      ./virtualbox.nix
       #./picom.nix
     ];
 
@@ -124,7 +125,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.reza = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "adbusers" "libvirtd" "scanner" "lp" ];
+    extraGroups = [ "wheel" "networkmanager" "adbusers" "libvirtd" "scanner" "lp" "vboxusers" ];
     description = "Reza Maulana";
   };
 
