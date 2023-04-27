@@ -49,7 +49,9 @@
       recoll
       genymotion
       rssguard
-      unstable.openai-whisper
+      virt-manager
+      #unstable.openai-whisper
+      #firefox
 
     ];
 

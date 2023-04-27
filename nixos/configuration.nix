@@ -10,9 +10,10 @@
       ./hardware-configuration.nix
       ./filesystem.nix
       ./packages-pc.nix
-      ./de-gnome.nix
+      ./de-xfce.nix
       ./gpu-amd.nix
       ./xorg-intel.nix
+      ./virtualbox.nix
     ];
 
   hardware.cpu.intel.updateMicrocode = true;
@@ -27,7 +28,7 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_5_15;
+  boot.kernelPackages = pkgs.linuxPackages_6_1;
   
   boot.supportedFilesystems = [ "ntfs" ];
 
@@ -176,8 +177,6 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  virtualisation.virtualbox.host.enable = true;
-  
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
