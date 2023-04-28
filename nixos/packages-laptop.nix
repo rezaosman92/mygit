@@ -60,7 +60,7 @@ in
     rssguard
     #yed
     pdfarranger
-    genymotion
+    #genymotion
     woeusb-ng
     fzf
     #firefox

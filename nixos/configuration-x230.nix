@@ -15,7 +15,7 @@
       ./xorg-intel.nix
       ./printer.nix
       #./scanner.nix
-      ./virtualbox.nix
+      #./virtualbox.nix
       #./picom.nix
     ];
 
