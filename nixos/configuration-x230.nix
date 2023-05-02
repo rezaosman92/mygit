@@ -46,19 +46,8 @@
   # replicates the default behaviour.
   networking.useDHCP = false;
   networking = {
-#    networkmanager.dns = "systemd-resolved";
     networkmanager.enable = true;
-#    nameservers = ["9.9.9.9"];
   };
-
-#  services.resolved = {
-#    enable = true;
-#    dnssec = "true";
-#    fallbackDns = ["149.112.112.112"];
-#    extraConfig = "
-#                  DNSOverTLS=yes
-#                  ";
-#  };
 
   networking.wireguard.enable = true;
   
@@ -170,10 +159,10 @@
   programs.droidcam.enable = true;
   programs.adb.enable = true;
 
-  programs.java = {
-    enable = true;
-    package = pkgs.jdk17;
-  };
+  #programs.java = {
+  #  enable = true;
+  #  package = pkgs.jdk17;
+  #};
 
   # List services that you want to enable:
 
@@ -187,7 +176,6 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  virtualisation.virtualbox.host.enable = true;
   
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -195,7 +183,7 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "21.11"; # Did you read the comment?
+  system.stateVersion = "22.11"; # Did you read the comment?
 
 
 }

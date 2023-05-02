@@ -21,16 +21,13 @@ in
     aria2
     htop
     neofetch
-    gcc
     usbutils
-    autoPatchelfHook
     brave
     ffmpeg
     unrar
     gimp
     calc
     yt-dlp
-    ytmdl
     bash
     bash-completion
     bashInteractive
@@ -38,8 +35,6 @@ in
     p7zip
     most
     curl
-    gnumake
-    perl
     wget
     puddletag
     cmus
@@ -47,9 +42,6 @@ in
     copyq
     nload
     mumble
-    #virt-manager
-    mumble
-    helix
     lutris
     recoll
     cloudflare-warp
@@ -58,13 +50,9 @@ in
     transmission-gtk
     python3
     rssguard
-    #yed
     pdfarranger
-    #genymotion
     woeusb-ng
     fzf
-    #firefox
-    #unstable.openai-whisper
 
     ];
     
