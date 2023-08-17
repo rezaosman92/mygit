@@ -4,9 +4,15 @@
 
 { config, pkgs, ... }:
 
-let
-  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
-in
+#let
+#  unstable = import <nixos-unstable>
+#    {
+#      config =
+#        {
+#          allowUnfree = true;
+#        };
+#    };
+#in
 
 {
 
@@ -43,8 +49,11 @@ in
     nload
     mumble
     lutris
+    winetricks
     recoll
     cloudflare-warp
+    wgcf
+    wireguard-tools
     nmap
     ghostscript
     transmission-gtk
@@ -53,6 +62,9 @@ in
     pdfarranger
     woeusb-ng
     fzf
+    wpsoffice
+    librewolf
+    
 
     ];
     

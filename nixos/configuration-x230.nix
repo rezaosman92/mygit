@@ -49,7 +49,7 @@
     networkmanager.enable = true;
   };
 
-  networking.wireguard.enable = true;
+  #networking.wireguard.enable = true;
   
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
