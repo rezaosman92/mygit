@@ -3,12 +3,12 @@
 This repo contains my personal config files. Currently, I use NixOS so mostly I only updating configuration.nix.
 
 For my NixOS, I currently use:
-- Follow latest kernel.
+- Kernel 6.1.
 - Setting one user as administrator with sudo access.
-- Enabled Intel microcode.
+- Enabled Intel and AMD microcode.
 - Enabled OpenGL Driver Support for 64 & 32 bit.
 - Enabled support for NTFS filesystem.
-- Enabled CloudFlare DNS via systemd-resolved.
+- Added CloudFlare DNS via WARP.
 - Enabled X Server with Xfce, LightDM and libinput.
 - Enabled Picom.
 - Enabled to pull non-free packages. 
@@ -20,4 +20,7 @@ For my NixOS, I currently use:
 - Enabled OpenSSH daemon for remote access. 
 - Enabled GVFS for automounting external storage.
 - Enabled early OOM that works in userspace.
+- Added printer and scanner configs (optional).
+- Added AMD GPU configs (optional).
+- Added virtualbox configs (optional).
 - US keyboard layout.
