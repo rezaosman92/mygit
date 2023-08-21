@@ -4,7 +4,7 @@
 
 services.picom ={
     enable = true;
-    backend = "glx";
+    backend = "egl";
     vSync = true;
     fade = true;
     fadeSteps = [ 0.03 0.02 ];
@@ -28,10 +28,10 @@ services.picom ={
         "class_g = 'Cairo-clock'"
         "_GTK_FRAME_EXTENTS@:c"
       ];
-      blur =
-        { method = "dual-kawase";
-          size = 10;
-        };
+#      blur =
+#        { method = "dual-kawase";
+#          size = 10;
+#        };
     };
 
 };

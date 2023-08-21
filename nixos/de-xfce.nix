@@ -49,7 +49,6 @@
   environment.variables.QT_STYLE_OVERRIDE = "kvantum";
   
   environment.systemPackages = with pkgs; [
-    transmission
     pavucontrol
     bibata-cursors
     papirus-icon-theme

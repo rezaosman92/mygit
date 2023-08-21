@@ -11,7 +11,7 @@
     };
 
   fileSystems."/boot" =
-    { 
+    {
       fsType = "vfat";
       mountPoint = "/boot";
     };
