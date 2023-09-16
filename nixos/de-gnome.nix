@@ -29,7 +29,7 @@
     evince.enable = true;
   };
 
-  qt5.style = "adwaita-dark";
+  qt.style = "adwaita";
   
   environment.gnome.excludePackages = [ pkgs.epiphany pkgs.gnome.gnome-characters pkgs.gnome.totem pkgs.gnome.tali pkgs.gnome.iagno pkgs.gnome.hitori pkgs.gnome.atomix pkgs.gnome-tour pkgs.gnome.geary pkgs.orca pkgs.gnome.gnome-software ];
 
