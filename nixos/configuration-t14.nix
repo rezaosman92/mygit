@@ -89,8 +89,6 @@
     alsa.support32Bit = true;
   };
   
-  hardware.pulseaudio.enable = false;
-    
   services.fstrim.enable = true;
   services.gvfs.enable = true;
   services.colord.enable = true;
