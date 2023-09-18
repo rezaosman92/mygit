@@ -8,15 +8,18 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./filesystem.nix
-      ./packages-pc.nix
-      ./de-xfce.nix
+      ./filesystem-xfs.nix
+      ./packages-t14.nix
+      ./de-plasma.nix
       ./gpu-amd.nix
-      ./xorg-intel.nix
-      ./virtualbox.nix
+      #./libvirtd.nix
+      ./printer.nix
+      #./scanner.nix
+      #./virtualbox.nix
+      #./picom.nix
     ];
 
-  hardware.cpu.intel.updateMicrocode = true;
+  hardware.cpu.amd.updateMicrocode = true;
   hardware.opengl = {
     enable = true;
     driSupport = true;
@@ -27,13 +30,13 @@
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.memtest86.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_6_1;
-  
   boot.supportedFilesystems = [ "ntfs" ];
-
-  networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  boot.kernelParams = [ "acpi_backlight=native" ];
+  
+  networking.hostName = "nixos-t14"; # Define your hostname.
 
   # Set your time zone.
   time.timeZone = "Asia/Jakarta";
@@ -43,29 +46,18 @@
   # replicates the default behaviour.
   networking.useDHCP = false;
   networking = {
-#    networkmanager.dns = "systemd-resolved";
     networkmanager.enable = true;
-#    nameservers = ["9.9.9.10"];
   };
 
-#  services.resolved = {
-#    enable = true;
-#    dnssec = "true";
-#    fallbackDns = ["149.112.112.10"];
-#    extraConfig = "
-#                  DNSOverTLS=yes
-#                  ";
-#  };
+  #networking.wireguard.enable = true;
   
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-  i18n.supportedLocales = ["id_ID.UTF-8/UTF-8"
-                           "en_US.UTF-8/UTF-8"];
-
+  i18n.supportedLocales = [
+    "en_US.UTF-8/UTF-8"
+    "id_ID.UTF-8/UTF-8"
+  ];
   console = {
     font = "Lat2-Terminus16";
     keyMap = "us";
@@ -79,29 +71,29 @@
 
   # Configure keymap in X11
   services.xserver.layout = "us";
-  # services.xserver.xkbOptions = "eurosign:e";
 
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
 
+  hardware.bluetooth.enable = true;
+  
   services.flatpak.enable = true;
   xdg.portal = {
     enable = true;
   };
     
   # Enable sound.
-  sound.enable = true;
-  # hardware.pulseaudio.enable = true;
+  security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     pulse.enable = true;
     alsa.enable = true;
+    alsa.support32Bit = true;
   };
   
   hardware.pulseaudio.enable = false;
     
   services.fstrim.enable = true;
   services.gvfs.enable = true;
+  services.colord.enable = true;
 
   services.earlyoom = {
     enable = true;
@@ -109,18 +101,20 @@
     enableNotifications = true;
   };
 
+  services.thermald.enable = true;
+  services.auto-cpufreq.enable = true;
+
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.reza = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "adbusers" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" "adbusers" "libvirtd" "scanner" "lp" "vboxusers" ];
     description = "Reza Maulana";
   };
 
   users.defaultUserShell = pkgs.fish;
-
 
   nixpkgs.config = {
     allowUnfree = true;
@@ -134,7 +128,6 @@
   
     variables = {
       PAGER = "most -w";
-      MOZ_ENABLE_WAYLAND = "1";
 
     };
 
@@ -157,33 +150,35 @@
   programs.fish = {
     enable = true;  
   };
-  
-  programs.adb.enable = true;
-  programs.droidcam.enable = true;
 
-#  programs.java = {
-#    enable = true;
-#    package = pkgs.openjdk11;
-#  };
+
+  programs.adb.enable = true;
+
+  #programs.java = {
+  #  enable = true;
+  #  package = pkgs.jdk17;
+  #};
 
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  services.openssh.allowSFTP = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  # networking.firewall.allowedTCPPorts = [ 53 ];
+  # networking.firewall.allowedUDPPorts = [ 53 51820 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
+  
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "21.05"; # Did you read the comment?
+  system.stateVersion = "23.05"; # Did you read the comment?
 
 
 }
