@@ -17,6 +17,7 @@
       #./scanner.nix
       #./virtualbox.nix
       #./picom.nix
+      ./podman.nix
     ];
 
   hardware.cpu.amd.updateMicrocode = true;
