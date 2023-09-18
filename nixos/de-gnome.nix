@@ -30,12 +30,20 @@
   };
 
   qt.style = "adwaita";
+  qt.platformTheme = "gnome";
   
   environment.gnome.excludePackages = [ pkgs.epiphany pkgs.gnome.gnome-characters pkgs.gnome.totem pkgs.gnome.tali pkgs.gnome.iagno pkgs.gnome.hitori pkgs.gnome.atomix pkgs.gnome-tour pkgs.gnome.geary pkgs.orca pkgs.gnome.gnome-software ];
 
   environment.systemPackages = with pkgs; [
     gnome.gnome-tweaks
+    gnome.gnome-session
+    gnomeExtensions.user-themes
+    libsForQt5.qtstyleplugin-kvantum
     numlockx
+    orchis-theme
+    qogir-theme
+    bibata-cursors
+    papirus-icon-theme
   ];
   
 }

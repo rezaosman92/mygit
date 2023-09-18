@@ -6,9 +6,9 @@
 
 {
 
-  nixpkgs.config = {                                                                                                                                               
-    firefox.enablePlasmaBrowserIntegration = true;
-  };
+  #nixpkgs.config = {                                                                                                                                               
+  #  firefox.enablePlasmaBrowserIntegration = true;
+  #};
   
   # Enable the X11 windowing system.
   services.xserver = {
@@ -37,4 +37,8 @@
     transmission-qt
   ];
 
+  environment.plasma5.excludePackages = with pkgs; [
+
+  ]
+  
 }
