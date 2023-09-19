@@ -26,11 +26,12 @@
     };
   };
 
+  programs.dconf.enable = true;
+  
   environment.systemPackages = with pkgs; [
     okular
-    breeze-gtk
-    papirus-icon-theme
-    kate
+    libsForQt5.breeze-gtk
+    libsForQt5.kde-gtk-config
     transmission-qt
   ];
 
