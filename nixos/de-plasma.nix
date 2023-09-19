@@ -33,6 +33,7 @@
     libsForQt5.breeze-gtk
     libsForQt5.kde-gtk-config
     transmission-qt
+    kate
   ];
 
   environment.plasma5.excludePackages = with pkgs; [
