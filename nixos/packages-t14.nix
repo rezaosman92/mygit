@@ -63,8 +63,12 @@
     woeusb-ng
     fzf
     wpsoffice
-    librewolf
-    lm_sensors    
+    firefox
+    lm_sensors
+    audacity
+    pciutils
+    orchis-theme
+    papirus-icon-theme
 
     ];
     
