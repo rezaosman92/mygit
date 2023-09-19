@@ -91,7 +91,7 @@
   };
   
   services.fstrim.enable = true;
-  services.gvfs.enable = true;
+
   services.colord.enable = true;
 
   services.earlyoom = {

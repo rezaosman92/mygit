@@ -44,7 +44,8 @@
   xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
 
   services.blueman.enable = true;
-  
+
+  services.gvfs.enable = true;
 
   environment.variables.QT_STYLE_OVERRIDE = "kvantum";
   

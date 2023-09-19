@@ -25,6 +25,8 @@
     };
   };
 
+  services.gvfs.enable = true;
+  
   programs = {
     evince.enable = true;
   };
