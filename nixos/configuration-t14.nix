@@ -119,6 +119,10 @@
     allowUnfree = true;
     };
 
+  nix.extraOptions = ''
+  experimental-features = nix-command flakes
+                   '';
+  
   environment = {
     shellAliases = {
       "ec" = "emacsclient -t";
