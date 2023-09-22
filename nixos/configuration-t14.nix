@@ -10,7 +10,7 @@
       ./hardware-configuration.nix
       ./filesystem-xfs.nix
       ./packages-t14.nix
-      ./de-plasma.nix
+      ./de-gnome.nix
       ./gpu-amd.nix
       #./libvirtd.nix
       ./printer.nix
@@ -89,6 +89,8 @@
     alsa.enable = true;
     alsa.support32Bit = true;
   };
+
+  hardware.pulseaudio.enable = false;
   
   services.fstrim.enable = true;
 
