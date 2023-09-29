@@ -56,19 +56,18 @@
     wireguard-tools
     nmap
     ghostscript
-    transmission-gtk
     python3
     rssguard
     pdfarranger
     woeusb-ng
     fzf
     wpsoffice
-    firefox
     lm_sensors
     audacity
     pciutils
     orchis-theme
     papirus-icon-theme
+    sysbench
 
     ];
     

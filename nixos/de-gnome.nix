@@ -46,6 +46,7 @@
     qogir-theme
     bibata-cursors
     papirus-icon-theme
+    transmission
   ];
   
 }
