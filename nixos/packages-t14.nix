@@ -31,7 +31,6 @@
     brave
     ffmpeg
     unrar
-    gimp
     calc
     yt-dlp
     bash
@@ -47,21 +46,15 @@
     git
     copyq
     nload
-    mumble
     lutris
-    winetricks
-    recoll
     cloudflare-warp
-    wgcf
     wireguard-tools
     nmap
     ghostscript
     python3
-    rssguard
     pdfarranger
     woeusb-ng
     fzf
-    wpsoffice
     lm_sensors
     audacity
     pciutils

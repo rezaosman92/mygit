@@ -126,6 +126,8 @@
   nix.extraOptions = ''
   experimental-features = nix-command flakes
                    '';
+
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
   
   environment = {
     shellAliases = {
@@ -171,6 +173,7 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
   services.openssh.allowSFTP = true;
+  programs.mosh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ 53 ];
