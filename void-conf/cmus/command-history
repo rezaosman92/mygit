@@ -1,0 +1,10 @@
+update-cache
+refresh
+load Music/
+load
+set output_plugin=
+set output_plugin=pipewire
+set output_plugin=pulse
+add Music/
+colorscheme gruvbox
+q

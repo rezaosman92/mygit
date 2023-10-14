@@ -1,0 +1,11 @@
+[Default Applications]
+image/jpeg=swayimg.desktop
+text/plain=org.xfce.mousepad.desktop
+image/png=swayimg.desktop
+application/pdf=org.pwmt.zathura-pdf-mupdf.desktop
+
+[Added Associations]
+image/jpeg=swayimg.desktop;
+text/plain=org.xfce.mousepad.desktop;
+image/png=swayimg.desktop;
+application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;

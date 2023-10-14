@@ -1,0 +1,12 @@
+
+anchor=bottom-right
+
+font=LiberationMono 12 
+
+default-timeout=5000
+
+width=300
+
+height=200
+
+max-icon-size=32
