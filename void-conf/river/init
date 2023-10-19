@@ -21,9 +21,10 @@ mako &
 
 
 ## custom keybind start
-#riverctl map normal Super+Shift B spawn "dbus-run-session flatpak run com.brave.Browser"
-riverctl map normal Super+Shift B spawn "dbus-run-session firefox-wayland"
-riverctl map normal Super+Shift F spawn "thunar"
+riverctl map normal Super+Shift B spawn "dbus-run-session brave-browser-stable"
+#riverctl map normal Super+Shift B spawn "dbus-run-session flatpak run io.gitlab.librewolf-community"
+#riverctl map normal Super+Shift B spawn "dbus-run-session firefox-wayland"
+riverctl map normal Super+Shift F spawn "dbus-run-session thunar"
 riverctl map normal Super+Shift P spawn "copyq menu"
 riverctl map normal Super A spawn "fuzzel"
 riverctl map normal Super C spawn "waylock -fork-on-lock"
@@ -161,8 +162,8 @@ do
     riverctl map $mode None XF86AudioNext  spawn 'playerctl next'
 
     # Control screen backlight brightness with light (https://github.com/haikarainen/light)
-    riverctl map $mode None XF86MonBrightnessUp   spawn 'light -A 5'
-    riverctl map $mode None XF86MonBrightnessDown spawn 'light -U 5'
+    riverctl map $mode None XF86MonBrightnessUp   spawn 'brillo -A 5'
+    riverctl map $mode None XF86MonBrightnessDown spawn 'brillo -U 5'
 done
 
 # Set background and border color

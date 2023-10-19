@@ -1,3 +1,10 @@
+save 
+invert 
+add Quran/
+add Quran/09*
+add Quran/001-Al-fatiha.ogg
+pl-create Juz 30
+pl-create 
 update-cache
 refresh
 load Music/
