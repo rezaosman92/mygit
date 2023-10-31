@@ -21,9 +21,9 @@ mako &
 
 
 ## custom keybind start
-riverctl map normal Super+Shift B spawn "dbus-run-session brave-browser-stable"
+#riverctl map normal Super+Shift B spawn "dbus-run-session brave-browser-stable"
 #riverctl map normal Super+Shift B spawn "dbus-run-session flatpak run io.gitlab.librewolf-community"
-#riverctl map normal Super+Shift B spawn "dbus-run-session firefox-wayland"
+riverctl map normal Super+Shift B spawn "dbus-run-session firefox-wayland"
 riverctl map normal Super+Shift F spawn "dbus-run-session thunar"
 riverctl map normal Super+Shift P spawn "copyq menu"
 riverctl map normal Super A spawn "fuzzel"

@@ -1,5 +1,7 @@
 theme = "gruvbox"
 
+
 [editor.soft-wrap]
 enable = true
 wrap-indicator = ""
+
