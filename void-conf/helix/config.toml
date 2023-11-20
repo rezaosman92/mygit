@@ -1,7 +1,24 @@
-theme = "gruvbox"
+theme = "dracula"
+
+
+[editor]
+line-number = "relative"
+shell = ["bash"]
+
+
+[editor.statusline]
+left = ["mode", "spinner"]
+center = ["file-name"]
+right = ["diagnostics", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
 
 
 [editor.soft-wrap]
 enable = true
-wrap-indicator = ""
+max-wrap = 25 # increase value to reduce forced mid-word wrapping
+max-indent-retain = 0
+wrap-indicator = ""  # set wrap-indicator to "" to hide it
 
