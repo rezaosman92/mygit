@@ -1,16 +1,17 @@
-theme = "dracula"
+theme = "ayu_light"
 
 
 [editor]
 line-number = "relative"
 shell = ["bash"]
+true-color = true
 
 
 [editor.statusline]
-left = ["mode", "spinner"]
+left = ["mode", "spinner", "version-control"]
 center = ["file-name"]
 right = ["diagnostics", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
-separator = "│"
+separator = "|"
 mode.normal = "NORMAL"
 mode.insert = "INSERT"
 mode.select = "SELECT"

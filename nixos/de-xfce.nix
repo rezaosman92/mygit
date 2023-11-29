@@ -21,7 +21,7 @@
       };
 
       gtk.theme = {
-        name = "Orchis-Green-Light-Compact";
+        name = "Orchis-Orange-Light-Compact";
       };
 
       gtk.iconTheme = {
@@ -53,7 +53,6 @@
     pavucontrol
     bibata-cursors
     papirus-icon-theme
-    qogir-theme
     orchis-theme
     libsForQt5.qtstyleplugin-kvantum
     xfce.mousepad

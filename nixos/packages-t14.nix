@@ -21,7 +21,7 @@
     extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
   };
 
-    environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     acpi
     tlp
     aria2
@@ -46,23 +46,29 @@
     git
     copyq
     nload
-    lutris
     cloudflare-warp
     wireguard-tools
     nmap
-    ghostscript
     python3
     pdfarranger
     woeusb-ng
     fzf
+    lynis
     lm_sensors
     audacity
     pciutils
-    orchis-theme
-    papirus-icon-theme
     sysbench
+    libreoffice
+    obs-studio
+    vulkan-tools
+#    lutris
+#    kakoune
+    helix
+    firefox
 
-    ];
-    
- 
+  ];
+  
+
+
 }
+  
