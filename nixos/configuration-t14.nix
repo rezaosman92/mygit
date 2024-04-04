@@ -25,6 +25,9 @@
 
   zramSwap.enable = true;
 
+  services.fwupd.enable = true;
+  services.colord.enable = true;
+
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -134,7 +137,7 @@
 
   };
     
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     liberation_ttf
     noto-fonts
     hack-font
