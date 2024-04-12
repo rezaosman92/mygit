@@ -75,7 +75,7 @@
     alsa.support32Bit = true;
   };
 
-  services.fstrim.enable = true;
+#  services.fstrim.enable = true;
 
   services.earlyoom = {
     enable = true;
