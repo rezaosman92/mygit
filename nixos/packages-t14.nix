@@ -25,7 +25,7 @@
     acpi
     tlp
     aria2
-    htop
+    btop
     neofetch
     usbutils
     brave
@@ -61,10 +61,9 @@
     libreoffice
     obs-studio
     vulkan-tools
-#    lutris
-#    kakoune
-    helix
+    lutris
     firefox
+    wine
 
   ];
   

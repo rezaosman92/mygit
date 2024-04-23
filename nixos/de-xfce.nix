@@ -21,11 +21,11 @@
       };
 
       gtk.theme = {
-        name = "Orchis-Orange-Light-Compact";
+        name = "Orchis-Teal-Light-Compact";
       };
 
       gtk.iconTheme = {
-        name = "Papirus";
+        name = "Papirus-Light";
       };
 
       gtk.cursorTheme = {

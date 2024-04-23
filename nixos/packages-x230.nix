@@ -21,17 +21,16 @@
     extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
   };
 
-    environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     acpi
     tlp
     aria2
-    htop
+    btop
     neofetch
     usbutils
     brave
     ffmpeg
     unrar
-    gimp
     calc
     yt-dlp
     bash
@@ -47,26 +46,28 @@
     git
     copyq
     nload
-    mumble
-    lutris
-    winetricks
-    recoll
     cloudflare-warp
-    wgcf
     wireguard-tools
     nmap
-    ghostscript
-    transmission-gtk
     python3
-    rssguard
     pdfarranger
     woeusb-ng
     fzf
-    wpsoffice
-    librewolf
-    
+    lynis
+    lm_sensors
+    audacity
+    pciutils
+    sysbench
+    libreoffice
+    obs-studio
+    vulkan-tools
+    lutris
+    firefox
+    wine
 
-    ];
-    
- 
+  ];
+  
+
+
 }
+  

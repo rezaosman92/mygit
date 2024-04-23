@@ -9,7 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./de-xfce.nix
-      ./filesystem-xfs.nix
+      ./filesystem.nix
       ./gpu-amd.nix
       ./packages-t14.nix
       ./printer.nix
@@ -33,7 +33,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.memtest86.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-#  boot.kernelPackages = pkgs.linuxPackages_xanmod_stable;
   boot.kernelPackages = pkgs.linuxPackages_6_6;
   boot.supportedFilesystems = [ "ntfs" ];
   boot.kernelParams = [ "acpi_backlight=native" ];
@@ -178,7 +177,7 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.05"; # Did you read the comment?
+  system.stateVersion = "23.11"; # Did you read the comment?
 
 }
 

@@ -1,6 +1,6 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
+# and in the NixOS manual (accessible by running `nixos-help`).
 
 { config, pkgs, ... }:
 
@@ -8,15 +8,15 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./filesystem.nix
-      ./packages-pc.nix
       ./de-xfce.nix
+      ./filesystem.nix
       ./gpu-amd.nix
-      ./xorg-intel.nix
-      ./virtualbox.nix
+      ./packages-t14.nix
+      ./printer.nix
+      #./scanner.nix
     ];
 
-  hardware.cpu.intel.updateMicrocode = true;
+  hardware.cpu.amd.updateMicrocode = true;
   hardware.opengl = {
     enable = true;
     driSupport = true;
@@ -25,83 +25,56 @@
 
   zramSwap.enable = true;
 
+  services.fwupd.enable = true;
+  services.colord.enable = true;
+
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.memtest86.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_6_1;
-  
+  boot.kernelPackages = pkgs.linuxPackages_6_6;
   boot.supportedFilesystems = [ "ntfs" ];
+  boot.kernelParams = [ "acpi_backlight=native" ];
 
-  networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.hostName = "nixos-t14"; 
+  networking.networkmanager.enable = true;
+ #networking.wireguard.enable = true;
 
-  # Set your time zone.
+# Set your time zone.
   time.timeZone = "Asia/Jakarta";
 
-  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-  # Per-interface useDHCP will be mandatory in the future, so this generated config
-  # replicates the default behaviour.
-  networking.useDHCP = false;
-  networking = {
-#    networkmanager.dns = "systemd-resolved";
-    networkmanager.enable = true;
-#    nameservers = ["9.9.9.10"];
-  };
 
-#  services.resolved = {
-#    enable = true;
-#    dnssec = "true";
-#    fallbackDns = ["149.112.112.10"];
-#    extraConfig = "
-#                  DNSOverTLS=yes
-#                  ";
-#  };
-  
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Select internationalisation properties.
+# Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-  i18n.supportedLocales = ["id_ID.UTF-8/UTF-8"
-                           "en_US.UTF-8/UTF-8"];
+  i18n.supportedLocales = [
+    "en_US.UTF-8/UTF-8"
+    "id_ID.UTF-8/UTF-8"
+  ];
 
   console = {
     font = "Lat2-Terminus16";
     keyMap = "us";
+#   useXkbConfig = true; # use xkbOptions in tty.
   };
 
-  services.emacs = {
-    enable = true;
-    defaultEditor = true;
-    package = pkgs.emacs-nox;
-  };
+  hardware.bluetooth.enable = true;
 
-  # Configure keymap in X11
-  services.xserver.layout = "us";
-  # services.xserver.xkbOptions = "eurosign:e";
-
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
-
-  services.flatpak.enable = true;
   xdg.portal = {
     enable = true;
   };
+
     
   # Enable sound.
-  sound.enable = true;
-  # hardware.pulseaudio.enable = true;
+  security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     pulse.enable = true;
     alsa.enable = true;
+    alsa.support32Bit = true;
   };
-  
-  hardware.pulseaudio.enable = false;
-    
-  services.fstrim.enable = true;
-  services.gvfs.enable = true;
+
+#  services.fstrim.enable = true;
 
   services.earlyoom = {
     enable = true;
@@ -109,18 +82,34 @@
     enableNotifications = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.reza = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "adbusers" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" "adbusers" "libvirtd" "scanner" "lp" "vboxusers" ];
     description = "Reza Maulana";
   };
 
-  users.defaultUserShell = pkgs.fish;
 
+  programs.fish = {
+    enable = true;  
+  };
+
+  programs.tmux.enable = true;
+
+  #programs.gamescope.enable = true;
+  programs.gamemode.enable = true;
+
+  services.emacs = {
+    enable = true;
+    defaultEditor = true;
+    package = pkgs.emacs-nox;
+  };
+
+  services.flatpak.enable = true;
+
+  
+  users.defaultUserShell = pkgs.fish;
 
   nixpkgs.config = {
     allowUnfree = true;
@@ -131,6 +120,8 @@
   nix.extraOptions = ''
   experimental-features = nix-command flakes
                    '';
+
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
   
   environment = {
     shellAliases = {
@@ -140,17 +131,19 @@
   
     variables = {
       PAGER = "most -w";
-      MOZ_ENABLE_WAYLAND = "1";
 
     };
 
   };
     
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     liberation_ttf
     noto-fonts
     hack-font
   ];
+
+  programs.adb.enable = true;
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -160,22 +153,12 @@
     enableSSHSupport = true;
   };
 
-  programs.fish = {
-    enable = true;  
-  };
-  
-  programs.adb.enable = true;
-  programs.droidcam.enable = true;
-
-#  programs.java = {
-#    enable = true;
-#    package = pkgs.openjdk11;
-#  };
-
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  services.openssh.allowSFTP = true;
+  programs.mosh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -183,14 +166,18 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
+  # Copy the NixOS configuration file and link it from the resulting system
+  # (/run/current-system/configuration.nix). This is useful in case you
+  # accidentally delete configuration.nix.
+  system.copySystemConfiguration = true;
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
+  # on your system were taken. It's perfectly fine and recommended to leave
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "21.05"; # Did you read the comment?
-
+  system.stateVersion = "23.11"; # Did you read the comment?
 
 }
 
