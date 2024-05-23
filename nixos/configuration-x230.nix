@@ -10,13 +10,13 @@
       ./hardware-configuration.nix
       ./de-xfce.nix
       ./filesystem.nix
-      ./gpu-amd.nix
+      ./xorg-intel.nix
       ./packages-t14.nix
       ./printer.nix
       #./scanner.nix
     ];
 
-  hardware.cpu.amd.updateMicrocode = true;
+  hardware.cpu.intel.updateMicrocode = true;
   hardware.opengl = {
     enable = true;
     driSupport = true;
@@ -37,7 +37,7 @@
   boot.supportedFilesystems = [ "ntfs" ];
   boot.kernelParams = [ "acpi_backlight=native" ];
 
-  networking.hostName = "nixos-t14"; 
+  networking.hostName = "nixos-x230"; 
   networking.networkmanager.enable = true;
  #networking.wireguard.enable = true;
 
