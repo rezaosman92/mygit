@@ -21,11 +21,11 @@
       };
 
       gtk.theme = {
-        name = "Orchis-Teal-Light-Compact";
+        name = "Graphite-Dark";
       };
 
       gtk.iconTheme = {
-        name = "Papirus-Light";
+        name = "Papirus-Dark";
       };
 
       gtk.cursorTheme = {
@@ -54,6 +54,7 @@
     bibata-cursors
     papirus-icon-theme
     orchis-theme
+    graphite-gtk-theme
     libsForQt5.qtstyleplugin-kvantum
     xfce.mousepad
     xfce.xfce4-whiskermenu-plugin
