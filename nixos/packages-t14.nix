@@ -46,7 +46,6 @@
     git
     copyq
     nload
-    cloudflare-warp
     wireguard-tools
     nmap
     python3
@@ -61,9 +60,9 @@
     libreoffice
     obs-studio
     vulkan-tools
-    lutris
     firefox
     wine
+    transmission-gtk
 
   ];
   

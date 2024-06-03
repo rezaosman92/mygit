@@ -37,10 +37,25 @@
   boot.supportedFilesystems = [ "ntfs" ];
   boot.kernelParams = [ "acpi_backlight=native" ];
 
+  ## networking configuration ##
+  
   networking.hostName = "nixos-t14"; 
   networking.networkmanager.enable = true;
- #networking.wireguard.enable = true;
 
+  services.resolved = {
+    enable = true;
+    dnsovertls = "true";
+    dnssec = "true";
+    extraConfig = "
+                   DNS=45.90.28.0#b6ec66.dns.nextdns.io
+                   DNS=2a07:a8c0::#b6ec66.dns.nextdns.io
+                   DNS=45.90.30.0#b6ec66.dns.nextdns.io
+                   DNS=2a07:a8c1::#b6ec66.dns.nextdns.io
+                ";
+  };
+
+  ## networking configuration ##
+  
 # Set your time zone.
   time.timeZone = "Asia/Jakarta";
 
@@ -82,11 +97,11 @@
     enableNotifications = true;
   };
 
-  services.xserver.libinput.enable = true;
+  services.libinput.enable = true;
 
   users.users.reza = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "adbusers" "libvirtd" "scanner" "lp" "vboxusers" ];
+    extraGroups = [ "networkmanager" "adbusers" "libvirtd" "scanner" "lp" "vboxusers" ];
     description = "Reza Maulana";
   };
 

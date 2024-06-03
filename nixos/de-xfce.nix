@@ -21,11 +21,11 @@
       };
 
       gtk.theme = {
-        name = "Graphite-Dark";
+        name = "Graphite-Light";
       };
 
       gtk.iconTheme = {
-        name = "Papirus-Dark";
+        name = "Papirus-Light";
       };
 
       gtk.cursorTheme = {
