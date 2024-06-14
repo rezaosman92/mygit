@@ -63,6 +63,7 @@
     firefox
     wine
     transmission-gtk
+    helix
 
   ];
   

@@ -37,24 +37,25 @@
   boot.supportedFilesystems = [ "ntfs" ];
   boot.kernelParams = [ "acpi_backlight=native" ];
 
-  ## networking configuration ##
+  
+  ## network configuration start ##
   
   networking.hostName = "nixos-t14"; 
   networking.networkmanager.enable = true;
 
-  services.resolved = {
-    enable = true;
-    dnsovertls = "true";
-    dnssec = "true";
-    extraConfig = "
-                   DNS=45.90.28.0#b6ec66.dns.nextdns.io
-                   DNS=2a07:a8c0::#b6ec66.dns.nextdns.io
-                   DNS=45.90.30.0#b6ec66.dns.nextdns.io
-                   DNS=2a07:a8c1::#b6ec66.dns.nextdns.io
-                ";
-  };
+ services.resolved = {
+   enable = true;
+   dnsovertls = "true";
+   dnssec = "true";
+   extraConfig = "
+                  DNS=45.90.28.0#b6ec66.dns.nextdns.io
+                  DNS=2a07:a8c0::#b6ec66.dns.nextdns.io
+                  DNS=45.90.30.0#b6ec66.dns.nextdns.io
+                  DNS=2a07:a8c1::#b6ec66.dns.nextdns.io
+               ";
+ };
 
-  ## networking configuration ##
+  ## network configuration end ##
   
 # Set your time zone.
   time.timeZone = "Asia/Jakarta";
@@ -115,11 +116,11 @@
   #programs.gamescope.enable = true;
   programs.gamemode.enable = true;
 
-  services.emacs = {
-    enable = true;
-    defaultEditor = true;
-    package = pkgs.emacs-nox;
-  };
+#  services.emacs = {
+#    enable = true;
+#    defaultEditor = true;
+#    package = pkgs.emacs-nox;
+#  };
 
   services.flatpak.enable = true;
 
