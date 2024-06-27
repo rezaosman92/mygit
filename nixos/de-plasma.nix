@@ -6,38 +6,53 @@
 
 {
 
-  #nixpkgs.config = {                                                                                                                                               
-  #  firefox.enablePlasmaBrowserIntegration = true;
-  #};
-  
-  # Enable the X11 windowing system.
-  services.xserver = {
-    enable = true;
 
-    desktopManager = {
-      plasma5 = {
-        enable = true;
-        runUsingSystemd = true;
+  services = {
+
+    xserver = {
+      enable = true; 
       };
+
+      displayManager.sddm = {
+        enable = true;
+        
+        wayland = {
+          enable = true;
+        };
+
+        theme = "breeze";
+
+      };
+      
+    desktopManager = {
+    
+      plasma6 = {
+        enable = true;
+      
+      };
+  
     };
-    displayManager.sddm = {
-      enable = true;
-      theme = "breeze";
+
     };
-  };
+
+    
 
   programs.dconf.enable = true;
   
   environment.systemPackages = with pkgs; [
     okular
-    libsForQt5.breeze-gtk
-    libsForQt5.kde-gtk-config
+  #  libsForQt5.breeze-gtk
+  #  libsForQt5.kde-gtk-config
     transmission-qt
-    kate
+    papirus-icon-theme
   ];
 
-  environment.plasma5.excludePackages = with pkgs; [
 
-  ];
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [
+
+    oxygen
+  
+   ];
+
   
 }
