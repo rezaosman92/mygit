@@ -8,7 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./de-plasma.nix
+      ./de-gnome.nix
       ./filesystem.nix
       ./gpu-amd.nix
       ./packages-t14.nix

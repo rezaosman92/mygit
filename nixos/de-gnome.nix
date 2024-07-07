@@ -9,6 +9,7 @@
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
 
+  hardware.pulseaudio.enable = false;
   
   # Enable the X11 windowing system.
   services.xserver = {
@@ -34,7 +35,21 @@
   qt.style = "adwaita";
   qt.platformTheme = "gnome";
   
-  environment.gnome.excludePackages = [ pkgs.epiphany pkgs.gnome.gnome-characters pkgs.gnome.totem pkgs.gnome.tali pkgs.gnome.iagno pkgs.gnome.hitori pkgs.gnome.atomix pkgs.gnome-tour pkgs.gnome.geary pkgs.orca pkgs.gnome.gnome-software ];
+  environment.gnome.excludePackages = with pkgs; [ 
+  
+  epiphany 
+  gnome.gnome-characters 
+  gnome.totem 
+  gnome.tali 
+  gnome.iagno 
+  gnome.hitori 
+  gnome.atomix 
+  gnome-tour 
+  gnome.geary 
+  orca 
+  gnome.gnome-software 
+  
+  ];
 
   environment.systemPackages = with pkgs; [
     gnome.gnome-tweaks
@@ -42,11 +57,13 @@
     gnomeExtensions.user-themes
     libsForQt5.qtstyleplugin-kvantum
     numlockx
-    orchis-theme
-    qogir-theme
     bibata-cursors
     papirus-icon-theme
     transmission-gtk
+    #copyq
+    gnomeExtensions.clipboard-indicator
+
+    
   ];
   
 }

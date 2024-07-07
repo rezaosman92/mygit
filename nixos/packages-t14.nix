@@ -44,7 +44,6 @@
     puddletag
     cmus
     git
-    copyq
     nload
     wireguard-tools
     nmap
@@ -62,8 +61,10 @@
     vulkan-tools
     firefox
     wine
-    transmission-gtk
+    #transmission-gtk
     helix
+    cloudflare-warp
+    krita
 
   ];
   
