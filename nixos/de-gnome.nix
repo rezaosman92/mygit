@@ -55,13 +55,13 @@
     gnome.gnome-tweaks
     gnome.gnome-session
     gnomeExtensions.user-themes
+    gnomeExtensions.clipboard-indicator
     libsForQt5.qtstyleplugin-kvantum
     numlockx
     bibata-cursors
     papirus-icon-theme
     transmission-gtk
     #copyq
-    gnomeExtensions.clipboard-indicator
 
     
   ];
