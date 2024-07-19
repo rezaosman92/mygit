@@ -8,7 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./de-gnome.nix
+      ./de-plasma.nix
       ./filesystem.nix
       ./gpu-amd.nix
       ./packages-t14.nix
@@ -65,9 +65,17 @@
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.supportedLocales = [
     "en_US.UTF-8/UTF-8"
+    "en_GB.UTF-8/UTF-8" 
     "id_ID.UTF-8/UTF-8"
   ];
 
+  i18n.extraLocaleSettings = {
+    LC_ALL = "en_GB.UTF-8";
+
+    
+  };
+
+  
   console = {
     font = "Lat2-Terminus16";
     keyMap = "us";
