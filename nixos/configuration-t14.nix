@@ -8,7 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./de-plasma.nix
+      ./de-gnome.nix
       ./filesystem.nix
       ./gpu-amd.nix
       ./packages-t14.nix
@@ -70,7 +70,7 @@
   ];
 
   i18n.extraLocaleSettings = {
-    LC_ALL = "en_GB.UTF-8";
+    LC_ALL = "C";
 
     
   };
@@ -163,7 +163,7 @@
   fonts.packages = with pkgs; [
     liberation_ttf
     noto-fonts
-    hack-font
+    inter
   ];
 
   programs.adb.enable = true;
