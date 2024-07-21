@@ -54,16 +54,17 @@
   environment.systemPackages = with pkgs; [
     gnome.gnome-tweaks
     gnome.gnome-session
-    gnomeExtensions.user-themes
-    gnomeExtensions.clipboard-indicator
+    #gnomeExtensions.user-themes
+    #gnomeExtensions.clipboard-indicator
     libsForQt5.qtstyleplugin-kvantum
     numlockx
     bibata-cursors
     papirus-icon-theme
     transmission-gtk
-    #copyq
-
-    
+    copyq
+    #gedit
+    satty
+   
   ];
   
 }
