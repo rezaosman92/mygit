@@ -8,27 +8,22 @@
 
 
   services = {
-
     xserver = {
       enable = true; 
       };
 
-      displayManager.sddm = {
+       displayManager.sddm = {
         enable = true;
-        
         wayland = {
           enable = true;
         };
-
+        
         theme = "breeze";
-
       };
-      
-    desktopManager = {
     
+    desktopManager = {
       plasma6 = {
         enable = true;
-      
       };
   
     };
