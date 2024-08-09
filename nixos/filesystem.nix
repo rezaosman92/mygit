@@ -4,11 +4,11 @@
 {
 
 fileSystems = {
-"/".options = [ "compress-force=zstd:3" "noatime" ];
+"/".options = [ "compress-force=zstd:3" "defaults" "rw" "discard=async" ];
 
-"/home".options = [ "compress-force=zstd:3" "noatime" ];
+"/home".options = [ "compress-force=zstd:3" "defaults" "rw" "discard=async" ];
 
-"/nix".options = [ "compress-force=zstd:3" "noatime" ];
+"/var/log".options = [ "compress-force=zstd:3" "defaults" "rw" "discard=async" ];
 
 };
   

@@ -55,7 +55,7 @@
     papirus-icon-theme
     orchis-theme
     graphite-gtk-theme
-    libsForQt5.qtstyleplugin-kvantum
+    kdePackages.qtstyleplugin-kvantum
     xfce.mousepad
     xfce.xfce4-whiskermenu-plugin
     xfce.xfce4-pulseaudio-plugin
@@ -64,7 +64,8 @@
     evince
     simple-scan
     flameshot
-
+    transmission-gtk
+    copyq
   ];
 
   

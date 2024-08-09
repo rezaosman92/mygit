@@ -26,7 +26,7 @@
     tlp
     aria2
     btop
-    neofetch
+    fastfetch
     usbutils
     brave
     ffmpeg
@@ -45,14 +45,13 @@
     cmus
     git
     nload
-    wireguard-tools
     nmap
-    python3
     pdfarranger
     woeusb-ng
     fzf
     lynis
     lm_sensors
+    python3
     audacity
     pciutils
     sysbench
@@ -60,11 +59,15 @@
     obs-studio
     vulkan-tools
     firefox
-    wine
-    #transmission-gtk
     helix
-    cloudflare-warp
+    #cloudflare-warp
     krita
+    efibootmgr
+    mumble
+
+    #for learning cpp
+    clang
+    lldb
 
   ];
   

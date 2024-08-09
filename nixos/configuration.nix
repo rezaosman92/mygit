@@ -14,6 +14,7 @@
       ./packages-t14.nix
       ./printer.nix
       #./scanner.nix
+      ./systemd-resolved.nix
     ];
 
   hardware.cpu.amd.updateMicrocode = true;
@@ -28,18 +29,23 @@
   services.fwupd.enable = true;
   services.colord.enable = true;
 
+  services.tlp.enable= true;
+
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.memtest86.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_6_6;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.supportedFilesystems = [ "ntfs" ];
   boot.kernelParams = [ "acpi_backlight=native" ];
 
+  
+  
   networking.hostName = "nixos-t14"; 
   networking.networkmanager.enable = true;
- #networking.wireguard.enable = true;
+
+  
 
 # Set your time zone.
   time.timeZone = "Asia/Jakarta";
@@ -49,14 +55,24 @@
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.supportedLocales = [
     "en_US.UTF-8/UTF-8"
+    "en_GB.UTF-8/UTF-8" 
     "id_ID.UTF-8/UTF-8"
   ];
 
+  i18n.extraLocaleSettings = {
+    LC_ALL = "en_GB.UTF-8";
+
+    
+  };
+
+  
   console = {
     font = "Lat2-Terminus16";
-    keyMap = "us";
-#   useXkbConfig = true; # use xkbOptions in tty.
+    useXkbConfig = true; # use xkbOptions in tty.
   };
+
+  services.xserver.xkb.layout="us";
+
 
   hardware.bluetooth.enable = true;
 
@@ -82,11 +98,11 @@
     enableNotifications = true;
   };
 
-  services.xserver.libinput.enable = true;
+  services.libinput.enable = true;
 
   users.users.reza = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "adbusers" "libvirtd" "scanner" "lp" "vboxusers" ];
+    extraGroups = [ "networkmanager" "adbusers" "libvirtd" "scanner" "lp" "vboxusers" ];
     description = "Reza Maulana";
   };
 
@@ -98,15 +114,16 @@
   programs.tmux.enable = true;
 
   #programs.gamescope.enable = true;
-  programs.gamemode.enable = true;
+  #programs.gamemode.enable = true;
 
-  services.emacs = {
-    enable = true;
-    defaultEditor = true;
-    package = pkgs.emacs-nox;
-  };
+#  services.emacs = {
+#    enable = true;
+#    defaultEditor = true;
+#    package = pkgs.emacs-nox;
+#  };
 
   services.flatpak.enable = true;
+  fonts.fontDir.enable = true;
 
   
   users.defaultUserShell = pkgs.fish;
@@ -139,7 +156,8 @@
   fonts.packages = with pkgs; [
     liberation_ttf
     noto-fonts
-    hack-font
+    fira
+    fira-code
   ];
 
   programs.adb.enable = true;
@@ -160,24 +178,45 @@
   services.openssh.allowSFTP = true;
   programs.mosh.enable = true;
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  
+  networking = { 
+    firewall = { 
+      enable = true;
+      #allowedTCPPorts = [ 80 443 ];
+      #allowedUDPPorts = [ 51215 ];
+      #allowedUDPPortRanges = [
+      #  { from = 4000; to = 4007; }
+      #  { from = 8000; to = 8010; }
+      #  ];
+      };
+    nftables.enable = true;
+  };
+
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
   # accidentally delete configuration.nix.
   system.copySystemConfiguration = true;
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It's perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.11"; # Did you read the comment?
+  # This option defines the first version of NixOS you have installed on this particular machine,
+  # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
+  #
+  # Most users should NEVER change this value after the initial install, for any reason,
+  # even if you've upgraded your system to a new NixOS release.
+  #
+  # This value does NOT affect the Nixpkgs version your packages and OS are pulled from,
+  # so changing it will NOT upgrade your system - see https://nixos.org/manual/nixos/stable/#sec-upgrading for how
+  # to actually do that.
+  #
+  # This value being lower than the current NixOS release does NOT mean your system is
+  # out of date, out of support, or vulnerable.
+  #
+  # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,
+  # and migrated your data accordingly.
+  #
+  # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
+  system.stateVersion = "24.05"; # Did you read the comment?
 
 }
+
 
