@@ -111,6 +111,8 @@
     enable = true;  
   };
 
+  users.defaultUserShell = pkgs.fish;
+
   programs.tmux.enable = true;
 
   #programs.gamescope.enable = true;
@@ -125,8 +127,6 @@
   services.flatpak.enable = true;
   fonts.fontDir.enable = true;
 
-  
-  users.defaultUserShell = pkgs.fish;
 
   nixpkgs.config = {
     allowUnfree = true;

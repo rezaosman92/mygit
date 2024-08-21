@@ -59,18 +59,31 @@
     obs-studio
     vulkan-tools
     firefox
-    helix
     #cloudflare-warp
     krita
     efibootmgr
     mumble
+    lazygit
 
-    #for learning cpp
-    clang
+
+    #helix and its lsp
+    helix
+    nil
     lldb
+    #nodePackages.bash-language-server
+
+
+    #learn rust
+    clang
+    llvmPackages.bintools
+    #rustup    
+    cargo
+    rustc
+    rust-analyzer
+    rustfmt
+
 
   ];
-  
 
 
 }
