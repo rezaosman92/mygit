@@ -26,7 +26,7 @@
     tlp
     aria2
     btop
-    neofetch
+    fastfetch
     usbutils
     brave
     ffmpeg
@@ -44,29 +44,46 @@
     puddletag
     cmus
     git
-    copyq
     nload
-    cloudflare-warp
-    wireguard-tools
     nmap
-    python3
     pdfarranger
     woeusb-ng
     fzf
     lynis
     lm_sensors
+    python3
     audacity
     pciutils
     sysbench
     libreoffice
     obs-studio
     vulkan-tools
-    lutris
     firefox
-    wine
+    #cloudflare-warp
+    krita
+    efibootmgr
+    mumble
+    lazygit
+
+
+    #helix and its lsp
+    helix
+    nil
+    lldb
+    #nodePackages.bash-language-server
+
+
+    #learn rust
+    #clang
+    #llvmPackages.bintools
+    #rustup    
+    #cargo
+    #rustc
+    #rust-analyzer
+    #rustfmt
+
 
   ];
-  
 
 
 }
