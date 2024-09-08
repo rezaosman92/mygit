@@ -11,6 +11,11 @@ in pkgs.mkShell {
   rustc 
   rustfmt
   rust-analyzer
+  clippy
   
   ];
+
+  shellHook = ''
+    export PATH=/home/reza/.cargo/bin:$PATH
+  '';
 }
