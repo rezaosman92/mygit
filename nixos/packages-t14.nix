@@ -4,6 +4,15 @@
 
 { config, pkgs, ... }:
 
+#let
+#  unstable = import <nixos-unstable>
+#    {
+#      config =
+#        {
+#          allowUnfree = true;
+#        };
+#    };
+#in
 
 {
 
@@ -12,12 +21,7 @@
     extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
   };
 
-  programs.steam.enable = true;
-  programs.gamescope.enable = true;
-  programs.gamemode.enable = true;
-
   environment.systemPackages = with pkgs; [
-    bottles
     acpi
     tlp
     aria2
@@ -70,13 +74,13 @@
 
 
     #learn rust
-    #clang
-    #llvmPackages.bintools
+    clang
+    llvmPackages.bintools
     #rustup    
-    #cargo
-    #rustc
-    #rust-analyzer
-    #rustfmt
+    cargo
+    rustc
+    rust-analyzer
+    rustfmt
 
 
   ];

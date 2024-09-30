@@ -30,30 +30,25 @@
   
   programs = {
     evince.enable = true;
-    xwayland.enable = true;
   };
 
-  qt = {
-    enable = true;
-    style = "adwaita-dark";
-    platformTheme = "gnome";
-  };
-
-
+  qt.style = "adwaita";
+  qt.platformTheme = "gnome";
+  
   environment.gnome.excludePackages = with pkgs; [ 
   
-    epiphany 
-    gnome.gnome-characters 
-    gnome.totem 
-    gnome.tali 
-    gnome.iagno 
-    gnome.hitori 
-    gnome.atomix 
-    gnome-tour 
-    gnome.geary 
-    orca 
-    gnome.gnome-software 
-
+  epiphany 
+  gnome.gnome-characters 
+  gnome.totem 
+  gnome.tali 
+  gnome.iagno 
+  gnome.hitori 
+  gnome.atomix 
+  gnome-tour 
+  gnome.geary 
+  orca 
+  gnome.gnome-software 
+  
   ];
 
   environment.systemPackages = with pkgs; [
@@ -68,6 +63,7 @@
     transmission-gtk
     copyq
     #gedit
+    satty
    
   ];
   
