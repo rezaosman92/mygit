@@ -8,13 +8,14 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./de-xfce.nix
+      ./de-gnome.nix
       ./filesystem.nix
       ./gpu-amd.nix
       ./packages-t14.nix
       ./printer.nix
       #./scanner.nix
       ./systemd-resolved.nix
+      ./virt-manager.nix
     ];
 
   hardware.cpu.amd.updateMicrocode = true;
@@ -29,16 +30,20 @@
   services.fwupd.enable = true;
   services.colord.enable = true;
 
-  services.tlp.enable= true;
+  #services.tlp.enable= true;
 
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.memtest86.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  #boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_6_6;
   boot.supportedFilesystems = [ "ntfs" ];
   boot.kernelParams = [ "acpi_backlight=native" ];
+  #boot.extraModprobeConfig = ''
+  #  	options usbcore use_both_schemes=y
+  #'';
 
   
   
@@ -158,6 +163,7 @@
     noto-fonts
     fira
     fira-code
+    inter
   ];
 
   programs.adb.enable = true;
@@ -182,7 +188,7 @@
   networking = { 
     firewall = { 
       enable = true;
-      #allowedTCPPorts = [ 80 443 ];
+      allowedTCPPorts = [ 80 443 ];
       #allowedUDPPorts = [ 51215 ];
       #allowedUDPPortRanges = [
       #  { from = 4000; to = 4007; }
