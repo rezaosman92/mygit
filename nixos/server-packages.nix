@@ -7,59 +7,29 @@
 
 {
 
-  boot = {
-    kernelModules = [ "acpi_call" ];
-    extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
-  };
-
-  programs.steam.enable = true;
-  programs.gamescope.enable = true;
-  programs.gamemode.enable = true;
 
   environment.systemPackages = with pkgs; [
-    bottles
     acpi
-    tlp
     aria2
     btop
     fastfetch
     usbutils
-    brave
-    ffmpeg
     unrar
     calc
-    yt-dlp
-    bash
     bash-completion
     bashInteractive
-    mpv
     p7zip
     most
     curl
     wget
-    puddletag
-    cmus
     git
-    nload
-    nmap
-    pdfarranger
-    woeusb-ng
     fzf
     lynis
-    lm_sensors
     python3
-    audacity
     pciutils
-    sysbench
-    libreoffice
-    obs-studio
-    vulkan-tools
-    firefox
-    #cloudflare-warp
-    krita
     efibootmgr
-    mumble
     lazygit
+    cilium-cli
 
 
     #helix and its lsp
@@ -68,15 +38,6 @@
     lldb
     #nodePackages.bash-language-server
 
-
-    #learn rust
-    #clang
-    #llvmPackages.bintools
-    #rustup    
-    #cargo
-    #rustc
-    #rust-analyzer
-    #rustfmt
 
 
   ];
