@@ -145,10 +145,10 @@
   networking = { 
     firewall = { 
       enable = true;
-      allowedTCPPorts = [ 80 443 ];
+      allowedTCPPorts = [ 6443 ];
       #allowedUDPPorts = [ 51215 ];
       allowedUDPPortRanges = [
-        { from = 60000; to = 61000; }
+      #  { from = 60000; to = 61000; }
       #  { from = 8000; to = 8010; }
         ];
       };
@@ -178,7 +178,7 @@
   # and migrated your data accordingly.
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "24.05"; # Did you read the comment?
+  system.stateVersion = "24.11"; # Did you read the comment?
 
 }
 
