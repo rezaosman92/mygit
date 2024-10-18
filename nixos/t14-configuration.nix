@@ -11,11 +11,11 @@
       ./de-gnome.nix
       ./filesystem.nix
       ./gpu-amd.nix
-      ./packages-t14.nix
+      ./t14-packages.nix
       ./printer.nix
       #./scanner.nix
       ./systemd-resolved.nix
-      ./virt-manager.nix
+      ./virtualbox-host.nix
     ];
 
   hardware.cpu.amd.updateMicrocode = true;
@@ -41,10 +41,6 @@
   boot.kernelPackages = pkgs.linuxPackages_6_6;
   boot.supportedFilesystems = [ "ntfs" ];
   boot.kernelParams = [ "acpi_backlight=native" ];
-  #boot.extraModprobeConfig = ''
-  #  	options usbcore use_both_schemes=y
-  #'';
-
   
   
   networking.hostName = "nixos-t14"; 
@@ -188,7 +184,7 @@
   networking = { 
     firewall = { 
       enable = true;
-      allowedTCPPorts = [ 80 443 ];
+      #allowedTCPPorts = [ 80 443 ];
       #allowedUDPPorts = [ 51215 ];
       #allowedUDPPortRanges = [
       #  { from = 4000; to = 4007; }
