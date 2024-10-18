@@ -15,7 +15,6 @@
       ./printer.nix
       #./scanner.nix
       ./systemd-resolved.nix
-      ./virt-manager.nix
     ];
 
   hardware.cpu.amd.updateMicrocode = true;
