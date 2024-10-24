@@ -30,11 +30,11 @@
   
   networking.hostName = "nix-server"; 
   networking.networkmanager.enable = true;
-  networking.interfaces.enp0s3.ipv4.addresses = [ 
-        {
-          address = "192.168.3.70";
-        }
-    ];
+  #networking.interfaces.enp0s3.ipv4.addresses = [ 
+  #      {
+  #        address = "192.168.3.70";
+  #      }
+  #  ];
 
   
 
