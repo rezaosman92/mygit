@@ -13,7 +13,8 @@
       #./printer.nix
       #./scanner.nix
       ./systemd-resolved.nix
-      #./virt-manager.nix
+      ./virtualbox-guest.nix
+      ./k3s-master.nix
     ];
 
   zramSwap.enable = true;
@@ -29,6 +30,11 @@
   
   networking.hostName = "nix-server"; 
   networking.networkmanager.enable = true;
+  networking.interfaces.enp0s3.ipv4.addresses = [ 
+        {
+          address = "192.168.3.70";
+        }
+    ];
 
   
 
@@ -78,7 +84,7 @@
 
   services.libinput.enable = true;
 
-  users.users.nix1 = {
+  users.users.masternix = {
     isNormalUser = true;
     extraGroups = [ "networkmanager" "libvirtd" "lp" "wheel" ];
     description = "User of Nix Server";
@@ -145,8 +151,8 @@
   networking = { 
     firewall = { 
       enable = true;
-      allowedTCPPorts = [ 6443 ];
-      #allowedUDPPorts = [ 51215 ];
+      allowedTCPPorts = [ 6443 2379 2380];
+      allowedUDPPorts = [ 8472 ];
       allowedUDPPortRanges = [
       #  { from = 60000; to = 61000; }
       #  { from = 8000; to = 8010; }
