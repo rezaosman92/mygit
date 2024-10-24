@@ -1,6 +1,7 @@
 {config, pkgs, ...}:
 
 {
+
 services.rke2 = {
     enable = true;
     serverAddr = "https://127.0.0.1:6443"; #point this to server/master node
