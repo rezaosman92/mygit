@@ -60,7 +60,7 @@
     efibootmgr
     mumble
     lazygit
-    whisper-ctranslate2
+    #whisper-ctranslate2
 
 
     #helix and its lsp
