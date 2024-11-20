@@ -30,13 +30,17 @@
   
   networking.hostName = "nix-server"; 
   networking.networkmanager.enable = true;
-  #networking.interfaces.enp0s3.ipv4.addresses = [ 
-  #      {
-  #        address = "192.168.3.70";
-  #      }
-  #  ];
+  networking = {
+      interfaces.enp0s3.ipv4.addresses = [ 
+        {
+          address = "192.168.80.10";
+          prefixLength = 24;
+        }
+    ];
+    defaultGateway = "192.168.80.1";
+    
+    };
 
-  
 
 # Set your time zone.
   time.timeZone = "Asia/Jakarta";
