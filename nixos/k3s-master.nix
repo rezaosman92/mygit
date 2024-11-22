@@ -13,7 +13,11 @@ services.k3s = {
     configPath = "/etc/rancher/k3s/k3s.yaml";
     extraFlags = toString [
 
-        "--write-kubeconfig-mode 644"
+      "--write-kubeconfig-mode \"0644\""
+	    "--cluster-init"
+	    "--disable servicelb"
+	    "--disable traefik"
+	    "--disable local-storage"
 
     ];
 };
