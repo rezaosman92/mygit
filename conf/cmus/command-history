@@ -1,0 +1,11 @@
+add quran/067-Al-mulk.ogg
+add Music/
+q
+colorscheme spotify
+colorscheme green-mono-88
+colorscheme green
+save 
+save
+add quran/
+pl-create Juz 30 + Fatiha
+pl-create
