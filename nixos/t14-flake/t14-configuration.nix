@@ -108,7 +108,7 @@
 
   programs.nh = {
     enable = true;
-    flake = "~/mygit/nixos/t14-flake";
+    flake = "/home/$USER/mygit/nixos/t14-flake";
   };
 
   programs.fish = {
