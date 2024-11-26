@@ -65,7 +65,7 @@
     numlockx
     bibata-cursors
     papirus-icon-theme
-    transmission-gtk
+    transmission_4-gtk
     copyq
     #gedit
    
