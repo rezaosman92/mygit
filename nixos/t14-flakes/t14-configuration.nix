@@ -9,7 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./de-gnome.nix
-      ./filesystem.nix
+      ./filesystem-btrfs.nix
       ./gpu-amd.nix
       ./t14-packages.nix
       ./printer.nix
