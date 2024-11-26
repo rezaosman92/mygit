@@ -41,18 +41,18 @@
 
 
   environment.gnome.excludePackages = with pkgs; [ 
-  
-    epiphany 
-    gnome.gnome-characters 
-    gnome.totem 
-    gnome.tali 
-    gnome.iagno 
-    gnome.hitori 
-    gnome.atomix 
+
     gnome-tour 
-    gnome.geary 
-    orca 
-    gnome.gnome-software 
+    epiphany 
+    pkgs.gnome-characters 
+    pkgs.totem 
+    pkgs.tali 
+    pkgs.iagno 
+    pkgs.hitori 
+    pkgs.atomix 
+    pkgs.geary 
+    pkgs.gnome-software 
+    orca
 
   ];
 
