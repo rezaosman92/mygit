@@ -106,7 +106,10 @@
     description = "Reza Maulana";
   };
 
-  programs.nh.enable = true;
+  programs.nh = {
+    enable = true;
+    flake = "~/mygit/nixos/t14-flake";
+  };
 
   programs.fish = {
     enable = true;  
