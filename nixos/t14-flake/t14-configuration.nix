@@ -21,7 +21,7 @@
   hardware.cpu.amd.updateMicrocode = true;
   hardware.graphics = {
     enable = true;
-    #driSupport32Bit = true;
+    enable32Bit = true;
   };
 
   zramSwap.enable = true;
