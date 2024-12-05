@@ -9,13 +9,13 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./filesystem-xfs.nix
-      ./server-packages.nix
+      ./wserver-packages.nix
       #./printer.nix
       #./scanner.nix
       ./systemd-resolved.nix
       ./virtualbox-guest.nix
-      ./k3s-master.nix
-      ./rke2-master.nix
+      #./k3s-worker.nix
+      ./rke2-worker.nix
     ];
 
   zramSwap.enable = true;
@@ -29,7 +29,7 @@
   boot.supportedFilesystems = [ "ntfs" ];
   
   
-  networking.hostName = "nix-server"; 
+  networking.hostName = "nix-worker"; 
   networking.networkmanager.enable = true;
   networking = {
       interfaces.enp0s3.ipv4.addresses = [ 
@@ -89,13 +89,13 @@
 
   services.libinput.enable = true;
 
-  users.users.masternix = {
+  users.users.workernix = {
     isNormalUser = true;
     extraGroups = [ "networkmanager" "libvirtd" "lp" "wheel" ];
     description = "User of Nix Server";
   };
 
-  programs.nh = {                                                                                                                                                                          enable = true;                                                                                                                                                                         clean.enable = true;                                                                                                                                                                   clean.extraArgs = "--keep-since 4d --keep 3";                                                                                                                                          flake = "/home/$USER/mygit/nixos/mserver-flake";                                                                                                                                      };      
+  programs.nh = {                                                                                                                                                                          enable = true;                                                                                                                                                                         clean.enable = true;                                                                                                                                                                   clean.extraArgs = "--keep-since 4d --keep 3";                                                                                                                                          flake = "/home/$USER/mygit/nixos/wserver-flake";                                                                                                                                      };      
 
   programs.fish = {
     enable = true;  
