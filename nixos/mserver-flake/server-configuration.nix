@@ -15,6 +15,7 @@
       ./systemd-resolved.nix
       ./virtualbox-guest.nix
       ./k3s-master.nix
+      ./rke2-master.nix
     ];
 
   zramSwap.enable = true;
@@ -94,6 +95,7 @@
     description = "User of Nix Server";
   };
 
+  programs.nh = {                                                                                                                                                                          enable = true;                                                                                                                                                                         clean.enable = true;                                                                                                                                                                   clean.extraArgs = "--keep-since 4d --keep 3";                                                                                                                                          flake = "/home/$USER/mygit/nixos/mserver-flake";                                                                                                                                      };      
 
   programs.fish = {
     enable = true;  

@@ -106,6 +106,12 @@
     description = "Reza Maulana";
   };
 
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 4d --keep 3";
+    flake = "/home/$USER/mygit/nixos/x230-flake";
+  };
 
   programs.fish = {
     enable = true;  

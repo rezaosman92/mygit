@@ -94,6 +94,7 @@
     description = "User of Nix Server";
   };
 
+  programs.nh = {                                                                                                                                                                          enable = true;                                                                                                                                                                         clean.enable = true;                                                                                                                                                                   clean.extraArgs = "--keep-since 4d --keep 3";                                                                                                                                          flake = "/home/$USER/mygit/nixos/wserver-flake";                                                                                                                                      };      
 
   programs.fish = {
     enable = true;  
