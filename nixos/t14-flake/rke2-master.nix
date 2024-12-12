@@ -10,7 +10,7 @@ services.rke2 = {
     #tokenFile = ""; #only for agent/worker node
     #selinux = "true"; #for security hardening    
     nodeName = "rke2-master";
-    nodeIP = "";
+    nodeIP = "127.0.0.1";
     configPath = "/etc/rancher/rke2/config.yaml";
 };
   

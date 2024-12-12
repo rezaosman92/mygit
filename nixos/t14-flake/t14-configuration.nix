@@ -16,6 +16,7 @@
       #./scanner.nix
       ./systemd-resolved.nix
       ./virtualbox-host.nix
+      ./rke2-master.nix
     ];
 
   hardware.cpu.amd.updateMicrocode = true;
