@@ -20,7 +20,6 @@
     bottles
     acpi
     tlp
-    aria2
     btop
     fastfetch
     usbutils
@@ -36,7 +35,7 @@
     p7zip
     most
     curl
-    wget
+    wget2
     puddletag
     cmus
     git
@@ -48,7 +47,7 @@
     lynis
     lm_sensors
     python3
-    audacity
+    tenacity
     pciutils
     sysbench
     libreoffice
