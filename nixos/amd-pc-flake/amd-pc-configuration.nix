@@ -42,7 +42,7 @@
   boot.kernelParams = [ "acpi_backlight=native" ];
   
   
-  networking.hostName = "nixos-amd-t14"; 
+  networking.hostName = "nixos-amd-pc"; 
   networking.networkmanager.enable = true;
 
   
@@ -110,7 +110,7 @@
     enable = true;
     clean.enable = true;
     clean.extraArgs = "--keep-since 4d --keep 2";
-    flake = "/home/$USER/mygit/nixos/amd-pc-flake";
+    flake = "/home/$USER/mygit/nixos/amd-pc-flake/";
   };
 
   programs.fish = {
