@@ -9,7 +9,7 @@
 
    nixosConfigurations.nixos-amd-pc = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      modules = [ ./amd-pc-configuration.nix ];
+      modules = [ ./t14-configuration.nix ];
 
 
   };
