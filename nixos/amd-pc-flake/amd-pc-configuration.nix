@@ -7,7 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      ./t14-hardware-configuration.nix
       ./de-gnome.nix
       ./filesystem-btrfs.nix
       ./gpu-amd.nix
