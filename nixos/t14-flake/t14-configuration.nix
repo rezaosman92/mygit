@@ -7,11 +7,11 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./t14-hardware-configuration.nix
+      ./hardware-configuration.nix
       ./de-gnome.nix
       ./filesystem-btrfs.nix
       ./gpu-amd.nix
-      ./amd-pc-packages.nix
+      ./t14-packages.nix
       ./printer.nix
       #./scanner.nix
       ./systemd-resolved.nix
@@ -43,7 +43,7 @@
   boot.kernelParams = [ "acpi_backlight=native" ];
   
   
-  networking.hostName = "nixos-amd-pc"; 
+  networking.hostName = "nixos-t14"; 
   networking.networkmanager.enable = true;
 
   
@@ -111,7 +111,7 @@
     enable = true;
     clean.enable = true;
     clean.extraArgs = "--keep-since 4d --keep 2";
-    flake = "/home/$USER/mygit/nixos/amd-pc-flake/";
+    flake = "/home/$USER/mygit/nixos/t14-flake/";
   };
 
   programs.fish = {
