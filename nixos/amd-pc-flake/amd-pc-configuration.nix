@@ -16,7 +16,7 @@
       #./scanner.nix
       ./systemd-resolved.nix
       ./virtualbox-host.nix
-      ./rke2-master.nix
+      #./rke2-master.nix
     ];
 
   hardware.cpu.amd.updateMicrocode = true;
@@ -190,7 +190,7 @@
   networking = { 
     firewall = { 
       enable = true;
-      allowedTCPPorts = [ 9345 6443 ];
+      allowedTCPPorts = [ 9345 6443 2379 ];
       #allowedUDPPorts = [ 51215 ];
       #allowedUDPPortRanges = [
       #  { from = 4000; to = 4007; }
