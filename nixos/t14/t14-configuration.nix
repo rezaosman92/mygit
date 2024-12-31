@@ -8,14 +8,14 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./de-gnome.nix
-      ./filesystem-btrfs.nix
-      ./gpu-amd.nix
+      ./../de-gnome.nix
+      ./../filesystem-btrfs.nix
+      ./../gpu-amd.nix
       ./t14-packages.nix
-      ./printer.nix
+      ./../printer.nix
       #./scanner.nix
-      ./systemd-resolved.nix
-      ./virtualbox-host.nix
+      ./../systemd-resolved.nix
+      ./../virtualbox-host.nix
       #./rke2-master.nix
     ];
 

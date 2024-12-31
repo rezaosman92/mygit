@@ -8,7 +8,7 @@
   outputs = { self, nixpkgs, ... }: {
     nixosConfigurations.nixos-t14 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      modules = [ ./t14-configuration.nix ];
+      modules = [ ./t14/t14-configuration.nix ];
     };
 
     nixosConfigurations.nixos-intel-pc = nixpkgs.lib.nixosSystem {
