@@ -8,8 +8,8 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./../de-gnome.nix
-      ./../filesystem-btrfs.nix
+      ./../de/de-gnome.nix
+      ./../filesystem/btrfs.nix
       ./../gpu-amd.nix
       ./t14-packages.nix
       ./../printer.nix
@@ -111,7 +111,7 @@
     enable = true;
     clean.enable = true;
     clean.extraArgs = "--keep-since 4d --keep 2";
-    flake = "/home/$USER/mygit/nixos/t14-flake/";
+    flake = "/home/$USER/mygit/nixos/";
   };
 
   programs.fish = {
