@@ -10,13 +10,13 @@
       ./hardware-configuration.nix
       ./../de/de-gnome.nix
       ./../filesystem/btrfs.nix
-      ./../gpu-amd.nix
+      ./../common/gpu-amd.nix
       ./t14-packages.nix
-      ./../printer.nix
-      #./scanner.nix
-      ./../systemd-resolved.nix
-      ./../virtualbox-host.nix
-      #./rke2-master.nix
+      ./../common/printer.nix
+      #./../common/scanner.nix
+      ./../common/systemd-resolved.nix
+      ./../common/virtualbox-host.nix
+      #./../common/rke2-master.nix
     ];
 
   hardware.cpu.amd.updateMicrocode = true;
