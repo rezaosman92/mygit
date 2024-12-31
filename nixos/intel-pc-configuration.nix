@@ -8,21 +8,20 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./de-gnome.nix
-      ./filesystem-btrfs.nix
-      ./gpu-amd.nix
-      ./t14-packages.nix
+      ./de-xfce.nix
+      ./filesystem.nix
+      ./xorg-intel.nix
+      ./intel-pc-packages.nix
       ./printer.nix
       #./scanner.nix
       ./systemd-resolved.nix
-      ./virtualbox-host.nix
-      #./rke2-master.nix
     ];
 
-  hardware.cpu.amd.updateMicrocode = true;
-  hardware.graphics = {
+  hardware.cpu.intel.updateMicrocode = true;
+  hardware.opengl = {
     enable = true;
-    enable32Bit = true;
+    driSupport = true;
+    driSupport32Bit = true;
   };
 
   zramSwap.enable = true;
@@ -30,20 +29,20 @@
   services.fwupd.enable = true;
   services.colord.enable = true;
 
-  #services.tlp.enable= true;
+  services.tlp.enable= true;
 
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.memtest86.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_6_12;
-  #boot.kernelPackages = pkgs.linuxPackages_6_6;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.supportedFilesystems = [ "ntfs" ];
   boot.kernelParams = [ "acpi_backlight=native" ];
+
   
   
-  networking.hostName = "nixos-t14"; 
+  networking.hostName = "nixos-intel-pc"; 
   networking.networkmanager.enable = true;
 
   
@@ -103,15 +102,15 @@
 
   users.users.reza = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "adbusers" "libvirtd" "scanner" "lp" "vboxusers" ];
+    extraGroups = [ "networkmanager" "adbusers" "libvirtd" "scanner" "lp" "vboxusers" ];
     description = "Reza Maulana";
   };
 
   programs.nh = {
     enable = true;
     clean.enable = true;
-    clean.extraArgs = "--keep-since 4d --keep 2";
-    flake = "/home/$USER/mygit/nixos/t14-flake/";
+    clean.extraArgs = "--keep-since 4d --keep 3";
+    flake = "/home/$USER/mygit/nixos/intel-pc-flake";
   };
 
   programs.fish = {
@@ -123,7 +122,7 @@
   programs.tmux.enable = true;
 
   #programs.gamescope.enable = true;
-  programs.gamemode.enable = true;
+  #programs.gamemode.enable = true;
 
 #  services.emacs = {
 #    enable = true;
@@ -165,7 +164,6 @@
     noto-fonts
     fira
     fira-code
-    inter
   ];
 
   programs.adb.enable = true;
@@ -190,7 +188,7 @@
   networking = { 
     firewall = { 
       enable = true;
-      allowedTCPPorts = [ 9345 6443 2379 ];
+      #allowedTCPPorts = [ 80 443 ];
       #allowedUDPPorts = [ 51215 ];
       #allowedUDPPortRanges = [
       #  { from = 4000; to = 4007; }
@@ -204,7 +202,7 @@
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
   # accidentally delete configuration.nix.
-  #system.copySystemConfiguration = true;
+  system.copySystemConfiguration = true;
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.

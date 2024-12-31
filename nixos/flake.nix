@@ -11,9 +11,9 @@
       modules = [ ./t14-configuration.nix ];
     };
 
-    nixosConfigurations.nixos-x230 = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.nixos-intel-pc = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      modules = [ ./x230-configuration.nix ];
+      modules = [ ./intel-pc-configuration.nix ];
     };
 
     nixosConfigurations.nixos-home-pc = nixpkgs.lib.nixosSystem {
