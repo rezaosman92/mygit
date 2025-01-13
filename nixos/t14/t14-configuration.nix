@@ -38,7 +38,6 @@
   boot.loader.systemd-boot.memtest86.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_6_12;
-  #boot.kernelPackages = pkgs.linuxPackages_6_6;
   boot.supportedFilesystems = [ "ntfs" ];
   boot.kernelParams = [ "acpi_backlight=native" ];
   
@@ -105,6 +104,20 @@
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "adbusers" "libvirtd" "scanner" "lp" "vboxusers" ];
     description = "Reza Maulana";
+  };
+
+  programs.nix-ld = {  #to run unpatched binaries in nixos by exposing shlibs
+    enable = true;
+    libraries = with pkgs; [
+      stdenv.cc.cc
+      zlib
+      fuse3
+      icu
+      nss
+      openssl
+      curl
+      expat
+    ];
   };
 
   programs.nh = {

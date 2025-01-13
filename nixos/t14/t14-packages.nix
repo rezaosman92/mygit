@@ -55,7 +55,7 @@
     vulkan-tools
     firefox
     #cloudflare-warp
-    krita
+    gimp
     efibootmgr
     mumble
     lazygit
