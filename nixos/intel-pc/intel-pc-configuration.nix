@@ -8,13 +8,13 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./de-xfce.nix
-      ./filesystem.nix
-      ./xorg-intel.nix
-      ./intel-pc-packages.nix
-      ./printer.nix
-      #./scanner.nix
-      ./systemd-resolved.nix
+      ./../de/de-xfce.nix
+      ./../filesystem/xfs.nix
+      ./../common/xorg-intel.nix
+      ./../intel-pc/intel-pc-packages.nix
+      ./../common/printer.nix
+      #./../common/scanner.nix
+      ./../common/systemd-resolved.nix
     ];
 
   hardware.cpu.intel.updateMicrocode = true;
