@@ -13,13 +13,13 @@
 
     nixosConfigurations.nixos-intel-pc = nixpkgs.lib.nixosSystem { #must be same with configured hostname in main config file
       system = "x86_64-linux";
-      modules = [ ./intel-pc-configuration.nix ];
+      modules = [ ./intel-pc/intel-pc-configuration.nix ];
     };
 
-    nixosConfigurations.nixos-home-pc = nixpkgs.lib.nixosSystem { #must be same with configured hostname in main config file
-      system = "x86_64-linux";
-      modules = [ ./home-pc-configuration.nix ];
-    };
+  #  nixosConfigurations.nixos-home-pc = nixpkgs.lib.nixosSystem { #must be same with configured hostname in main config file
+  #    system = "x86_64-linux";
+  #    modules = [ ./home-pc-configuration.nix ];
+  #  };
   };
 }
 
