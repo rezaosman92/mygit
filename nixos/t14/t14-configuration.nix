@@ -59,6 +59,10 @@
     "id_ID.UTF-8/UTF-8"
   ];
 
+  i18n.extraLocaleSettings = {
+    LC_ALL = "C";
+  };
+
     
   console = {
     font = "Lat2-Terminus16";
