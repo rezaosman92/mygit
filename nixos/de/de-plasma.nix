@@ -38,7 +38,7 @@
     okular
   #  libsForQt5.breeze-gtk
   #  libsForQt5.kde-gtk-config
-    transmission-qt
+    transmission_4-qt
     papirus-icon-theme
   ];
 
