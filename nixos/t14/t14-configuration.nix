@@ -57,10 +57,11 @@
     "en_US.UTF-8/UTF-8"
     "en_GB.UTF-8/UTF-8" 
     "id_ID.UTF-8/UTF-8"
+    "C.UTF-8/UTF-8"
   ];
 
   i18n.extraLocaleSettings = {
-    LC_ALL = "C";
+    LC_ALL = "C.UTF-8";
   };
 
     
