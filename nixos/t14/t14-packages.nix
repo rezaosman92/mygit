@@ -51,7 +51,8 @@
     pciutils
     sysbench
     libreoffice
-    obs-studio
+    #wpsoffice
+    #obs-studio
     vulkan-tools
     firefox
     #cloudflare-warp
