@@ -40,6 +40,7 @@
   #  libsForQt5.kde-gtk-config
     transmission_4-qt
     papirus-icon-theme
+    kdePackages.plasma-integration
   ];
 
 
