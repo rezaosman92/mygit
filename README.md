@@ -3,17 +3,17 @@
 This repo contains my personal config files. Currently, I use NixOS so mostly I only updating configuration.nix.
 
 For my NixOS, I currently use:
-- Kernel linux-latest.
+- Kernel linux-lts.
 - Setting one user as administrator with sudo access.
 - Enabled Intel and AMD microcode.
 - Enabled OpenGL Driver Support for 64 & 32 bit.
 - Enabled support for NTFS filesystem.
 - Enabled NextDNS via systemd-resolved.
-- Enabled X Server with Xfce, LightDM and libinput.
+- Enabled X Server with Xfce, LightDM and libinput (but now I'm using Plasma in Wayland).
 - Enabled Picom.
 - Enabled to pull non-free packages. 
 - Enabled Fish as default shell.
-- Enabled Emacs as default editor.
+- Helix as default editor.
 - Enabled Flatpak.
 - Enabled PipeWire replacing PulseAudio.
 - Enabled FStrim.
