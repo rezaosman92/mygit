@@ -36,8 +36,6 @@
   
   environment.systemPackages = with pkgs; [
     okular
-  #  libsForQt5.breeze-gtk
-  #  libsForQt5.kde-gtk-config
     transmission_4-qt
     papirus-icon-theme
     #kdePackages.plasma-integration
