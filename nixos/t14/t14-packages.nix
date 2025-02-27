@@ -67,17 +67,8 @@
     helix
     nil
     lldb
-    #nodePackages.bash-language-server
+    nixpkgs-fmt
 
-
-    #learn rust
-    #clang
-    #llvmPackages.bintools
-    #rustup    
-    #cargo
-    #rustc
-    #rust-analyzer
-    #rustfmt
 
 
   ];
