@@ -29,7 +29,6 @@
   services.gvfs.enable = true;
   
   programs = {
-    evince.enable = true;
     xwayland.enable = true;
   };
 
@@ -59,15 +58,16 @@
   environment.systemPackages = with pkgs; [
     pkgs.gnome-tweaks
     pkgs.gnome-session
-    #gnomeExtensions.user-themes
-    #gnomeExtensions.clipboard-indicator
+    gnomeExtensions.user-themes
+    gnomeExtensions.clipboard-indicator
     libsForQt5.qtstyleplugin-kvantum
     numlockx
     bibata-cursors
     papirus-icon-theme
     transmission_4-gtk
-    copyq
+    #copyq
     ptyxis
+    papers
    
   ];
   
