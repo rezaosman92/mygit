@@ -57,8 +57,8 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    pkgs.gnome-tweaks
-    pkgs.gnome-session
+    gnome-tweaks
+    gnome-session
     gnomeExtensions.user-themes
     gnomeExtensions.clipboard-indicator
     kdePackages.qtstyleplugin-kvantum
