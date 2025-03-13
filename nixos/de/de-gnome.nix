@@ -60,7 +60,7 @@
     pkgs.gnome-session
     gnomeExtensions.user-themes
     gnomeExtensions.clipboard-indicator
-    libsForQt5.qtstyleplugin-kvantum
+    kdePackages.qtstyleplugin-kvantum
     numlockx
     bibata-cursors
     papirus-icon-theme
