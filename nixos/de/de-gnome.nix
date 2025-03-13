@@ -34,8 +34,8 @@
 
   qt = {
     enable = true;
-    style = "adwaita";
-    platformTheme = "gnome";
+    style = "kvantum";
+    #platformTheme = "gnome";
   };
 
 
@@ -43,15 +43,16 @@
 
     gnome-tour 
     epiphany 
-    pkgs.gnome-characters 
-    pkgs.totem 
-    pkgs.tali 
-    pkgs.iagno 
-    pkgs.hitori 
-    pkgs.atomix 
-    pkgs.geary 
-    pkgs.gnome-software 
+    gnome-characters 
+    totem 
+    tali 
+    iagno 
+    hitori 
+    atomix 
+    geary 
+    gnome-software 
     orca
+    xterm
 
   ];
 
@@ -61,6 +62,9 @@
     gnomeExtensions.user-themes
     gnomeExtensions.clipboard-indicator
     kdePackages.qtstyleplugin-kvantum
+    orchis-theme
+    ostree
+    appstream-glib
     numlockx
     bibata-cursors
     papirus-icon-theme
