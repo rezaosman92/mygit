@@ -14,7 +14,7 @@
       ./t14-packages.nix
       ./../common/printer.nix
       #./../common/scanner.nix
-      ./../common/systemd-resolved.nix
+      # ./../common/systemd-resolved.nix
       ./../common/virtualbox-host.nix
       #./../common/rke2-master.nix
     ];
@@ -158,6 +158,7 @@
                    '';
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  # environment.pathsToLink = [ "share/foot" ];
   
   environment = {
     shellAliases = {

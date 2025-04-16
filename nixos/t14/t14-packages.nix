@@ -51,8 +51,7 @@
     pciutils
     sysbench
     libreoffice
-    #wpsoffice
-    #obs-studio
+    # obs-studio
     vulkan-tools
     firefox
     #cloudflare-warp
@@ -60,7 +59,11 @@
     efibootmgr
     mumble
     lazygit
-    #whisper-ctranslate2
+    # whisper-ctranslate2
+    # video2x
+    # bookworm
+    # calibre
+    foot
 
 
     #helix and its lsp
