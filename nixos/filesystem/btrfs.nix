@@ -10,6 +10,10 @@ fileSystems = {
 
 "/var/log".options = [ "compress-force=zstd:3" "defaults" "rw" "discard=async" ];
 
+"/var/cache".options = [ "compress-force=zstd:3" "defaults" "rw" "discard=async" ];
+
+"/nix".options = [ "compress-force=zstd:3" "defaults" "rw" "discard=async" ];
+
 };
   
   

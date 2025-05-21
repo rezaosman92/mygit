@@ -12,7 +12,11 @@
     videoDrivers = ["amdgpu"];
   };
 
-  boot.initrd.kernelModules = [ "amdgpu" ];
+  hardware.amdgpu = {
+    initrd.enable = true;
+    amdvlk.enable = true;
+
+    };
 
 }
 
