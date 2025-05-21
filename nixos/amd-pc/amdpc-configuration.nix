@@ -73,7 +73,7 @@
   services.xserver.xkb.layout="us";
 
 
-  hardware.bluetooth.enable = true;
+  # hardware.bluetooth.enable = true;
 
   xdg.portal = {
     enable = true;
