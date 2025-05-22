@@ -7,7 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      /etc/nixos/hardware-configuration.nix
+      ./hardware-configuration.nix
       ./../de/de-gnome.nix
       ./../filesystem/btrfs.nix
       ./../common/gpu-amd.nix
@@ -17,6 +17,7 @@
       ./../common/systemd-resolved.nix
       # ./../common/virtualbox-host.nix
       #./../common/rke2-master.nix
+      ./../common/foot.nix
     ];
 
   # hardware.cpu.amd.updateMicrocode = true;

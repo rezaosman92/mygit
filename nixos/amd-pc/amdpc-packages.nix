@@ -59,8 +59,6 @@
     # video2x
     # bookworm
     # calibre
-    foot
-
 
     #helix and its lsp
     helix
