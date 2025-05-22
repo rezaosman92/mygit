@@ -41,6 +41,8 @@
 
     gnome-tour 
     epiphany 
+    gnome-software 
+    gnome-console
     gnome-characters 
     totem 
     tali 
@@ -48,7 +50,6 @@
     hitori 
     atomix 
     geary 
-    gnome-software 
     orca
     xterm
 
@@ -59,6 +60,7 @@
     gnome-session
     gnomeExtensions.user-themes
     gnomeExtensions.clipboard-indicator
+    gnomeExtensions.light-style
     kdePackages.qtstyleplugin-kvantum
     orchis-theme
     ostree

@@ -15,6 +15,7 @@ programs.foot = {
               bold-text-in-bright = "yes";
               
             };
+
           scrollback = {
               lines = 100000;
             };
