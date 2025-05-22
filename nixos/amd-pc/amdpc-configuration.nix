@@ -17,7 +17,7 @@
       ./../common/systemd-resolved.nix
       # ./../common/virtualbox-host.nix
       #./../common/rke2-master.nix
-      ./../common/foot.nix
+      ./../common/footandtmux.nix
     ];
 
   # hardware.cpu.amd.updateMicrocode = true;
@@ -133,8 +133,6 @@
   };
 
   users.defaultUserShell = pkgs.fish;
-
-  programs.tmux.enable = true;
 
 #  services.emacs = {
 #    enable = true;

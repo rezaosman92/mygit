@@ -17,10 +17,18 @@ programs.foot = {
             };
 
           scrollback = {
-              lines = 100000;
+              lines = 10000;
             };
         };
 
+    };
+
+programs.tmux = {
+        enable = true;
+        historyLimit = 10000;
+        clock24 = true;
+        terminal = "foot";
+        newSession = true;
     };
 
 }
