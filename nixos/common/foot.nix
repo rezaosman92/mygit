@@ -3,14 +3,14 @@
 {
 programs.foot = {
     enable = true;
-    theme = "modus_operandi";
+    theme = "modus-operandi";
 
     
     settings = 
         {
           main = {
               font = "AdwaitaMono:style=Bold:size=12";
-              box-drawing-uses-font-glyphs = "yes";
+              box-drawings-uses-font-glyphs = "yes";
               initial-window-mode = "maximized";
               bold-text-in-bright = "yes";
               
