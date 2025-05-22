@@ -67,7 +67,6 @@
 
     
   console = {
-    font = "Lat2-Terminus16";
     useXkbConfig = true; # use xkbOptions in tty.
   };
 
@@ -90,8 +89,6 @@
     alsa.enable = true;
     alsa.support32Bit = true;
   };
-
-#  services.fstrim.enable = true;
 
   services.earlyoom = {
     enable = true;
