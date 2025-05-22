@@ -9,8 +9,6 @@
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
 
-  hardware.pulseaudio.enable = false;
-  
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
