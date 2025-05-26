@@ -33,7 +33,7 @@
     _7zz
     most
     curl
-    wget2
+    aria2
     puddletag
     cmus
     git

@@ -29,6 +29,8 @@
 
   zramSwap.enable = true;
 
+  system.rebuild.enableNg = true;
+
   services.fwupd.enable = true;
   services.colord.enable = true;
 
