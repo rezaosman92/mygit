@@ -30,6 +30,7 @@
   zramSwap.enable = true;
 
   system.rebuild.enableNg = true;
+  systemd.services.NetworkManager-wait-online.enable = false;
 
   services.fwupd.enable = true;
   services.colord.enable = true;
