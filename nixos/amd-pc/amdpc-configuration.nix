@@ -18,6 +18,7 @@
       # ./../common/virtualbox-host.nix
       #./../common/rke2-master.nix
       ./../common/footandtmux.nix
+      ./../common/flox.nix
     ];
 
   # hardware.cpu.amd.updateMicrocode = true;
@@ -31,6 +32,7 @@
 
   system.rebuild.enableNg = true;
   systemd.services.NetworkManager-wait-online.enable = false;
+  powerManagement.cpuFreqGovernor = "performance";
 
   services.fwupd.enable = true;
   services.colord.enable = true;
