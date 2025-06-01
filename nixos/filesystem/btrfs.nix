@@ -14,7 +14,7 @@ fileSystems = {
 
 "/nix".options = [ "compress-force=zstd:3" "defaults" "rw" "discard=async" ];
 
-"/boot/efi".options = [ "defaults" "rw" ];
+"/efi".options = [ "defaults" "rw" ];
 
 };
   
