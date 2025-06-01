@@ -49,10 +49,13 @@
       enable = true;
       efiSupport = true;
       memtest86.enable = true;
+      # device = "/dev/disk/by-uuid/3436-5EED";
+      device = "nodev";
     };
   };
 
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.efiSysMountPoint = "/efi";
   boot.kernelPackages = pkgs.linuxPackages_6_12;
   boot.supportedFilesystems = [ "ntfs" ];
   boot.kernelParams = [ "acpi_backlight=native" ];
