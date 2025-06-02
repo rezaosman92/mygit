@@ -37,9 +37,6 @@
   services.fwupd.enable = true;
   services.colord.enable = true;
 
-  #services.tlp.enable= true;
-
-
   # Use the systemd-boot EFI boot loader.
   # boot.loader.systemd-boot.enable = true;
   # boot.loader.systemd-boot.memtest86.enable = true;
@@ -49,13 +46,15 @@
       enable = true;
       efiSupport = true;
       memtest86.enable = true;
-      # device = "/dev/disk/by-uuid/3436-5EED";
       device = "nodev";
+    };
+
+    efi = {
+      canTouchEfiVariables = true;
+      efiSysMountPoint = "/efi";
     };
   };
 
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/efi";
   boot.kernelPackages = pkgs.linuxPackages_6_12;
   boot.supportedFilesystems = [ "ntfs" ];
   boot.kernelParams = [ "acpi_backlight=native" ];
