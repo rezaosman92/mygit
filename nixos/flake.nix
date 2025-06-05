@@ -6,17 +6,12 @@
   };
 
   outputs = { self, nixpkgs, ... }: {
-    nixosConfigurations.nixos-t14 = nixpkgs.lib.nixosSystem { #must be same with configured hostname in main config file
+    nixosConfigurations.nixos-hp845 = nixpkgs.lib.nixosSystem { #must be same with configured hostname in main config file
       system = "x86_64-linux";
-      modules = [ ./t14/t14-configuration.nix ];
+      modules = [ ./hp845/hp845-configuration.nix ];
     };
 
-    nixosConfigurations.nixos-intel-pc = nixpkgs.lib.nixosSystem { #must be same with configured hostname in main config file
-      system = "x86_64-linux";
-      modules = [ ./intel-pc/intel-pc-configuration.nix ];
-    };
-
-   nixosConfigurations.nixos-amdpc = nixpkgs.lib.nixosSystem { #must be same with configured hostname in main config file
+    nixosConfigurations.nixos-amdpc = nixpkgs.lib.nixosSystem { #must be same with configured hostname in main config file
      system = "x86_64-linux";
      modules = [ ./amd-pc/amdpc-configuration.nix ];
    };

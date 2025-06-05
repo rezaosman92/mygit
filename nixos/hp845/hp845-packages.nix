@@ -4,15 +4,6 @@
 
 { config, pkgs, ... }:
 
-#let
-#  unstable = import <nixos-unstable>
-#    {
-#      config =
-#        {
-#          allowUnfree = true;
-#        };
-#    };
-#in
 
 {
 
@@ -21,15 +12,17 @@
     extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
   };
 
+  programs.steam.enable = true;
+  programs.gamescope.enable = true;
+  programs.gamemode.enable = true;
+
   environment.systemPackages = with pkgs; [
-    acpi
-    tlp
-    aria2
+    bottles
     btop
     fastfetch
     usbutils
     brave
-    ffmpeg
+    ffmpeg-full
     unrar
     calc
     yt-dlp
@@ -37,10 +30,10 @@
     bash-completion
     bashInteractive
     mpv
-    p7zip
+    _7zz
     most
     curl
-    wget
+    aria2
     puddletag
     cmus
     git
@@ -51,36 +44,25 @@
     fzf
     lynis
     lm_sensors
-    python3
     audacity
     pciutils
     sysbench
     libreoffice
-    obs-studio
-    vulkan-tools
+    # obs-studio
     firefox
     #cloudflare-warp
-    krita
+    gimp
     efibootmgr
     mumble
     lazygit
-
+    devenv
 
     #helix and its lsp
     helix
     nil
     lldb
-    #nodePackages.bash-language-server
+    nixpkgs-fmt
 
-
-    #learn rust
-    #clang
-    #llvmPackages.bintools
-    #rustup    
-    #cargo
-    #rustc
-    #rust-analyzer
-    #rustfmt
 
 
   ];

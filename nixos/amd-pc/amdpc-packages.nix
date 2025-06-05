@@ -55,10 +55,7 @@
     efibootmgr
     mumble
     lazygit
-    # whisper-ctranslate2
-    # video2x
-    # bookworm
-    # calibre
+    devenv
 
     #helix and its lsp
     helix

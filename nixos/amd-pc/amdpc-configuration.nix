@@ -18,7 +18,6 @@
       # ./../common/virtualbox-host.nix
       #./../common/rke2-master.nix
       ./../common/footandtmux.nix
-      ./../common/flox.nix
     ];
 
   # hardware.cpu.amd.updateMicrocode = true;

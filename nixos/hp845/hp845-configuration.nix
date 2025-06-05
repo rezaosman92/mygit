@@ -8,41 +8,58 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./../de/de-xfce.nix
-      ./../filesystem/xfs.nix
-      ./../common/xorg-intel.nix
-      ./../intel-pc/intel-pc-packages.nix
-      ./../common/printer.nix
+      ./../de/de-gnome.nix
+      ./../filesystem/btrfs.nix
+      ./../common/gpu-amd.nix
+      ./hp845-packages.nix
+      # ./../common/printer.nix
       #./../common/scanner.nix
       ./../common/systemd-resolved.nix
+      # ./../common/virtualbox-host.nix
+      #./../common/rke2-master.nix
+      ./../common/footandtmux.nix
     ];
 
-  hardware.cpu.intel.updateMicrocode = true;
-  hardware.opengl = {
+  hardware.cpu.amd.updateMicrocode = true;
+  # hardware.cpu.intel.updateMicrocode = true;
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
   };
 
   zramSwap.enable = true;
 
+  system.rebuild.enableNg = true;
+  systemd.services.NetworkManager-wait-online.enable = false;
+  powerManagement.cpuFreqGovernor = "performance";
+
   services.fwupd.enable = true;
   services.colord.enable = true;
 
-  services.tlp.enable= true;
-
-
   # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.systemd-boot.memtest86.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # boot.loader.systemd-boot.enable = true;
+  # boot.loader.systemd-boot.memtest86.enable = true;
+
+  boot.loader = {
+    grub = {
+      enable = true;
+      efiSupport = true;
+      memtest86.enable = true;
+      device = "nodev";
+    };
+
+    efi = {
+      canTouchEfiVariables = true;
+      efiSysMountPoint = "/efi";
+    };
+  };
+
+  boot.kernelPackages = pkgs.linuxPackages_6_12;
   boot.supportedFilesystems = [ "ntfs" ];
   boot.kernelParams = [ "acpi_backlight=native" ];
-
   
   
-  networking.hostName = "nixos-intel-pc"; 
+  networking.hostName = "nixos-hp845"; 
   networking.networkmanager.enable = true;
 
   
@@ -52,29 +69,26 @@
 
 
 # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = "C.UTF-8";
   i18n.supportedLocales = [
     "en_US.UTF-8/UTF-8"
     "en_GB.UTF-8/UTF-8" 
-    "id_ID.UTF-8/UTF-8"
+    "C.UTF-8/UTF-8"
   ];
 
   i18n.extraLocaleSettings = {
-    LC_ALL = "en_GB.UTF-8";
-
-    
+    LC_ALL = "C.UTF-8";
   };
 
-  
+    
   console = {
-    font = "Lat2-Terminus16";
     useXkbConfig = true; # use xkbOptions in tty.
   };
 
   services.xserver.xkb.layout="us";
 
 
-  hardware.bluetooth.enable = true;
+  # hardware.bluetooth.enable = true;
 
   xdg.portal = {
     enable = true;
@@ -86,11 +100,10 @@
   services.pipewire = {
     enable = true;
     pulse.enable = true;
+    jack.enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
   };
-
-#  services.fstrim.enable = true;
 
   services.earlyoom = {
     enable = true;
@@ -102,15 +115,29 @@
 
   users.users.reza = {
     isNormalUser = true;
-    extraGroups = [ "networkmanager" "adbusers" "libvirtd" "scanner" "lp" "vboxusers" ];
+    extraGroups = [ "wheel" "networkmanager" "adbusers" "libvirtd" "scanner" "lp" "vboxusers" ];
     description = "Reza Maulana";
+  };
+
+  programs.nix-ld = {  #to run unpatched binaries in nixos by exposing shlibs
+    enable = true;
+    libraries = with pkgs; [
+      stdenv.cc.cc
+      zlib
+      fuse3
+      icu
+      nss
+      openssl
+      curl
+      expat
+    ];
   };
 
   programs.nh = {
     enable = true;
     clean.enable = true;
-    clean.extraArgs = "--keep-since 4d --keep 3";
-    flake = "/home/$USER/mygit/nixos/intel-pc-flake";
+    clean.extraArgs = "--keep-since 4d --keep 2";
+    flake = "/home/$USER/mygit/nixos/";
   };
 
   programs.fish = {
@@ -118,11 +145,6 @@
   };
 
   users.defaultUserShell = pkgs.fish;
-
-  programs.tmux.enable = true;
-
-  #programs.gamescope.enable = true;
-  #programs.gamemode.enable = true;
 
 #  services.emacs = {
 #    enable = true;
@@ -140,12 +162,9 @@
 
   nix.settings.auto-optimise-store = true;
   
-  nix.extraOptions = ''
-  experimental-features = nix-command flakes
-                   '';
+  nix.extraOptions =
+  '' experimental-features = nix-command flakes '';
 
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
-  
   environment = {
     shellAliases = {
       "ec" = "emacsclient -t";
@@ -162,8 +181,8 @@
   fonts.packages = with pkgs; [
     liberation_ttf
     noto-fonts
-    fira
-    fira-code
+    inter
+    iosevka
   ];
 
   programs.adb.enable = true;
@@ -180,15 +199,14 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-  services.openssh.allowSFTP = true;
+  # services.openssh.enable = true;
+  # services.openssh.allowSFTP = true;
   programs.mosh.enable = true;
 
-  
-  networking = { 
+    networking = { 
     firewall = { 
       enable = true;
-      #allowedTCPPorts = [ 80 443 ];
+      allowedTCPPorts = [ 9345 6443 2379 ];
       #allowedUDPPorts = [ 51215 ];
       #allowedUDPPortRanges = [
       #  { from = 4000; to = 4007; }
@@ -198,11 +216,11 @@
     nftables.enable = true;
   };
 
-
+ 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
   # accidentally delete configuration.nix.
-  system.copySystemConfiguration = true;
+  #system.copySystemConfiguration = true;
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
@@ -221,7 +239,7 @@
   # and migrated your data accordingly.
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "24.05"; # Did you read the comment?
+  system.stateVersion = "25.05"; # Did you read the comment?
 
 }
 
