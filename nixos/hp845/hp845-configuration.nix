@@ -62,8 +62,6 @@
   networking.hostName = "nixos-hp845"; 
   networking.networkmanager.enable = true;
 
-  
-
 # Set your time zone.
   time.timeZone = "Asia/Jakarta";
 
