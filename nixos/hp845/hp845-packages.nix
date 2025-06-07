@@ -55,6 +55,7 @@
     efibootmgr
     mumble
     lazygit
+    tlp
     devenv
 
     #helix and its lsp
