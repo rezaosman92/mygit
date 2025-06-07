@@ -144,12 +144,6 @@
 
   users.defaultUserShell = pkgs.fish;
 
-#  services.emacs = {
-#    enable = true;
-#    defaultEditor = true;
-#    package = pkgs.emacs-nox;
-#  };
-
   services.flatpak.enable = true;
   fonts.fontDir.enable = true;
 
