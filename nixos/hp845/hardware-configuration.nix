@@ -8,45 +8,45 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci_renesas" "nvme" "xhci_pci" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/4c086da3-7357-4a24-a94b-f0613b44e816";
+    { device = "/dev/disk/by-uuid/67ae43b9-320e-4d94-a77a-a71c87cebc54";
       fsType = "btrfs";
       options = [ "subvol=@" ];
     };
 
+  fileSystems."/efi" =
+    { device = "/dev/disk/by-uuid/A453-5FB9";
+      fsType = "vfat";
+      options = [ "fmask=0022" "dmask=0022" ];
+    };
+
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/4c086da3-7357-4a24-a94b-f0613b44e816";
+    { device = "/dev/disk/by-uuid/67ae43b9-320e-4d94-a77a-a71c87cebc54";
       fsType = "btrfs";
       options = [ "subvol=@home" ];
     };
 
-  fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/4c086da3-7357-4a24-a94b-f0613b44e816";
-      fsType = "btrfs";
-      options = [ "subvol=@nix" ];
-    };
-
   fileSystems."/var/cache" =
-    { device = "/dev/disk/by-uuid/4c086da3-7357-4a24-a94b-f0613b44e816";
+    { device = "/dev/disk/by-uuid/67ae43b9-320e-4d94-a77a-a71c87cebc54";
       fsType = "btrfs";
       options = [ "subvol=@cache" ];
     };
 
   fileSystems."/var/log" =
-    { device = "/dev/disk/by-uuid/4c086da3-7357-4a24-a94b-f0613b44e816";
+    { device = "/dev/disk/by-uuid/67ae43b9-320e-4d94-a77a-a71c87cebc54";
       fsType = "btrfs";
       options = [ "subvol=@log" ];
     };
 
-  fileSystems."/efi" =
-    { device = "/dev/disk/by-uuid/0840-9C01";
-      fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
+  fileSystems."/nix" =
+    { device = "/dev/disk/by-uuid/67ae43b9-320e-4d94-a77a-a71c87cebc54";
+      fsType = "btrfs";
+      options = [ "subvol=@nix" ];
     };
 
   swapDevices = [ ];
@@ -56,8 +56,8 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp3s0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.wlp1s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
