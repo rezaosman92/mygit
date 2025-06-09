@@ -14,7 +14,7 @@
       ./hp845-packages.nix
       # ./../common/printer.nix
       #./../common/scanner.nix
-      ./../common/dnscrypt-proxy.nix
+      ./../common/systemd-resolved.nix
       # ./../common/virtualbox-host.nix
       #./../common/rke2-master.nix
       ./../common/footandtmux.nix
@@ -198,8 +198,8 @@
     networking = { 
     firewall = { 
       enable = true;
-      allowedTCPPorts = [ 9345 6443 2379 ];
-      #allowedUDPPorts = [ 51215 ];
+      allowedTCPPorts = [ 53 ];
+      allowedUDPPorts = [ 53 ];
       #allowedUDPPortRanges = [
       #  { from = 4000; to = 4007; }
       #  { from = 8000; to = 8010; }
