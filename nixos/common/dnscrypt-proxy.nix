@@ -33,12 +33,12 @@ in
       # Here it's from https://github.com/DNSCrypt/dnscrypt-resolvers/blob/master/v3/public-resolvers.md
       # If you don't specify any, dnscrypt-proxy will automatically rank servers
       # that match your criteria and choose the best one.
-      # server_names = "NextDNS-b6ec66";
-      #  static = {
-      #         "NextDNS-b6ec66" = {
-      #          stamp = "sdns://AgEAAAAAAAAAAAAOZG5zLm5leHRkbnMuaW8HL2I2ZWM2Ng";
-      #         };
-      #     };
+      server_names = ["NextDNS-b6ec66"];
+       static = {
+              "NextDNS-b6ec66" = {
+               stamp = "sdns://AgEAAAAAAAAAAAAOZG5zLm5leHRkbnMuaW8HL2I2ZWM2Ng";
+              };
+          };
   };
 
   };
