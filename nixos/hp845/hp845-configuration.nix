@@ -148,7 +148,7 @@
   services.flatpak.enable = true;
   fonts.fontDir.enable = true;
 
-
+  nix.settings.trusted-users = [ "root" "reza" ];                                                                                                                                          
   nixpkgs.config = {
     allowUnfree = true;
     };
