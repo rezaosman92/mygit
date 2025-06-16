@@ -14,7 +14,8 @@
       ./amdpc-packages.nix
       # ./../common/printer.nix
       #./../common/scanner.nix
-      ./../common/systemd-resolved.nix
+      ./../common/dnscrypt-proxy.nix
+      ./../common/cloudflare-warp.nix
       # ./../common/virtualbox-host.nix
       #./../common/rke2-master.nix
       ./../common/footandtmux.nix
