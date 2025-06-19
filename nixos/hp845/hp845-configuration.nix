@@ -12,12 +12,12 @@
       ./../filesystem/btrfs.nix
       ./../common/gpu-amd.nix
       ./hp845-packages.nix
-      # ./../common/printer.nix
+      ./../common/printer.nix
       #./../common/scanner.nix
       ./../common/cloudflare-warp.nix
       ./../common/dnscrypt-proxy.nix
       # ./../common/virtualbox-host.nix
-      #./../common/rke2-master.nix
+      ./../common/emacs.nix
       ./../common/footandtmux.nix
     ];
 
