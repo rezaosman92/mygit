@@ -1,11 +1,11 @@
-{config, pkgs, ...};
+{config, pkgs, ...}:
 
 {
 
 services.emacs = {
   enable = true;
   install = true;
-  package = "pkgs.emacs-pgtk";
+  package = pkgs.emacs-pgtk;
   defaultEditor = true;
 
 };
