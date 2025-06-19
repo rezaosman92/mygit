@@ -1,9 +1,20 @@
 # Devenv
-.devenv*
-devenv.local.nix
+# .devenv*
+# devenv.local.nix
 
 # direnv
-.direnv
+# .direnv
 
 # pre-commit
-.pre-commit-config.yaml
+# .pre-commit-config.yaml
+#
+
+
+# ignore everything
+*
+
+# but not these
+!devenv.nix
+!devenv.yaml
+!devenv.lock
+
