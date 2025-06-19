@@ -6,6 +6,10 @@
     channel = "stable";
   };
 
+  packages = with pkgs; [
+    openssl
+  ];
+
   # See full reference at https://devenv.sh/reference/options/
 }
 
