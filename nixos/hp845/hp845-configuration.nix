@@ -6,7 +6,8 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./../de/de-gnome.nix
       ./../filesystem/btrfs.nix
@@ -18,6 +19,7 @@
       ./../common/dnscrypt-proxy.nix
       # ./../common/virtualbox-host.nix
       ./../common/foot.nix
+      ./../common/helix.nix
     ];
 
   hardware.cpu.amd.updateMicrocode = true;
@@ -57,9 +59,9 @@
   boot.kernelPackages = pkgs.linuxPackages_6_12;
   boot.supportedFilesystems = [ "ntfs" ];
   boot.kernelParams = [ "acpi_backlight=native" ];
-  
-  
-  networking.hostName = "nixos-hp845"; 
+
+
+  networking.hostName = "nixos-hp845";
   networking.networkmanager.enable = true;
 
   # Set your time zone.
@@ -70,7 +72,7 @@
   i18n.defaultLocale = "C.UTF-8";
   i18n.supportedLocales = [
     "en_US.UTF-8/UTF-8"
-    "en_GB.UTF-8/UTF-8" 
+    "en_GB.UTF-8/UTF-8"
     "C.UTF-8/UTF-8"
   ];
 
@@ -78,12 +80,12 @@
     LC_ALL = "C.UTF-8";
   };
 
-  
+
   console = {
     useXkbConfig = true; # use xkbOptions in tty.
   };
 
-  services.xserver.xkb.layout="us";
+  services.xserver.xkb.layout = "us";
 
 
   # hardware.bluetooth.enable = true;
@@ -92,7 +94,7 @@
     enable = true;
   };
 
-  
+
   # Enable sound.
   security.rtkit.enable = true;
   services.pipewire = {
@@ -117,7 +119,8 @@
     description = "Reza Maulana";
   };
 
-  programs.nix-ld = {  #to run unpatched binaries in nixos by exposing shlibs
+  programs.nix-ld = {
+    #to run unpatched binaries in nixos by exposing shlibs
     enable = true;
     libraries = with pkgs; [
       stdenv.cc.cc
@@ -139,7 +142,7 @@
   };
 
   programs.fish = {
-    enable = true;  
+    enable = true;
   };
 
   users.defaultUserShell = pkgs.fish;
@@ -147,13 +150,13 @@
   services.flatpak.enable = true;
   fonts.fontDir.enable = true;
 
-  nix.settings.trusted-users = [ "root" "reza" ];                                                                                                                                          
+  nix.settings.trusted-users = [ "root" "reza" ];
   nixpkgs.config = {
     allowUnfree = true;
   };
 
   nix.settings.auto-optimise-store = true;
-  
+
   nix.extraOptions =
     '' experimental-features = nix-command flakes '';
 
@@ -162,14 +165,14 @@
       # "ec" = "emacsclient -t";
       "most" = "most -w";
     };
-    
+
     variables = {
       PAGER = "most -w";
 
     };
 
   };
-  
+
   fonts.packages = with pkgs; [
     liberation_ttf
     noto-fonts
@@ -195,8 +198,8 @@
   # services.openssh.allowSFTP = true;
   programs.mosh.enable = true;
 
-  networking = { 
-    firewall = { 
+  networking = {
+    firewall = {
       enable = true;
       allowedTCPPorts = [ 53 ];
       allowedUDPPorts = [ 53 ];
@@ -208,7 +211,7 @@
     nftables.enable = true;
   };
 
-  
+
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
   # accidentally delete configuration.nix.
