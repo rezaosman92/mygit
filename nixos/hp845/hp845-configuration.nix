@@ -17,8 +17,7 @@
       ./../common/cloudflare-warp.nix
       ./../common/dnscrypt-proxy.nix
       # ./../common/virtualbox-host.nix
-      ./../common/emacs.nix
-      ./../common/footandtmux.nix
+      ./../common/foot.nix
     ];
 
   hardware.cpu.amd.updateMicrocode = true;
@@ -63,11 +62,11 @@
   networking.hostName = "nixos-hp845"; 
   networking.networkmanager.enable = true;
 
-# Set your time zone.
+  # Set your time zone.
   time.timeZone = "Asia/Jakarta";
 
 
-# Select internationalisation properties.
+  # Select internationalisation properties.
   i18n.defaultLocale = "C.UTF-8";
   i18n.supportedLocales = [
     "en_US.UTF-8/UTF-8"
@@ -79,7 +78,7 @@
     LC_ALL = "C.UTF-8";
   };
 
-    
+  
   console = {
     useXkbConfig = true; # use xkbOptions in tty.
   };
@@ -93,7 +92,7 @@
     enable = true;
   };
 
-    
+  
   # Enable sound.
   security.rtkit.enable = true;
   services.pipewire = {
@@ -151,26 +150,26 @@
   nix.settings.trusted-users = [ "root" "reza" ];                                                                                                                                          
   nixpkgs.config = {
     allowUnfree = true;
-    };
+  };
 
   nix.settings.auto-optimise-store = true;
   
   nix.extraOptions =
-  '' experimental-features = nix-command flakes '';
+    '' experimental-features = nix-command flakes '';
 
   environment = {
     shellAliases = {
-      "ec" = "emacsclient -t";
+      # "ec" = "emacsclient -t";
       "most" = "most -w";
     };
-  
+    
     variables = {
       PAGER = "most -w";
 
     };
 
   };
-    
+  
   fonts.packages = with pkgs; [
     liberation_ttf
     noto-fonts
@@ -196,7 +195,7 @@
   # services.openssh.allowSFTP = true;
   programs.mosh.enable = true;
 
-    networking = { 
+  networking = { 
     firewall = { 
       enable = true;
       allowedTCPPorts = [ 53 ];
@@ -205,11 +204,11 @@
       #  { from = 4000; to = 4007; }
       #  { from = 8000; to = 8010; }
       #  ];
-      };
+    };
     nftables.enable = true;
   };
 
- 
+  
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
   # accidentally delete configuration.nix.
