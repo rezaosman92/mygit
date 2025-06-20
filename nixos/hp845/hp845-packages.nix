@@ -41,7 +41,6 @@
     nmap
     pdfarranger
     woeusb-ng
-    fzf
     lynis
     lm_sensors
     audacity
@@ -50,20 +49,12 @@
     libreoffice
     # obs-studio
     firefox
-    #cloudflare-warp
     gimp
     efibootmgr
     mumble
     lazygit
     tlp
     devenv
-
-    #helix and its lsp
-    helix
-    nil
-    lldb
-    nixpkgs-fmt
-
 
 
   ];
