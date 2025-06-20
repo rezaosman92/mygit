@@ -8,6 +8,9 @@
 {
 
   environment.systemPackages = with pkgs; [
+
+    zellij
+
     #helix and its lsp
     helix
     nil
