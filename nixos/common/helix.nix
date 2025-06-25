@@ -13,7 +13,14 @@
 
     #helix and its lsp
     helix
-    nil
+    rust-analyzer
+    rustfmt
+    cargo
+    rustc
+    clippy
+
+    
+    nixd
     lldb
     nixpkgs-fmt
 
