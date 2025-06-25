@@ -1,8 +1,8 @@
-[[language]]
-name = "nix"
-formatter = { command = "nixpkgs-fmt" }
+# [[language]]
+# name = "nix"
+# formatter = { command = "nixpkgs-fmt" }
 
 
 
-[language-server.rust-analyzer.config.check]
-command = "clippy"
+# [language-server.rust-analyzer.config.check]
+# command = "clippy"
