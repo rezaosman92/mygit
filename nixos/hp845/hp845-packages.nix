@@ -54,7 +54,7 @@
     mumble
     lazygit
     tlp
-    devenv
+    # devenv
 
 
   ];
