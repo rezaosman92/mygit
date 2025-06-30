@@ -11,16 +11,10 @@
 
     zellij
 
-    #helix and its lsp
+    #helix and its barebones lsp
     helix
-    rust-analyzer
-    rustfmt
-    cargo
-    rustc
-    clippy
-
-    
-    nixd
+        
+    nil
     lldb
     nixpkgs-fmt
 
