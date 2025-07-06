@@ -17,7 +17,7 @@
     nil
     lldb
     nixpkgs-fmt
-
+    nixfmt-rfc-style
 
 
   ];
