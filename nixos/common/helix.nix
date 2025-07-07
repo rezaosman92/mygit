@@ -15,9 +15,7 @@
     helix
         
     nil
-    lldb
     nixpkgs-fmt
-    nixfmt-rfc-style
 
 
   ];
