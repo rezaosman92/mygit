@@ -6,18 +6,28 @@
 
 {
 
-    
+
   # Enable driver for amd cards, polaris and above
   services.xserver = {
-    videoDrivers = ["amdgpu"];
+    videoDrivers = [ "amdgpu" ];
   };
 
-  hardware.amdgpu = {
-    initrd.enable = true;
-    amdvlk.enable = true;
-    amdvlk.support32Bit.enable = true;
+  hardware = {
+    amdgpu = {
+      initrd.enable = true;
+      amdvlk.enable = true;
+      amdvlk.support32Bit.enable = true;
 
     };
+
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
+
+  };
+
+
 
 }
 
