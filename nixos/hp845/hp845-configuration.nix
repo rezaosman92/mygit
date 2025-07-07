@@ -11,6 +11,7 @@
       ./hardware-configuration.nix
       ./../de/de-gnome.nix
       ./../filesystem/btrfs.nix
+      ./../common/boot.nix
       ./../common/gpu-amd.nix
       ./hp845-packages.nix
       ./../common/printer.nix
