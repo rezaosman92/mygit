@@ -32,7 +32,8 @@
   zramSwap.enable = true;
 
   system.rebuild.enableNg = true;
-  systemd.services.NetworkManager-wait-online.enable = false;
+  boot.initrd.compressor = "zstd";
+  hardware.firmwareCompression = "zstd";
   powerManagement.cpuFreqGovernor = "performance";
 
   services.fwupd.enable = true;
