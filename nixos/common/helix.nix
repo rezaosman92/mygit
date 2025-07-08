@@ -13,9 +13,10 @@
 
     #helix and its barebones lsp
     helix
-        
-    nil
+
+    nixd
     nixpkgs-fmt
+    nixfmt-rfc-style
 
 
   ];
