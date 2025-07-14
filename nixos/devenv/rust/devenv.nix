@@ -1,4 +1,9 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 {
   languages.rust = {
@@ -7,9 +12,10 @@
   };
 
   packages = with pkgs; [
+    lldb
     openssl
+    rustfmt
   ];
 
   # See full reference at https://devenv.sh/reference/options/
 }
-
