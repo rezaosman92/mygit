@@ -39,22 +39,6 @@
 
   networking.hostName = "nixos-hp845";
 
-  environment = {
-    shellAliases = {
-      # "ec" = "emacsclient -t";
-      "most" = "most -w";
-    };
-
-    variables = {
-      PAGER = "most -w";
-
-    };
-
-  };
-
-
-
-
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
   # accidentally delete configuration.nix.
