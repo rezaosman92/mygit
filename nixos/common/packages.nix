@@ -4,13 +4,14 @@
 
 { config, pkgs, ... }:
 
-
 {
 
-  boot = {
-    kernelModules = [ "acpi_call" ];
-    extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
-  };
+  # List services that you want to enable:
+
+  # Enable the OpenSSH daemon.
+  # services.openssh.enable = true;
+  # services.openssh.allowSFTP = true;
+  programs.mosh.enable = true;
 
   programs.steam.enable = true;
   programs.gamescope.enable = true;
@@ -56,9 +57,6 @@
     tlp
     devenv
 
-
   ];
 
-
 }
-  

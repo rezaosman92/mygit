@@ -5,23 +5,25 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./../de/de-gnome.nix
-      ./../filesystem/btrfs.nix
-      ./../common/boot.nix
-      ./../common/gpu-amd.nix
-      ./hp845-packages.nix
-      ./../common/printer.nix
-      #./../common/scanner.nix
-      ./../common/cloudflare-warp.nix
-      ./../common/dnscrypt-proxy.nix
-      # ./../common/virtualbox-host.nix
-      ./../common/foot.nix
-      ./../common/helix.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./../de/de-gnome.nix
+    ./../filesystem/btrfs.nix
+    ./../common/boot.nix
+    ./../common/gpu-amd.nix
+    ./../common/packages.nix
+    ./../common/printer.nix
+    #./../common/scanner.nix
+    ./../common/cloudflare-warp.nix
+    ./../common/dnscrypt-proxy.nix
+    # ./../common/virtualbox-host.nix
+    ./../common/foot.nix
+    ./../common/helix.nix
+    ./../common/audio.nix
+    ./../common/user.nix
+    ./../common/firewall.nix
+  ];
 
   hardware.cpu.amd.updateMicrocode = true;
   # hardware.cpu.intel.updateMicrocode = true;
@@ -36,13 +38,11 @@
   services.fwupd.enable = true;
   services.colord.enable = true;
 
-
   networking.hostName = "nixos-hp845";
   networking.networkmanager.enable = true;
 
   # Set your time zone.
   time.timeZone = "Asia/Jakarta";
-
 
   # Select internationalisation properties.
   i18n.defaultLocale = "C.UTF-8";
@@ -56,29 +56,16 @@
     LC_ALL = "C.UTF-8";
   };
 
-
   console = {
     useXkbConfig = true; # use xkbOptions in tty.
   };
 
   services.xserver.xkb.layout = "us";
 
-
   # hardware.bluetooth.enable = true;
 
   xdg.portal = {
     enable = true;
-  };
-
-
-  # Enable sound.
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-    jack.enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
   };
 
   services.earlyoom = {
@@ -88,12 +75,6 @@
   };
 
   services.libinput.enable = true;
-
-  users.users.reza = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "adbusers" "libvirtd" "scanner" "lp" "vboxusers" ];
-    description = "Reza Maulana";
-  };
 
   programs.nix-ld = {
     #to run unpatched binaries in nixos by exposing shlibs
@@ -126,15 +107,13 @@
   services.flatpak.enable = true;
   fonts.fontDir.enable = true;
 
-  nix.settings.trusted-users = [ "root" "reza" ];
   nixpkgs.config = {
     allowUnfree = true;
   };
 
   nix.settings.auto-optimise-store = true;
 
-  nix.extraOptions =
-    '' experimental-features = nix-command flakes '';
+  nix.extraOptions = ''experimental-features = nix-command flakes '';
 
   environment = {
     shellAliases = {
@@ -158,7 +137,6 @@
 
   programs.adb.enable = true;
 
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   programs.mtr.enable = true;
@@ -166,27 +144,6 @@
     enable = true;
     enableSSHSupport = true;
   };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-  # services.openssh.allowSFTP = true;
-  programs.mosh.enable = true;
-
-  networking = {
-    firewall = {
-      enable = true;
-      allowedTCPPorts = [ 53 ];
-      allowedUDPPorts = [ 53 ];
-      #allowedUDPPortRanges = [
-      #  { from = 4000; to = 4007; }
-      #  { from = 8000; to = 8010; }
-      #  ];
-    };
-    nftables.enable = true;
-  };
-
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
@@ -213,5 +170,3 @@
   system.stateVersion = "25.05"; # Did you read the comment?
 
 }
-
-
