@@ -12,7 +12,7 @@
     ./../filesystem/btrfs.nix
     ./../common/boot.nix
     ./../common/gpu-amd.nix
-    ./../common/packages.nix
+    ./../common/package.nix
     ./../common/printer.nix
     #./../common/scanner.nix
     ./../common/cloudflare-warp.nix
@@ -23,6 +23,8 @@
     ./../common/audio.nix
     ./../common/user.nix
     ./../common/firewall.nix
+    ./../common/localeandtime.nix
+    # ./../common/nix-ld.nix
   ];
 
   hardware.cpu.amd.updateMicrocode = true;
@@ -40,21 +42,6 @@
 
   networking.hostName = "nixos-hp845";
   networking.networkmanager.enable = true;
-
-  # Set your time zone.
-  time.timeZone = "Asia/Jakarta";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "C.UTF-8";
-  i18n.supportedLocales = [
-    "en_US.UTF-8/UTF-8"
-    "en_GB.UTF-8/UTF-8"
-    "C.UTF-8/UTF-8"
-  ];
-
-  i18n.extraLocaleSettings = {
-    LC_ALL = "C.UTF-8";
-  };
 
   console = {
     useXkbConfig = true; # use xkbOptions in tty.
@@ -76,20 +63,6 @@
 
   services.libinput.enable = true;
 
-  programs.nix-ld = {
-    #to run unpatched binaries in nixos by exposing shlibs
-    enable = true;
-    libraries = with pkgs; [
-      stdenv.cc.cc
-      zlib
-      fuse3
-      icu
-      nss
-      openssl
-      curl
-      expat
-    ];
-  };
 
   programs.nh = {
     enable = true;
