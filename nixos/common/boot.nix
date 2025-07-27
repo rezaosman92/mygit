@@ -29,4 +29,13 @@
     extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
   };
 
+  boot.initrd.compressor = "zstd";
+  hardware.firmwareCompression = "zstd";
+
+  console = {
+    useXkbConfig = true; # use xkbOptions in tty.
+  };
+
+  services.xserver.xkb.layout = "us";
+
 }

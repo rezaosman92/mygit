@@ -25,68 +25,19 @@
     ./../common/firewall.nix
     ./../common/localeandtime.nix
     # ./../common/nix-ld.nix
+    ./../common/nix-pm.nix
+    ./../common/font.nix
+    ./../common/fish.nix
+    ./../common/env.nix
   ];
 
   hardware.cpu.amd.updateMicrocode = true;
   # hardware.cpu.intel.updateMicrocode = true;
+  hardware.bluetooth.enable = true;
 
-  zramSwap.enable = true;
-
-  system.rebuild.enableNg = true;
-  boot.initrd.compressor = "zstd";
-  hardware.firmwareCompression = "zstd";
   powerManagement.cpuFreqGovernor = "performance";
 
-  services.fwupd.enable = true;
-  services.colord.enable = true;
-
   networking.hostName = "nixos-hp845";
-  networking.networkmanager.enable = true;
-
-  console = {
-    useXkbConfig = true; # use xkbOptions in tty.
-  };
-
-  services.xserver.xkb.layout = "us";
-
-  # hardware.bluetooth.enable = true;
-
-  xdg.portal = {
-    enable = true;
-  };
-
-  services.earlyoom = {
-    enable = true;
-    enableDebugInfo = true;
-    enableNotifications = true;
-  };
-
-  services.libinput.enable = true;
-
-
-  programs.nh = {
-    enable = true;
-    clean.enable = true;
-    clean.extraArgs = "--keep-since 4d --keep 2";
-    flake = "/home/$USER/mygit/nixos/";
-  };
-
-  programs.fish = {
-    enable = true;
-  };
-
-  users.defaultUserShell = pkgs.fish;
-
-  services.flatpak.enable = true;
-  fonts.fontDir.enable = true;
-
-  nixpkgs.config = {
-    allowUnfree = true;
-  };
-
-  nix.settings.auto-optimise-store = true;
-
-  nix.extraOptions = ''experimental-features = nix-command flakes '';
 
   environment = {
     shellAliases = {
@@ -101,22 +52,8 @@
 
   };
 
-  fonts.packages = with pkgs; [
-    liberation_ttf
-    noto-fonts
-    inter
-    iosevka
-  ];
 
-  programs.adb.enable = true;
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  programs.mtr.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
