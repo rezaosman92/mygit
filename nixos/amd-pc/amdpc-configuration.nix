@@ -13,7 +13,7 @@
     ./../common/boot.nix
     ./../common/gpu-amd.nix
     ./../common/package.nix
-    ./../common/printer.nix
+    # ./../common/printer.nix
     #./../common/scanner.nix
     ./../common/cloudflare-warp.nix
     ./../common/dnscrypt-proxy.nix
@@ -33,7 +33,7 @@
 
   # hardware.cpu.amd.updateMicrocode = true;
   hardware.cpu.intel.updateMicrocode = true;
-  hardware.bluetooth.enable = true;
+  # hardware.bluetooth.enable = true;
 
   powerManagement.cpuFreqGovernor = "performance";
 
