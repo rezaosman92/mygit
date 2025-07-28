@@ -5,216 +5,39 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./../de/de-gnome.nix
-      ./../filesystem/btrfs.nix
-      ./../common/gpu-amd.nix
-      ./amdpc-packages.nix
-      # ./../common/printer.nix
-      #./../common/scanner.nix
-      ./../common/dnscrypt-proxy.nix
-      ./../common/cloudflare-warp.nix
-      # ./../common/virtualbox-host.nix
-      #./../common/rke2-master.nix
-      ./../common/footandtmux.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./../de/de-gnome.nix
+    ./../filesystem/btrfs.nix
+    ./../common/boot.nix
+    ./../common/gpu-amd.nix
+    ./../common/package.nix
+    ./../common/printer.nix
+    #./../common/scanner.nix
+    ./../common/cloudflare-warp.nix
+    ./../common/dnscrypt-proxy.nix
+    # ./../common/virtualbox-host.nix
+    ./../common/foot.nix
+    ./../common/helix.nix
+    ./../common/audio.nix
+    ./../common/user.nix
+    ./../common/firewall.nix
+    ./../common/localeandtime.nix
+    # ./../common/nix-ld.nix
+    ./../common/nix-pm.nix
+    ./../common/font.nix
+    ./../common/fish.nix
+    ./../common/env.nix
+  ];
 
   # hardware.cpu.amd.updateMicrocode = true;
   hardware.cpu.intel.updateMicrocode = true;
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-  };
+  hardware.bluetooth.enable = true;
 
-  zramSwap.enable = true;
-
-  system.rebuild.enableNg = true;
-  systemd.services.NetworkManager-wait-online.enable = false;
   powerManagement.cpuFreqGovernor = "performance";
 
-  services.fwupd.enable = true;
-  services.colord.enable = true;
-
-  # Use the systemd-boot EFI boot loader.
-  # boot.loader.systemd-boot.enable = true;
-  # boot.loader.systemd-boot.memtest86.enable = true;
-
-  boot.loader = {
-    grub = {
-      enable = true;
-      efiSupport = true;
-      memtest86.enable = true;
-      device = "nodev";
-    };
-
-    efi = {
-      canTouchEfiVariables = true;
-      efiSysMountPoint = "/efi";
-    };
-  };
-
-  boot.kernelPackages = pkgs.linuxPackages_6_12;
-  boot.supportedFilesystems = [ "ntfs" ];
-  boot.kernelParams = [ "acpi_backlight=native" ];
-  
-  
-  networking.hostName = "nixos-amdpc"; 
-  networking.networkmanager.enable = true;
-
-  
-
-# Set your time zone.
-  time.timeZone = "Asia/Jakarta";
-
-
-# Select internationalisation properties.
-  i18n.defaultLocale = "C.UTF-8";
-  i18n.supportedLocales = [
-    "en_US.UTF-8/UTF-8"
-    "en_GB.UTF-8/UTF-8" 
-    "C.UTF-8/UTF-8"
-  ];
-
-  i18n.extraLocaleSettings = {
-    LC_ALL = "C.UTF-8";
-  };
-
-    
-  console = {
-    useXkbConfig = true; # use xkbOptions in tty.
-  };
-
-  services.xserver.xkb.layout="us";
-
-
-  # hardware.bluetooth.enable = true;
-
-  xdg.portal = {
-    enable = true;
-  };
-
-    
-  # Enable sound.
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-    jack.enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-  };
-
-  services.earlyoom = {
-    enable = true;
-    enableDebugInfo = true;
-    enableNotifications = true;
-  };
-
-  services.libinput.enable = true;
-
-  users.users.reza = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "adbusers" "libvirtd" "scanner" "lp" "vboxusers" ];
-    description = "Reza Maulana";
-  };
-
-  programs.nix-ld = {  #to run unpatched binaries in nixos by exposing shlibs
-    enable = true;
-    libraries = with pkgs; [
-      stdenv.cc.cc
-      zlib
-      fuse3
-      icu
-      nss
-      openssl
-      curl
-      expat
-    ];
-  };
-
-  programs.nh = {
-    enable = true;
-    clean.enable = true;
-    clean.extraArgs = "--keep-since 4d --keep 2";
-    flake = "/home/$USER/mygit/nixos/";
-  };
-
-  programs.fish = {
-    enable = true;  
-  };
-
-  users.defaultUserShell = pkgs.fish;
-
-  services.flatpak.enable = true;
-  fonts.fontDir.enable = true;
-
-  nixpkgs.config = {
-    allowUnfree = true;
-    };
-
-  nix.settings.auto-optimise-store = true;
-  
-  nix.extraOptions = ''
-  experimental-features = nix-command flakes
-                   '';
-
-  # environment.sessionVariables.NIXOS_OZONE_WL = "1";
-  # environment.pathsToLink = [ "share/foot" ];
-  
-  environment = {
-    shellAliases = {
-      "ec" = "emacsclient -t";
-      "most" = "most -w";
-    };
-  
-    variables = {
-      PAGER = "most -w";
-
-    };
-
-  };
-    
-  fonts.packages = with pkgs; [
-    liberation_ttf
-    noto-fonts
-    inter
-    iosevka
-  ];
-
-  programs.adb.enable = true;
-
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  programs.mtr.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-  # services.openssh.allowSFTP = true;
-  programs.mosh.enable = true;
-
-  
-  networking = { 
-    firewall = { 
-      enable = true;
-      allowedTCPPorts = [ 9345 6443 2379 ];
-      #allowedUDPPorts = [ 51215 ];
-      #allowedUDPPortRanges = [
-      #  { from = 4000; to = 4007; }
-      #  { from = 8000; to = 8010; }
-      #  ];
-      };
-    nftables.enable = true;
-  };
-
+  networking.hostName = "nixos-amdpc";
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
@@ -241,5 +64,3 @@
   system.stateVersion = "25.05"; # Did you read the comment?
 
 }
-
-
