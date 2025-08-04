@@ -36,7 +36,7 @@
     ./../common/fish.nix
 
     # peripherals
-    ./../common/printer.nix
+    # ./../common/printer.nix
     #./../common/scanner.nix
 
     # packages and tools
