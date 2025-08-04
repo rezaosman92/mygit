@@ -7,28 +7,43 @@
 {
   imports = [
     # Include the results of the hardware scan.
+
+    # core system
     ./hardware-configuration.nix
-    ./../de/de-gnome.nix
+    # ./../common/nix-ld.nix
+    ./../common/nix-pm.nix
+    ./../common/env.nix
     ./../filesystem/btrfs.nix
     ./../common/boot.nix
     ./../common/gpu-amd.nix
-    ./../common/package.nix
-    ./../common/printer.nix
-    #./../common/scanner.nix
-    ./../common/cloudflare-warp.nix
-    ./../common/dnscrypt-proxy.nix
-    # ./../common/virtualbox-host.nix
-    ./../common/foot.nix
-    ./../common/helix.nix
     ./../common/audio.nix
     ./../common/user.nix
-    ./../common/firewall.nix
     ./../common/localeandtime.nix
-    # ./../common/nix-ld.nix
-    ./../common/nix-pm.nix
     ./../common/font.nix
+
+    # desktop environment or window manager
+    ./../de/de-gnome.nix
+
+    # networking
+    ./../common/firewall.nix
+    # ./../common/cloudflare-warp.nix
+    ./../common/dnscrypt-proxy.nix
+
+    # virtualization
+    # ./../common/virtualbox-host.nix
+
+    # shell
     ./../common/fish.nix
-    ./../common/env.nix
+
+    # peripherals
+    ./../common/printer.nix
+    #./../common/scanner.nix
+
+    # packages and tools
+    ./../common/package.nix
+    ./../common/foot.nix
+    ./../common/helix.nix
+
   ];
 
   hardware.cpu.amd.updateMicrocode = true;
