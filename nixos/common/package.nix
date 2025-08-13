@@ -79,7 +79,7 @@
     libreoffice
     # obs-studio
     firefox
-    gimp
+    krita
     efibootmgr
     mumble
     lazygit

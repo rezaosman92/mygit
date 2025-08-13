@@ -70,7 +70,6 @@
     papirus-icon-theme
     transmission_4-gtk
     #copyq
-    ptyxis
     papers
    
   ];
