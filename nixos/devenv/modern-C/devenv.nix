@@ -15,6 +15,7 @@ in
 
   packages = with pkgs; [
     lldb
+
     cowsay
     lolcat
   ];
