@@ -14,11 +14,13 @@ in
   };
 
   packages = with pkgs; [
-    lldb-dap
+    lldb
+    cowsay
+    lolcat
   ];
 
   enterShell = ''
-    printf ${GREET}\n | cowsay | lolcat
+    echo ${GREET} | cowsay | lolcat
 
     # See full reference at https://devenv.sh/reference/options/
   '';

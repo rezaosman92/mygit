@@ -5,9 +5,9 @@
   ...
 }:
 
-  let
-    GREET = "You are inside Rust devenv";
-    in
+let
+  GREET = "You are inside Rust devenv";
+in
 
 {
   languages.rust = {
@@ -19,10 +19,13 @@
     lldb
     openssl
     rustfmt
+
+    cowsay
+    lolcat
   ];
 
   enterShell = ''
-  printf ${GREET}\n | cowsay | lolcat
+    echo ${GREET} | cowsay | lolcat
   '';
 
   # See full reference at https://devenv.sh/reference/options/
