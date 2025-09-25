@@ -12,7 +12,7 @@ in
 {
   languages.rust = {
     enable = true;
-    channel = "stable";
+    # channel = "stable";
   };
 
   packages = with pkgs; [
