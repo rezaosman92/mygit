@@ -4,21 +4,17 @@
   config,
   ...
 }:
-
 let
-  GREET = "You are inside Rust devenv";
+  GREET = "You are inside Modern C devenv";
 in
 
 {
-  languages.rust = {
+  languages.c = {
     enable = true;
-    # channel = "stable";
   };
 
   packages = with pkgs; [
     lldb
-    openssl
-    rustfmt
 
     cowsay
     lolcat
@@ -26,7 +22,7 @@ in
 
   enterShell = ''
     echo ${GREET} | cowsay | lolcat
-  '';
 
-  # See full reference at https://devenv.sh/reference/options/
+    # See full reference at https://devenv.sh/reference/options/
+  '';
 }
