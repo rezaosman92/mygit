@@ -85,6 +85,7 @@
     lazygit
     tlp
     devenv
+    zathura
 
   ];
 
