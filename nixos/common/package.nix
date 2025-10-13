@@ -86,6 +86,7 @@
     tlp
     devenv
     zathura
+    vaultwarden
 
   ];
 
