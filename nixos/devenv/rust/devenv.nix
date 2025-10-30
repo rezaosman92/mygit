@@ -25,6 +25,7 @@ in
 
   enterShell = ''
     echo ${GREET} | cowsay | lolcat
+    exec fish
   '';
 
   # See full reference at https://devenv.sh/reference/options/
