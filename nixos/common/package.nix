@@ -87,6 +87,7 @@
     devenv
     zathura
 
+    # zoom-us
   ];
 
 }
