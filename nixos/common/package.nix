@@ -47,7 +47,8 @@
   };
 
   environment.systemPackages = with pkgs; [
-    bottles
+    # below line here is bottles with warning popup removed
+    (pkgs.bottles.override { removeWarningPopup = true; })
     btop
     fastfetch
     usbutils
