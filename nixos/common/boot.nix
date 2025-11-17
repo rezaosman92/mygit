@@ -12,6 +12,9 @@
       efiSupport = true;
       memtest86.enable = true;
       device = "nodev";
+      extraConfig = ''
+        timeout=3
+      '';
     };
 
     efi = {
