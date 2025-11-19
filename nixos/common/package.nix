@@ -88,6 +88,7 @@
     tlp
     devenv
     zathura
+    vulnix
 
     # zoom-us
   ];
