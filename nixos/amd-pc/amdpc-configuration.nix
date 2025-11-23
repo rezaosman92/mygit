@@ -40,7 +40,7 @@
     #./../common/scanner.nix
 
     # packages and tools
-    ./../common/package&service.nix
+    ./../common/packageandservice.nix
     ./../common/foot.nix
     ./../common/helix.nix
   
