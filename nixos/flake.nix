@@ -2,7 +2,7 @@
   description = "reza flake for laptops and pcs";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11";
   };
 
   outputs =
