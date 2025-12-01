@@ -10,11 +10,9 @@
   systemd.services."autovt@tty1".enable = false;
 
   # Enable the X11 windowing system.
-  services.xserver = {
-    enable = true;
+  services = {
 
     desktopManager = {
-      xterm.enable = false;
       gnome = {
         enable = true;
       };
@@ -25,7 +23,7 @@
   };
 
   services.gvfs.enable = true;
-  
+
   programs = {
     xwayland.enable = true;
   };
@@ -36,20 +34,20 @@
     #platformTheme = "gnome";
   };
 
+  services.xserver.desktopManager.xterm.enable = false;
+  environment.gnome.excludePackages = with pkgs; [
 
-  environment.gnome.excludePackages = with pkgs; [ 
-
-    gnome-tour 
-    epiphany 
-    gnome-software 
+    gnome-tour
+    epiphany
+    gnome-software
     gnome-console
-    gnome-characters 
-    totem 
-    tali 
-    iagno 
-    hitori 
-    atomix 
-    geary 
+    gnome-characters
+    totem
+    tali
+    iagno
+    hitori
+    atomix
+    geary
     orca
     xterm
 
@@ -71,8 +69,7 @@
     transmission_4-gtk
     #copyq
     papers
-   
-  ];
-  
-}
 
+  ];
+
+}
