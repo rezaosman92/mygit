@@ -4,8 +4,12 @@
 
 { config, pkgs, ... }:
 
-
 {
+
+  environment.variables = {
+    EDITOR = "hx";
+    VISUAL = "hx";
+  };
 
   environment.systemPackages = with pkgs; [
 
@@ -18,9 +22,6 @@
     nixpkgs-fmt
     nixfmt-rfc-style
 
-
   ];
 
-
 }
-  
