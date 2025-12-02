@@ -92,9 +92,5 @@
     # zoom-us
   ];
 
-  environment.variables = {
-    EDITOR = "hx";
-    VISUAL = "hx";
-  };
 
 }
