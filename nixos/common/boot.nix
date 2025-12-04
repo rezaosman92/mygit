@@ -28,7 +28,7 @@
     initrd.compressor = "zstd";
     extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
     # kernelPackages = pkgs.linuxPackages_6_12;
-    kernelPackages = pkgs.linuxPackages_latest;
+    # kernelPackages = pkgs.linuxPackages_latest;
     supportedFilesystems = [ "ntfs" ];
     kernelParams = [
       "acpi_backlight=native"
