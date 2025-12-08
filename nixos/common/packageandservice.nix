@@ -88,6 +88,7 @@
     devenv
     zathura
     vulnix
+    nps # package search tool
 
     # zoom-us
   ];
