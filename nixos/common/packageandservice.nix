@@ -9,6 +9,7 @@
   # List services that you want to enable:
 
   networking.networkmanager.enable = true;
+  networking.dhcpcd.enable = false;
   systemd.services.NetworkManager-wait-online.enable = false;
 
   # Enable the OpenSSH daemon.
