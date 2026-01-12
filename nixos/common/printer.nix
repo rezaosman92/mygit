@@ -9,7 +9,7 @@
       gutenprintBin
       epson-201401w
       epson_201207w
-      hplipWithPlugin
+      # hplipWithPlugin
     ];
   };
 
