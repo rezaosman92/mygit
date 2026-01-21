@@ -27,7 +27,7 @@
 
   services.fwupd.enable = true;
   services.colord.enable = true;
-  services.flatpak.enable = true;
+  # services.flatpak.enable = true;
   xdg.portal = {
     enable = true;
   };
@@ -90,6 +90,7 @@
     zathura
     vulnix
     nps # package search tool
+    home-manager
 
     # zoom-us
   ];
