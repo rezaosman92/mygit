@@ -63,7 +63,7 @@
     bashInteractive
     mpv
     _7zz
-    most
+    moor
     curl
     aria2
     puddletag
@@ -91,6 +91,7 @@
     vulnix
     nps # package search tool
     home-manager
+    ripgrep
 
     # zoom-us
   ];
