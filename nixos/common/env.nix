@@ -9,7 +9,7 @@
     };
 
     variables = {
-      PAGER = "most -w";
+      PAGER = "moor";
 
     };
 
