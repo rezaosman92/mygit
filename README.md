@@ -1,22 +1,20 @@
 # MyGit
 
-This repo contains my personal config files. Currently, I use NixOS so mostly I only updating configuration.nix.
+This repo contains my personal config files for nixos with flakes enabled. 
 
-For my NixOS, I currently use:
+Some higlights:
 - Kernel linux-lts.
 - Setting one user as administrator with sudo access.
 - Enabled Intel and AMD microcode.
 - Enabled OpenGL Driver Support for 64 & 32 bit.
 - Enabled support for NTFS filesystem.
-- Enabled NextDNS via systemd-resolved.
-- Enabled X Server with Xfce, LightDM and libinput (but now I'm using Plasma in Wayland).
-- Enabled Picom.
+- Enabled NextDNS via dnscrypt.
+- Available X and Wayland desktop, just add/remove it in the main configuration
 - Enabled to pull non-free packages. 
 - Enabled Fish as default shell.
 - Helix as default editor.
 - Enabled Flatpak.
 - Enabled PipeWire replacing PulseAudio.
-- Enabled FStrim.
 - Enabled OpenSSH daemon for remote access. 
 - Enabled GVFS for automounting external storage.
 - Enabled early OOM that works in userspace.
