@@ -49,7 +49,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    (pkgs.bottles.override { removeWarningPopup = true; })  # bottles with warning popup removed
+    (bottles.override { removeWarningPopup = true; })  # bottles with warning popup removed
     btop
     fastfetch
     usbutils
@@ -62,7 +62,7 @@
     bash-completion
     bashInteractive
     mpv
-    _7zz
+    _7zz-rar
     moor
     curl
     aria2
