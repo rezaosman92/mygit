@@ -17,7 +17,13 @@
       nixosConfigurations.nixos-amdpc = nixpkgs.lib.nixosSystem {
         # must be identical with configured hostname in main config file
         system = "x86_64-linux";
-        modules = [ ./amd-pc/amdpc-configuration.nix ];
+        modules = [ ./amdpc/amdpc-configuration.nix ];
+      };
+
+      nixosConfigurations.nixos-t14 = nixpkgs.lib.nixosSystem {
+        # must be identical with configured hostname in main config file
+        system = "x86_64-linux";
+        modules = [ ./t14/t14-configuration.nix ];
       };
     };
 }
