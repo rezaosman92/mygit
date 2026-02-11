@@ -19,8 +19,7 @@
     helix
 
     nixd
-    nixpkgs-fmt
-    nixfmt-rfc-style
+    nixfmt
 
   ];
 
