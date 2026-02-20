@@ -1,0 +1,7 @@
+/home/reza/mygit/nixos/devenv/zig/.devenv/flake.json
+/home/reza/mygit/nixos/devenv/zig/.devenv.flake.nix
+/home/reza/mygit/nixos/devenv/zig/.env
+/home/reza/mygit/nixos/devenv/zig/devenv.local.nix
+/home/reza/mygit/nixos/devenv/zig/devenv.lock
+/home/reza/mygit/nixos/devenv/zig/devenv.nix
+/home/reza/mygit/nixos/devenv/zig/devenv.yaml
