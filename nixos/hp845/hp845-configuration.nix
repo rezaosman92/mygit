@@ -13,8 +13,8 @@
     # ./../common/nix-ld.nix
     ./../common/nix-pm.nix
     ./../common/env.nix
-    ./../filesystem/btrfs.nix
-    ./../common/boot.nix
+    ./../filesystem/btrfs2.nix
+    ./../common/bootsysd.nix
     ./../common/gpu-amd.nix
     ./../common/audio.nix
     ./../common/user.nix
